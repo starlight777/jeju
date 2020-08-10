@@ -1,13 +1,13 @@
 drop table crs;
 drop sequence crs_seq;
 create table crs(
-	cno	number constraint crs_cno_pk primary key,
-	ctitle varchar(300),	
+	cno number constraint crs_cno_pk primary key,
+	ctitle varchar2(300),	
 	cbegin date,
 	cend date,
 	cdays number(3),
 	climit number(3),
-	croom varchar(10) check (croom in ('401','402','403')),
+	croom varchar2(10) check (croom in ('401','402','403')),
 	profno number constraint crs_profno_fk references empl(eno),
 	salesno number constraint crs_salesno_fk references empl(eno)
 );

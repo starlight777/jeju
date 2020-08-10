@@ -4,7 +4,7 @@ create table empl(
 	eno number constraint empl_eno_pk primary key,
 	hdate date default sysdate,
 	dno char(3) constraint empl_dno_fk references dpt(dno),
-	id varchar(20) constraint empl_id_fk references mbr(id)
+	id varchar2(20) constraint empl_id_fk references mbr(id)
 );
 create sequence empl_seq;
 --input data
