@@ -13,12 +13,12 @@ create table crs(
 );
 create sequence crs_seq;
 --input data
-insert into crs values (crs_seq.nextval,'디지털컨버전스 기반 자바(JAVA)응용SW개발자 양성과정','2020-7-1','2020-9-30','55','30','401','8','1');
-insert into crs values (crs_seq.nextval,'디지털컨버전스 기반 Framework 전문 개발자 양성과정','2020-7-1','2020-9-30','55','30','402','9','2');
-insert into crs values (crs_seq.nextval,'디지털컨버전스기반 융합기술을 활용한sw 웹 개발자 양성과정 A','2020-7-1','2020-9-30','55','30','403','10','1');
-insert into crs values (crs_seq.nextval,'디지털컨버전스 기반 자바(JAVA)응용SW개발자 양성과정 A','2020-10-1','2020-12-31','55','30','401','8','2');
-insert into crs values (crs_seq.nextval,'디지털컨버전스 기반 자바(JAVA)응용SW개발자 양성과정 B','2020-10-1','2020-12-31','55','30','402','9','1');
-insert into crs values (crs_seq.nextval,'디지털컨버전스 기반 자바(JAVA)응용SW개발자 양성과정 C','2020-10-1','2020-12-31','55','30','403','10','2');
+insert into crs values (crs_seq.nextval,'디지털컨버전스 기반 자바(JAVA)응용SW개발자 양성과정','2020-7-1','2020-9-30','55','30','401','1008','1001');
+insert into crs values (crs_seq.nextval,'디지털컨버전스 기반 Framework 전문 개발자 양성과정','2020-7-1','2020-9-30','55','30','402','1009','1002');
+insert into crs values (crs_seq.nextval,'디지털컨버전스기반 융합기술을 활용한sw 웹 개발자 양성과정 A','2020-7-1','2020-9-30','55','30','403','1010','1001');
+insert into crs values (crs_seq.nextval,'디지털컨버전스 기반 자바(JAVA)응용SW개발자 양성과정 A','2020-10-1','2020-12-31','55','30','401','1008','1002');
+insert into crs values (crs_seq.nextval,'디지털컨버전스 기반 자바(JAVA)응용SW개발자 양성과정 B','2020-10-1','2020-12-31','55','30','402','1009','1001');
+insert into crs values (crs_seq.nextval,'디지털컨버전스 기반 자바(JAVA)응용SW개발자 양성과정 C','2020-10-1','2020-12-31','55','30','403','1010','1002');
 
 commit;
 
