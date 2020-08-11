@@ -4,7 +4,7 @@ create table mbr(
 	id varchar2(20) constraint mbr_id_pk primary key,
 	pw varchar2(20) constraint mbr_pw_nn not null,
 	name varchar2(20) constraint mbr_name_nn not null,
-	tel number(11) constraint mbr_tel_uk unique,
+	tel char(11) constraint mbr_tel_uk unique,
 	email varchar2(30) constraint mbr_email_uk unique,
 	answer varchar2(50),
 	lvl char(3) default 'L01' constraint mbr_lvl_fk references lvl(lvl)

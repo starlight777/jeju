@@ -3,12 +3,13 @@ create table empl(
 	eno number(4) constraint empl_eno_pk primary key,
 	name varchar2(20) constraint empl_name_nn not null,
 	pw varchar2(20) constraint empl_pw_nn not null,
-	tel number(11) constraint empl_tel_uk unique,
+	tel char(11) constraint empl_tel_uk unique,
 	email varchar2(30) constraint empl_email_uk unique,
 	answer varchar2(50),
 	hdate date default sysdate,
 	dno char(3) constraint empl_dno_fk references dpt(dno)
 );
+
 --input data
 insert into empl values (1001,'영업일','test!111','01043211111','empl1001@bitjeju.com','강아지','2020-1-1','D01');
 insert into empl values (1002,'영업이','test!111','01043211112','empl1002@bitjeju.com','강아지','2020-3-1','D01');
