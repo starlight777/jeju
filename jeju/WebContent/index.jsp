@@ -4,9 +4,16 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title></title>
+<title>비트캠프 제주지점</title>
+<link rel="stylesheet" type="text/css" href="css/frame.css">
+<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
 </head>
 <body>
-	<h1>Git Test!!!</h1>
+	<%@ include file="template/header.jspf" %>
+	<!-- content start -->
+		<h2>CONTENT</h2>
+	<!-- content end -->
+	<%@ include file="template/footer.jspf" %>
 </body>
+
 </html>
