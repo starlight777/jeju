@@ -1,0 +1,17 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+			<!-- content end -->
+		</div>
+		<div id="footer">
+			<div>
+				<br>
+				<br>
+				<hr size="10" color="paleturquoise">
+				<br>
+				<hr size="10" color="paleturquoise">
+			
+			<p>비트캠프 제주특별자치도 서귀포시 강정동 736 (주)비트컴퓨터 제주점<br>
+					      Copyright &copy; 비트캠프 All rights reserved.</p>
+							
+			</div>
+		</div>
