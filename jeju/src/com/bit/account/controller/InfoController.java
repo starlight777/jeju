@@ -17,6 +17,7 @@ public class InfoController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
+		resp.setHeader("Cache-Control", "no-store");
 		
 		MemberDTO dto = (MemberDTO) req.getSession().getAttribute("user");
 //		System.out.println("controller : " + dto.getId());

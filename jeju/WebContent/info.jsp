@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>비트캠프 제주지점</title>
+<title>비트캠프 제주지점 : 회원정보</title>
 <%@ include file="template/head.jspf" %>
 </head>
 <body>

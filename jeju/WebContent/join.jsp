@@ -69,22 +69,38 @@
 		</div>
 		<div>
 			<div>
-				<label for="id">아이디</label>
+				<label for="id">아이디 (영문, 숫자 조합 최소 5자)</label>
 				<input type="text" id="id" name="id"/>
 				<span id="errid"></span>
 			</div>
 			<div>
-				<label for="pw">비밀번호</label>
+				<label for="pw">비밀번호 (영문, 한글, 특수문자 포함 최소 8자)</label>
 				<input type="password" id="pw" name="pw"/>
 				<span id="errpw"></span>
 			</div>
 			<div>
-				<button id="btnlogin" value="버튼">버튼</button>
+				<label for="pwcheck">비밀번호 확인</label>
+				<input type="password" id="pwcheck" name="pwcheck"/>
+				<span id="errpwcheck"></span>
 			</div>
 			<div>
-				<span><a href="login/findid.bit">아이디 찾기</a></span>
-				<span><a href="login/findpw.bit">비밀번호 찾기</a></span>
-				<span><a href="login/join.bit">회원가입</a></span>
+				<div>비밀번호 찾기 질문: 가장 좋아하는 동물은?</div>
+				<label for="answer">비밀번호 찾기 답 (한글 기준 10자 이내)</label>
+				<input type="password" id="answer" name="answer"/>
+				<span id="erranswer"></span>
+			</div>
+			<div>
+				<label for="tel">전화번호</label>
+				<input type="password" id="tel" name="tel"/>
+				<span id="errtel"></span>
+			</div>
+			<div>
+				<label for="email">이메일</label>
+				<input type="password" id="email" name="email"/>
+				<span id="erremail"></span>
+			</div>
+			<div>
+				<button id="btnlogin" value="버튼">버튼</button>
 			</div>
 		</div>
 	</div>
