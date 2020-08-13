@@ -5,14 +5,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>비트캠프 제주지점</title>
-<link rel="stylesheet" type="text/css" href="css/frame.css">
-<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+<%@ include file="template/head.jspf" %>
 </head>
 <body>
 	<%@ include file="template/header.jspf" %>
-	<!-- content start -->
-		<h2>CONTENT</h2>
-	<!-- content end -->
+	<div id="content">
+		<h2>carousel</h2>
+	</div>
 	<%@ include file="template/footer.jspf" %>
 </body>
 
