@@ -42,7 +42,6 @@ public class CourseDao {
 				bean.setCroom(rs.getInt("croom"));
 				bean.setProf(rs.getString("prof"));
 				bean.setSalesno(rs.getInt("salesno"));
-
 			}
 		} finally {
 			if (rs != null)rs.close();

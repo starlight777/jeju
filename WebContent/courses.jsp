@@ -159,6 +159,17 @@
 	background-color: gray;
 }
 </style>
+
+<script type = "text/javascript" src = "js/jquery-1.12.4.js"></script>
+<script type = "text/javascript">
+	$(document).ready(function(){
+		$('table tr').first().siblings().click(function(){
+			var cno=$(this).children().first().text();
+			location.href = 'course.bit?idx='+cno;
+		});
+	});
+</script>
+
 </head>
 <body>
 	<div class="bit">
@@ -202,7 +213,7 @@
 				%>		
 				<tr>
 					<td><%=bean.getCno() %></td>
-					<td><a href = "course.bit"><%=bean.getCtitle() %></a></td>
+					<td><%=bean.getCtitle() %></td>
 					<td><%=bean.getCbegin() %></td>
 					<td><%=bean.getCend() %></td>
 				</tr>

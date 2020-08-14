@@ -228,9 +228,9 @@
 					<td><jsp:getProperty property="salesno" name="course"/></td>
 				</tr>
 			</table>
-			<button>수정/확인</button>
-			<button>삭제</button>
-			<button>뒤로가기</button>
+			<a href = "#">수정/확인</a>
+			<a href = "#">삭제</a>
+			<a href = "courses.bit">뒤로</a>
 		</div>
 		<div id="footer">
 			<address>비트캠프 제주특별자치도 서귀포시 강정동 736</address>
