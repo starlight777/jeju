@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8" import="java.util.List"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -136,6 +136,10 @@
 	margin-left: 450px;
 }
 
+#content>table>tbody>tr{
+	display:block;
+}
+
 #content>table>tbody>tr>th{
 	border:1px solid black;
 }
@@ -147,11 +151,7 @@
 #content>table>tbody>tr>th{}
 
 #content>button{
-	width: 100px;
-	margin-top: 40px;
-	margin-left: 20px;
-	position: relative;
-	left: 915px;
+	margin-left: 100px;
 }
 
 #footer {
@@ -187,8 +187,50 @@
 				<li><a href="#">공지사항관리</a></li>
 			</ul>
 		</div>
-		<div id="content">
+		<div id = "content">
+<jsp:useBean id = "course" class = "com.bit.course.model.CourseDto" scope = "request"/>
 			<h2>강의디테일 페이지</h2>
+			<table>
+				<tr>
+					<th>강의번호</th>
+					<td><jsp:getProperty property="cno" name="course"/></td>
+				</tr>
+				<tr>
+					<th>강좌명</th>
+					<td><jsp:getProperty property="ctitle" name="course"/></td>
+				</tr>
+				<tr>
+					<th>개강일</th>
+					<td><jsp:getProperty property="cbegin" name="course"/></td>
+				</tr>
+				<tr>
+					<th>종강일</th>
+					<td><jsp:getProperty property="cend" name="course"/></td>
+				</tr>
+				<tr>
+					<th>수업일수</th>
+					<td><jsp:getProperty property="cdays" name="course"/></td>
+				</tr>
+				<tr>
+					<th>정원</th>
+					<td><jsp:getProperty property="climit" name="course"/></td>
+				</tr>
+				<tr>
+					<th>강의실</th>
+					<td><jsp:getProperty property="croom" name="course"/></td>
+				</tr>
+				<tr>
+					<th>강사</th>
+					<td><jsp:getProperty property="prof" name="course"/></td>
+				</tr>
+				<tr>
+					<th>영업사원</th>
+					<td><jsp:getProperty property="salesno" name="course"/></td>
+				</tr>
+			</table>
+			<button>수정/확인</button>
+			<button>삭제</button>
+			<button>뒤로가기</button>
 		</div>
 		<div id="footer">
 			<address>비트캠프 제주특별자치도 서귀포시 강정동 736</address>

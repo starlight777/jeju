@@ -10,3 +10,4 @@ on crs.cno=stdcnt.cno
 order by cno;
 
 select * from v_crs;
+select cno, ctitle cbegin, cend, cdays, climit, croom, prof, salesno from v_crs;
