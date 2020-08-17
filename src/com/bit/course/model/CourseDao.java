@@ -1,6 +1,7 @@
 package com.bit.course.model;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -17,6 +18,8 @@ public class CourseDao {
 		try {
 			Class.forName(driver);
 			conn = DriverManager.getConnection(url, user, password);
+			
+			System.out.println("db connection complete");
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
@@ -49,4 +52,20 @@ public class CourseDao {
 		}
 		return bean;
 	}
+		
+	public int deleteOne(int cno) throws SQLException {
+		String sql = "delete from crs where cno=?";
+		int result = 0;
+		PreparedStatement pstmt = null;
+		try{
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setInt(1, cno);
+			result = pstmt.executeUpdate();			
+		}finally{
+			if(pstmt!=null)pstmt.close();
+			if(conn!=null)conn.close();
+		}
+		return result;
+	}
+
 }

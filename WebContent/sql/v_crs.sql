@@ -1,6 +1,6 @@
 create or replace view v_crs as
 select 
-cno,ctitle,cbegin,cend,cdays,climit,croom,profno,empl.name as prof,salesno,
+crs.cno,ctitle,cbegin,cend,cdays,climit,croom,profno,empl.name as prof,salesno,
 stdcnt,avg_gr1,avg_gr2,avg_gr3,avg_att
 from crs
 left join empl on crs.profno=empl.eno
@@ -11,3 +11,5 @@ order by cno;
 
 select * from v_crs;
 select cno, ctitle cbegin, cend, cdays, climit, croom, prof, salesno from v_crs;
+insert into crs values(crs_seq.nextval,'java',sysdate,sysdate,55,30,401,1008,1001);
+delete from crs where cno>7;

@@ -18,10 +18,9 @@ public class CoursesDao {
 	ResultSet rs;
 	
 	public List<CoursesDto> getList() {
-		String sql = "select cno, ctitle, cbegin, cend from crs ORDER BY cno DESC";
+		String sql = "select * from crs ORDER BY cno DESC";
 		List<CoursesDto> list = new ArrayList<CoursesDto>();
 		try {
-			System.out.println(sql);
 			Class.forName(driver);
 			conn = DriverManager.getConnection(url, user, password);
 			stmt = conn.createStatement();

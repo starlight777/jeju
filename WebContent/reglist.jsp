@@ -182,7 +182,7 @@ $(document).ready(function() {
 			location.href = 'course.bit?idx='+cno;
 		});
 	});
-*/
+	 */
 </script>
 
 </head>
@@ -214,32 +214,7 @@ $(document).ready(function() {
 			</ul>
 		</div>
 		<div id="content">
-			<h2>전체과정 페이지</h2>
-			<table>
-				<tr>
-					<th>강의번호</th>
-					<th>강좌명</th>
-					<th>개강일</th>
-					<th>종강일</th>
-				</tr>
-				<%
-					List<CoursesDto> list = (List<CoursesDto>) request.getAttribute("courses");
-					for (CoursesDto bean : list) {
-				%>
-				<tr>
-					<td><%=bean.getCno()%></td>
-					<td><%=bean.getCtitle()%></td>
-					<td><%=bean.getCbegin()%></td>
-					<td><%=bean.getCend()%></td>
-				</tr>
-				<%
-					}
-				%>
-			</table>
-			<button>
-				<a href = "cadd.bit">과정추가</a>
-			</button>
-			<button>수강신청관리</button>
+			<h2>수강신청현황</h2>
 		</div>
 		<div id="footer">
 			<address>비트캠프 제주특별자치도 서귀포시 강정동 736</address>

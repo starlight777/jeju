@@ -229,7 +229,7 @@
 				</tr>
 			</table>
 			<a href = "#">수정/확인</a>
-			<a href = "#">삭제</a>
+			<a href = "delete.bit?idx=<%=course.getCno()%>">삭제</a>
 			<a href = "courses.bit">뒤로</a>
 		</div>
 		<div id="footer">

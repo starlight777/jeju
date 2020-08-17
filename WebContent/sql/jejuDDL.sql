@@ -3,7 +3,6 @@ create table dpt(
 	dname varchar2(20) constraint dpt_dname_nn not null,
 	daccess varchar2(300)
 );
-
 create table empl(
 	eno number(4) constraint empl_eno_pk primary key,
 	name varchar2(20) constraint empl_name_nn not null,
@@ -14,7 +13,6 @@ create table empl(
 	hdate date default sysdate,
 	dno char(3) constraint empl_dno_fk references dpt(dno)
 );
-
 create table crs(
 	cno number constraint crs_cno_pk primary key,
 	ctitle varchar2(300),	
@@ -27,7 +25,6 @@ create table crs(
 	salesno number constraint crs_salesno_fk references empl(eno)
 );
 create sequence crs_seq;
-
 create table ntc(
 	nno number constraint ntc_nno_pk primary key,
 	ntitle varchar2(300),
@@ -40,13 +37,11 @@ create table ntc(
 	nurl varchar2(300)
 );
 create sequence ntc_seq;
-
 create table lvl(
 	lvl char(3) constraint lvl_lvl_pk primary key,
 	lname varchar2(20) constraint lvl_lname_nn not null constraint lvl_lname_uk unique,
 	ldesc varchar2(50) 
 );
-
 create table mbr(
 	id varchar2(20) constraint mbr_id_pk primary key,
 	pw varchar2(20) constraint mbr_pw_nn not null,
@@ -57,7 +52,6 @@ create table mbr(
 	lvl char(3) default 'L01' constraint mbr_lvl_fk references lvl(lvl)
 );
 create sequence mbr_seq;
-
 create table std(
 	sno number constraint std_sno_pk primary key,
 	id varchar2(20) constraint std_id_fk references mbr(id),
@@ -70,7 +64,6 @@ create table std(
 	gr3 number(3) check (gr3 between 1 and 100)
 );
 create sequence std_seq;
-
 create table att(
 	ano number constraint att_ano_pk primary key,
 	sno number constraint att_sno_fk references std(sno),

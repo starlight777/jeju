@@ -28,7 +28,6 @@ public class CourseController extends HttpServlet {
 		}
 		RequestDispatcher rd = req.getRequestDispatcher("course.jsp");
 		rd.forward(req, resp);
-
 	
 	}
 	@Override
