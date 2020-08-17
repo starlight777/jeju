@@ -12,4 +12,4 @@ order by cno;
 select * from v_crs;
 select cno, ctitle cbegin, cend, cdays, climit, croom, prof, salesno from v_crs;
 insert into crs values(crs_seq.nextval,'java',sysdate,sysdate,55,30,401,1008,1001);
-delete from crs where cno>7;
+delete from crs where cno=49;

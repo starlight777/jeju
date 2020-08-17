@@ -189,7 +189,7 @@
 		</div>
 		<div id = "content">
 <jsp:useBean id = "course" class = "com.bit.course.model.CourseDto" scope = "request"/>
-			<h2>강의디테일 페이지</h2>
+			<h2>교육과정 디테일 페이지</h2>
 			<table>
 				<tr>
 					<th>강의번호</th>
@@ -228,9 +228,9 @@
 					<td><jsp:getProperty property="salesno" name="course"/></td>
 				</tr>
 			</table>
-			<a href = "#">수정/확인</a>
-			<a href = "delete.bit?idx=<%=course.getCno()%>">삭제</a>
-			<a href = "courses.bit">뒤로</a>
+				<a href = "#">수정/확인</a>
+				<a href = "cdel.bit?cno=<%=course.getCno() %>">삭제</a>
+				<a href = "courses.bit">뒤로</a>
 		</div>
 		<div id="footer">
 			<address>비트캠프 제주특별자치도 서귀포시 강정동 736</address>

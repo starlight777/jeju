@@ -32,7 +32,6 @@ public class CaddDao {
 			pstmt.setInt(4, croom);
 			pstmt.setInt(5, prof);
 			pstmt.setInt(6, salesno);
-		
 			pstmt.executeUpdate();
 		}finally{
 			if(pstmt!=null)pstmt.close();

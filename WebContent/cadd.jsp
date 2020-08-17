@@ -163,7 +163,7 @@
 			</ul>
 		</div>
 		<div id = "content">
-			<h2>과정추가 페이지</h2>
+			<h2>교육과정추가 페이지</h2>
 			<form method = "post">
 				<div>
 					<label for = "ctitle">강좌명</label>

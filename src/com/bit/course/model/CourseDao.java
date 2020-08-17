@@ -55,17 +55,20 @@ public class CourseDao {
 		
 	public int deleteOne(int cno) throws SQLException {
 		String sql = "delete from crs where cno=?";
-		int result = 0;
 		PreparedStatement pstmt = null;
 		try{
 			pstmt=conn.prepareStatement(sql);
 			pstmt.setInt(1, cno);
-			result = pstmt.executeUpdate();			
+			int result = pstmt.executeUpdate();		
+			System.out.println("del : " + cno + " result : " + result);	
+			return result;
 		}finally{
 			if(pstmt!=null)pstmt.close();
 			if(conn!=null)conn.close();
 		}
-		return result;
 	}
 
 }
+
+
+

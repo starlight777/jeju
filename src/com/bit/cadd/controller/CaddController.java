@@ -16,8 +16,7 @@ import com.bit.cadd.model.CaddDao;
 @WebServlet("/cadd.bit")
 public class CaddController extends HttpServlet {
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
-			throws ServletException, IOException {
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp)throws ServletException, IOException {
 		RequestDispatcher rd = req.getRequestDispatcher("cadd.jsp");
 		rd.forward(req, resp);
 	}
