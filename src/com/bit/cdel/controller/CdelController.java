@@ -18,7 +18,6 @@ public class CdelController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)throws ServletException, IOException {
 		int cno = Integer.parseInt(req.getParameter("cno"));
-		System.out.println("del : " + cno);
 		try {
 			CourseDao dao = new CourseDao();
 			dao.deleteOne(cno);
@@ -26,21 +25,20 @@ public class CdelController extends HttpServlet {
 			e.printStackTrace();
 		}
 		resp.setStatus(200);
-
 		RequestDispatcher rd = req.getRequestDispatcher("cdel.jsp");
 		rd.forward(req, resp);
 	}
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)throws ServletException, IOException {
-		int cno = Integer.parseInt(req.getParameter("cno"));
-		System.out.println("del : " + cno);
-		try {
-			CourseDao dao = new CourseDao();
-			dao.deleteOne(cno);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		resp.setStatus(200);
+//		int cno = Integer.parseInt(req.getParameter("cno"));
+//		System.out.println("del : " + cno);
+//		try {
+//			CourseDao dao = new CourseDao();
+//			dao.deleteOne(cno);
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		}
+//		resp.setStatus(200);
 	}
 }	

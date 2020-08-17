@@ -67,6 +67,27 @@ public class CourseDao {
 			if(conn!=null)conn.close();
 		}
 	}
+	
+	public int updateOne(int cno, String ctitle, String cbegin, String cend, int croom, int prof, int salesno) throws SQLException {
+		String sql = "update crs set ctitle=?, cbegin=?, cend=? croom=? prof=? salesno=? where cno=?"; 
+		int result = 0;
+		PreparedStatement pstmt = null;
+		try{
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, ctitle);
+			pstmt.setString(2, cbegin);
+			pstmt.setString(3, cend);
+			pstmt.setInt(4, croom);
+			pstmt.setInt(5, prof);
+			pstmt.setInt(6, salesno);
+			pstmt.setInt(7, cno);		
+			result = pstmt.executeUpdate();
+		}finally{
+			if(pstmt!=null)pstmt.close();
+			if(conn!=null)conn.close();
+		}
+		return result;
+	}
 
 }
 

@@ -174,7 +174,11 @@
 					<input type = "text" name = "croom" id = "croom"/>
 				</div>
 				<div>
+					<label for = "cbegin">개강일</label>
 					<input type = "date" name = "cbegin" id = "cbegin"/>
+				</div>	
+				<div>
+					<label for = "cend">종강일</label>
 					<input type = "date" name = "cend" id = "cend"/>
 				</div>
 				<div>
