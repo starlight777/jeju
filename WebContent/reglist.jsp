@@ -1,3 +1,5 @@
+<%@page import="com.bit.course.model.SalesCourseDto"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"
 	import="java.util.List,com.bit.courses.model.CoursesDto"%>
@@ -6,183 +8,51 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>BitCamp Jeju</title>
-<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+<link rel="stylesheet" type="text/css" href="/jeju/css/frame.css"/>
+<script type="text/javascript" src="/jeju/js/jquery-1.12.4.js"></script>
 <style type="text/css">
-* {
-	padding: 0px;
-	margin: 0px;
-}
-
-.bit, #header #section #content #footer {
-	width: 1920px;
-	height: 1080px;
-	position: absolute;
-}
-
-#header {
-	background-image: url("img/logo.png");
-	background-repeat: no-repeat;
-	background-position: left;
-	background-color: gray;
-	height: 88px;
-	padding: 5px;
-}
-
-#header>ul {
-	margin-left: 80%;
-}
-
-#header>ul>li {
-	display: inline-block;
-}
-
-#header>ul>li>a {
-	text-decoration: none;
-	margin: 15px;
-	color: white;
-	font-size: 12px;
-}
-
-#menu {
-	height: 80px;
-	text-align: center;
-	background-color: darkgray;
-}
-
-#menu>ul {
-	list-style: none;
-	display: inline-block;
-}
-
-#menu>ul>li {
-	float: left;
-	margin: 20px;
-}
-
-#menu>ul>li>a {
-	display: inline-block;
-	line-height: 40px;
-	color: black;
-	text-decoration: none;
-	text-align: center;
-	border-radius: 10px;
-	border: 1px solid black;
-	font-size: 14px;
-	width: 150px;
-}
-
-#menu>ul>li>a:hover {
-	border: 1px solid pink;
-}
-
-#section {
-	width: 15%;
-	height: 80%;
-	float: left;
-	display: inline-block;
-	background-color: white;
-	border: 1px solid black;
-}
-
-#section>ul {
-	list-style: none;
-}
-
-#section>ul>li {
-	margin: 10px;
-	margin-top: 30px;
-	margin-bottom: 40px;
-	text-align: center;
-}
-
-#section>ul>li>a {
-	color: black;
-	margin: 0px auto;
-	display: inline-block;
-	text-decoration: none;
-	text-align: center;
-	line-height: 40px;
-	height: 40px;
-	width: 70%;
-	border-radius: 10px;
-	border: 1px solid black;
-	font-size: 14px;
-}
-
-#section>ul>li>a:hover {
-	border: 1px solid pink;
-}
-
-#content {
-	height: 80%;
-	width: 100%;
-	background-color: white;
-	border: 1px solid black;
-}
-
-#content>h2 {
-	margin: 100px;
-	margin-left: 400px;
-}
-
-table {
-	width: 1000px;
-	text-align: center;
-	border-collapse: collapse;
-	margin-left: 450px;
-}
-
-table>tbody>tr>th {
-	border: 1px solid black;
-}
-
-table>tbody>tr>td {
-	border: 1px solid black;
-}
-
-table>tbody>tr>th {}
-
-button {
-	width: 100px;
-	margin-top: 40px;
-	margin-left: 20px;
-	position: relative;
-	left: 915px;
-}
-
-button>a{
-	text-decoration: none;
-	color:black;
-}
-
-table tr>td:nth-child(2) {
-	color: red;
-	text-decoration: underline;
-}
-
-table tr>td:nth-child(1) {}
-
-#footer {
-	text-align: center;
-	background-color: gray;
-}
+	#section {
+		width: 15%;
+		height: 80%;
+		float: left;
+		display: inline-block;
+		background-color: white;
+		border: 1px solid black;
+	}
+	
+	#section>ul {
+		list-style: none;
+	}
+	
+	#section>ul>li {
+		margin: 10px;
+		margin-top: 30px;
+		margin-bottom: 40px;
+		text-align: center;
+	}
+	
+	#section>ul>li>a {
+		color: black;
+		margin: 0px auto;
+		display: inline-block;
+		text-decoration: none;
+		text-align: center;
+		line-height: 40px;
+		height: 40px;
+		width: 70%;
+		border-radius: 10px;
+		border: 1px solid black;
+		font-size: 14px;
+	}
+	
+	#section>ul>li>a:hover {
+		border: 1px solid pink;
+	}
 </style>
-
-<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
 <script type="text/javascript">
 $(document).ready(function() {
-		$('table tr>td:nth-child(2)').click(function() {
-			var cno = $(this).siblings().first().text();
-			location.href = 'course.bit?idx=' + cno;
-		});
+		
 	});
-/* 	$(document).ready(function(){
-		$('table tr').first().siblings().click(function(){
-			var cno=$(this).children().first().text();
-			location.href = 'course.bit?idx='+cno;
-		});
-	});
-	 */
 </script>
 
 </head>
@@ -215,6 +85,16 @@ $(document).ready(function() {
 		</div>
 		<div id="content">
 			<h2>수강신청현황</h2>
+			<div>
+			<% 
+			ArrayList<SalesCourseDto> list = (ArrayList<SalesCourseDto>) request.getAttribute("list"); 
+			for(SalesCourseDto bean : list) {
+			%>
+			<div><a href="/jeju/lms/courses/assign.bit?idx=<%= bean.getCno() %>"><%= bean.getCno() %>, <%= bean.getCtitle() %>, <%= bean.getCbegin() %>, <%= bean.getClimit() %>, <%= bean.getStdcnt() %></a></div>
+			<%
+			}
+			%>
+			</div>
 		</div>
 		<div id="footer">
 			<address>비트캠프 제주특별자치도 서귀포시 강정동 736</address>

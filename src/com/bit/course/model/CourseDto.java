@@ -2,6 +2,8 @@ package com.bit.course.model;
 
 import java.sql.Date;
 
+
+
 public class CourseDto {
 	private int cno;
 	private String ctitle;
@@ -12,7 +14,7 @@ public class CourseDto {
 	private int croom;
 	private String prof;
 	private int salesno;
-
+	
 	public CourseDto() {}
 	
 

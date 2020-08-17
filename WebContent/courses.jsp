@@ -239,7 +239,7 @@ $(document).ready(function() {
 			<button>
 				<a href = "cadd.bit">과정추가</a>
 			</button>
-			<button>수강신청관리</button>
+			<button><a href = "/jeju/lms/courses/reglist.bit">수강신청관리</a></button>
 		</div>
 		<div id="footer">
 			<address>비트캠프 제주특별자치도 서귀포시 강정동 736</address>

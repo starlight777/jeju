@@ -2,11 +2,15 @@ package com.bit.courses.model;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+
+import com.bit.course.model.CourseDto;
+import com.bit.course.model.SalesCourseDto;
 
 public class CoursesDao {
 	String driver =	"oracle.jdbc.OracleDriver";
@@ -15,6 +19,7 @@ public class CoursesDao {
 	String password = "tiger";
 	Connection conn;
 	Statement stmt;
+	PreparedStatement pstmt;
 	ResultSet rs;
 	
 	public List<CoursesDto> getList() {
@@ -49,4 +54,5 @@ public class CoursesDao {
 		return list;
 		
 	}
+	
 }
