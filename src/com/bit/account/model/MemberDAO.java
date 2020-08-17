@@ -13,7 +13,17 @@ public class MemberDAO {
 	public MemberDAO() {
 		conn = new OracleJeju().getConnection();
 	}
-
+	
+	public void close() {
+		try {
+			if(rs != null) rs.close();
+			if(ps != null) ps.close();
+			if(conn != null) conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
 	public int lookupId(String id) throws SQLException {
 		String sql = "SELECT * FROM mbr WHERE id = ?";
 		System.out.println("lookupId() : " + id);
@@ -21,6 +31,19 @@ public class MemberDAO {
 		ps.setString(1, id);
 		rs = ps.executeQuery();
 		if(rs.next()) return 1;
+		return 0;
+	}
+	
+	public int lookupPw(String id, String pw) throws SQLException {
+		String sql = "SELECT pw FROM mbr WHERE id = ?";
+		System.out.println("lookupPw() : " + id + ", " + pw);
+		ps = conn.prepareStatement(sql);
+		ps.setString(1, id);
+		rs = ps.executeQuery();
+		if(rs.next()) {
+			String original = rs.getString("pw");
+			if(pw.equals(original)) return 1;
+		}
 		return 0;
 	}
 	
@@ -40,9 +63,8 @@ public class MemberDAO {
 			e.printStackTrace();
 		} finally {
 			try {
-				rs.close();
-				ps.close();
-				conn.close();
+				if(ps != null) ps.close();
+				if(conn != null) conn.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
@@ -70,9 +92,9 @@ public class MemberDAO {
 			e.printStackTrace();
 		} finally {
 			try {
-				rs.close();
-				ps.close();
-				conn.close();
+				if(rs != null) rs.close();
+				if(ps != null) ps.close();
+				if(conn != null) conn.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
@@ -82,27 +104,48 @@ public class MemberDAO {
 	}
 	
 	public int editMember(String id, String type, String data) {
-		String sql = "UPDATE mbr SET ? = ? WHERE id = ?";
-		System.out.println("eidtMember() : " + id + ", " + type + ", " + data);
+		String sql = "UPDATE mbr SET " + type + " = ? WHERE id = ?";
+		System.out.println("editMember() : " + id + ", " + type + ", " + data);
 		try {
 			ps = conn.prepareStatement(sql);
-			ps.setString(1, type);
-			ps.setString(2, data);
-			ps.setString(3, id);
+			ps.setString(1, data);
+			ps.setString(2, id);
+			System.out.println("end?1");
 			return ps.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			try {
-				rs.close();
-				ps.close();
-				conn.close();
+				if(ps != null) ps.close();
+				if(conn != null) conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		System.out.println("end?2");
+		return 0;
+	}
+	
+	public int deleteMember(String id) {
+		String sql = "DELETE FROM mbr WHERE id = ?";
+		System.out.println("deleteMember() : " + id);
+		try {
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, id);
+			return ps.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(ps != null) ps.close();
+				if(conn != null) conn.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
 		}
 		return 0;
 	}
+	
 	// 로그인 시 멤버 정보 세션 전달용
 	public MemberDTO login(String id, String pw) {
 		String sql = "SELECT * FROM mbr WHERE id = ? AND pw = ?";
@@ -122,9 +165,9 @@ public class MemberDAO {
 			e.printStackTrace();
 		} finally {
 			try {
-				rs.close();
-				ps.close();
-				conn.close();
+				if(rs != null) rs.close();
+				if(ps != null) ps.close();
+				if(conn != null) conn.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}

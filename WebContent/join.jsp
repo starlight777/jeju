@@ -131,7 +131,7 @@
 				<span id="errlegal"></span>
 			</div>
 			<div>
-				<button id="btnjoin" value="버튼">버튼</button>
+				<button type="button" id="btnjoin">가입</button>
 			</div>
 		</div>
 	</div>

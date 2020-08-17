@@ -37,7 +37,6 @@ public class MemberLoginController extends HttpServlet {
 		try {
 			result = dao.lookupId(id);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		if(result == 0) {

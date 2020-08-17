@@ -10,6 +10,7 @@ public class MemberDTO implements DTO {
 	private String email;
 	private String answer;
 	private String lvl;
+	
 	public String getId() {
 		return id;
 	}

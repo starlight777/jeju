@@ -30,4 +30,10 @@ public class InfoController extends HttpServlet {
 		}
 		req.getRequestDispatcher("/info.jsp").forward(req, resp);
 	}
+	
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
+		
+	}
 }

@@ -7,8 +7,8 @@
 		<span><a href="/jeju/login.bit">로그인</a></span>
 		<span><a href="#">LMS 로그인</a></span>
 		<% } else { %>
-		<span><a href="/jeju/info.bit">마이페이지</a></span>
-		<span><a href="/jeju/login.bit">로그아웃</a></span>
+		<span><a href="/jeju/mypage/info.bit">마이페이지</a></span>
+		<span><a href="/jeju/login/logout.bit">로그아웃</a></span>
 		<% }%>
 	</div>
 	<div>
