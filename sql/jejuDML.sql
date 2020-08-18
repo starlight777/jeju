@@ -36,11 +36,12 @@ insert into ntc values (ntc_seq.nextval,'디지털컨버전스 기반 자바(JAV
 insert into ntc values (ntc_seq.nextval,'디지털컨버전스 기반 자바(JAVA)응용SW개발자 양성과정 C','과정공지','디지털컨버전스 기반 자바(JAVA)응용SW개발자 양성과정 C','2020-8-1','2021-08-01','6','1005','');
 
 insert into lvl values ('L01','member','온라인회원');
-insert into lvl values ('L02','register','수강신청한 회원');
-insert into lvl values ('L03','student','현재 수강생');
+insert into lvl values ('L02','register','수강신청');
+insert into lvl values ('L03','student','수강중');
 insert into lvl values ('L04','alum','졸업생');
-insert into lvl values ('L05','hired','졸업후 취업');
-insert into lvl values ('L06','drop','수강 중단');
+insert into lvl values ('L05','hired','취업완료');
+insert into lvl values ('L06','drop','수강중단');
+insert into lvl values ('L07','deleted','회원탈퇴');
 
 insert into mbr values ('user1','test!111','회원1','01012341111','user1@bitjeju.com','강아지','L01');
 insert into mbr values ('user2','test!111','회원2','01012341112','user2@bitjeju.com','강아지','L01');
