@@ -101,10 +101,10 @@ public class CourseDao {
 		return list;
 	}
 	
-	public getAssignList(int cno) {
-		
-	}
-	String sql = "select std.sno, mbr.name, mbr.tel, crs.cno, crs.ctitle, crs.cbegin from std "
-			+ "left join mbr on std.id = mbr.id "
-			+ "left join crs on std.cno = crs.cno where cno = 1";
+//	public getAssignList(int cno) {
+	//	String sql = "select std.sno, mbr.name, mbr.tel, crs.cno, crs.ctitle, crs.cbegin from std "
+	//			+ "left join mbr on std.id = mbr.id "
+	//			+ "left join crs on std.cno = crs.cno where cno = 1";
+//		
+//	}
 }
