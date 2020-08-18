@@ -4,7 +4,7 @@ import java.sql.Date;
 
 import com.bit.util.DTO;
 
-public class CourseDTO implements DTO{
+public class CourseDTO extends DTO{
 	
 	private int cno;
 	private String ctitle;

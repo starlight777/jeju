@@ -3,6 +3,7 @@ package com.bit.student.model;
 import java.sql.Date;
 
 import com.bit.account.model.MemberDTO;
+import com.bit.course.model.CourseDTO;
 
 public class StudentDTO extends MemberDTO {
 	
@@ -14,6 +15,21 @@ public class StudentDTO extends MemberDTO {
 	private int gr2;
 	private Date date3;
 	private int gr3;
+	private CourseDTO crs;
+	private AttendanceDTO att;
+	
+	public CourseDTO getCrs() {
+		return crs;
+	}
+	public void setCrs(CourseDTO crs) {
+		this.crs = crs;
+	}
+	public AttendanceDTO getAtt() {
+		return att;
+	}
+	public void setAtt(AttendanceDTO att) {
+		this.att = att;
+	}
 	
 	public int getSno() {
 		return sno;

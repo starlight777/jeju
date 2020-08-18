@@ -12,12 +12,12 @@ import com.bit.util.DTO;
 import com.bit.util.OracleJeju;
 
 public class StudentDAO {
-	Connection conn = null;
-	PreparedStatement ps = null;
-	ResultSet rs = null;
-	StudentDTO studentDTO = null;
-	CourseDTO courseDTO = null;
-	AttendanceDTO attendanceDTO = null;
+	private Connection conn = null;
+	private PreparedStatement ps = null;
+	private ResultSet rs = null;
+	private StudentDTO studentDTO = null;
+	private CourseDTO courseDTO = null;
+	private AttendanceDTO attendanceDTO = null;
 	
 	public StudentDAO() {
 		conn = new OracleJeju().getConnection();
@@ -92,5 +92,46 @@ public class StudentDAO {
 		dtoMap.put("course", courseDTO);
 		dtoMap.put("attendance", attendanceDTO);
 		return dtoMap;
+	}
+	
+	public StudentDTO studentInfo(StudentDTO student) {
+		String sql = "SELECT * FROM v_std WHERE sno = ?";
+		System.out.println("studentInfo() : " + sql + student.getSno());
+		try {
+			ps = conn.prepareStatement(sql);
+			ps.setInt(1, student.getSno());
+			rs = ps.executeQuery();
+			if(rs.next()) {
+				courseDTO = new CourseDTO();
+				courseDTO.setCno(rs.getInt("cno"));
+				courseDTO.setCtitle(rs.getString("ctitle"));
+				courseDTO.setProf(rs.getString("prof"));
+				courseDTO.setCbegin(rs.getDate("cbegin"));
+				courseDTO.setCend(rs.getDate("cend"));
+				courseDTO.setCdays(rs.getInt("cdays"));
+				student.setCrs(courseDTO);
+				
+				attendanceDTO = new AttendanceDTO();
+				attendanceDTO.setCnt(rs.getInt("cnt"));
+				attendanceDTO.setAtt_total(rs.getInt("att_total"));
+				attendanceDTO.setAtt_rate(rs.getInt("att_rate"));
+				attendanceDTO.setLate(rs.getInt("late"));
+				attendanceDTO.setLeftearly(rs.getInt("leftearly"));
+				attendanceDTO.setAbsent(rs.getInt("absent"));
+				student.setAtt(attendanceDTO);
+			}
+		} catch(SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				rs.close();
+				ps.close();
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		System.out.println("studentInfo() : \n" + courseDTO + "\n" + attendanceDTO);
+		return student;
 	}
 }

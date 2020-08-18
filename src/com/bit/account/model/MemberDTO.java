@@ -2,7 +2,7 @@ package com.bit.account.model;
 
 import com.bit.util.DTO;
 
-public class MemberDTO implements DTO {
+public class MemberDTO extends DTO {
 	private String id;
 	private String pw;
 	private String name;

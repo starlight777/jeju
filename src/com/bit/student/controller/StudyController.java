@@ -36,13 +36,15 @@ public class StudyController extends HttpServlet {
 		if(lvl.equals("L01")) {
 			req.getRequestDispatcher("/study.jsp").forward(req, resp);
 		} else {
-			StudentDTO student = new StudentDAO().selectStudent(id);
-			HashMap<String, DTO> dtoMap = new StudentDAO().studentInfo(student.getSno());
-			CourseDTO course = (CourseDTO) dtoMap.get("course");
-			AttendanceDTO attendance = (AttendanceDTO) dtoMap.get("attendance");
+			StudentDTO student = new StudentDAO().studentInfo(new StudentDAO().selectStudent(id));
+			
+//			StudentDTO student = new StudentDAO().selectStudent(id);
+//			HashMap<String, DTO> dtoMap = new StudentDAO().studentInfo(student.getSno());
+//			CourseDTO course = (CourseDTO) dtoMap.get("course");
+//			AttendanceDTO attendance = (AttendanceDTO) dtoMap.get("attendance");
 			req.setAttribute("student", student);
-			req.setAttribute("course", course);
-			req.setAttribute("attendance", attendance);
+			req.setAttribute("course", student.getCrs());
+			req.setAttribute("attendance", student.getAtt());
 			req.getRequestDispatcher("/study.jsp").forward(req, resp);
 		}
 	}

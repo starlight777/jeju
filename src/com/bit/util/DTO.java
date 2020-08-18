@@ -1,5 +1,5 @@
 package com.bit.util;
 
-public interface DTO {
+public abstract class DTO {
 
 }
