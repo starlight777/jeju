@@ -21,7 +21,7 @@ public class CaddDao {
 			e.printStackTrace();
 		}
 	}
-	public void insertOne(String ctitle, String cbegin, String cend, int croom, int prof, int salesno) throws SQLException {
+	public void insertOne(String ctitle, String cbegin, String cend, int croom, int profno, int salesno) throws SQLException {
 		String sql = "insert into crs values(crs_seq.nextval,?,?,?,55,30,?,?,?)";
 		PreparedStatement pstmt = null;
 		try{
@@ -30,7 +30,7 @@ public class CaddDao {
 			pstmt.setString(2, cbegin);
 			pstmt.setString(3, cend);
 			pstmt.setInt(4, croom);
-			pstmt.setInt(5, prof);
+			pstmt.setInt(5, profno);
 			pstmt.setInt(6, salesno);
 			pstmt.executeUpdate();
 		}finally{

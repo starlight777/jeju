@@ -181,7 +181,7 @@
 			<ul>
 				<li><a href="#">회원정보</a></li>
 				<li><a href="#">내업무</a></li>
-				<li><a href="#">전체과정</a></li>
+				<li><a href="courses.bit">전체과정</a></li>
 				<li><a href="#">전체학생</a></li>
 				<li><a href="#">직원정보</a></li>
 				<li><a href="#">공지사항관리</a></li>

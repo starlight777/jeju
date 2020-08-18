@@ -23,6 +23,7 @@ public class CeditController extends HttpServlet {
 		try {
 			CourseDao dao = new CourseDao();
 			CourseDto bean = dao.selectOne(cno);
+			req.setAttribute("cedit", bean);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -33,17 +34,17 @@ public class CeditController extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		int cno = Integer.parseInt(req.getParameter("cno"));
-		String ctitle = req.getParameter("ctitle");
-		String cbegin = req.getParameter("cbegin");
-		String cend = req.getParameter("cend");
-		int croom = Integer.parseInt(req.getParameter("croom"));
-		int prof = Integer.parseInt(req.getParameter("prof"));
-		int salesno = Integer.parseInt(req.getParameter("salesno"));
+		int cno = Integer.parseInt(req.getParameter("cno").trim());
+		String ctitle = req.getParameter("ctitle").trim();
+		String cbegin = req.getParameter("cbegin").trim();
+		String cend = req.getParameter("cend").trim();
+		int croom = Integer.parseInt(req.getParameter("croom").trim());
+		int profno = Integer.parseInt(req.getParameter("profno").trim());
+		int salesno = Integer.parseInt(req.getParameter("salesno").trim());
 		
 		try {
 			CourseDao dao = new CourseDao();
-			dao.updateOne(cno, ctitle, cbegin, cend, croom, prof, salesno);
+			dao.updateOne(cno, ctitle, cbegin, cend, croom, profno, salesno);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

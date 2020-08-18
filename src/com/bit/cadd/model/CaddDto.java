@@ -10,7 +10,7 @@ public class CaddDto {
 	private int cdays;
 	private int climit;
 	private int croom;
-	private int prof;
+	private int profno;
 	private int salesno;
 	
 	public CaddDto() {}
@@ -71,12 +71,12 @@ public class CaddDto {
 		this.croom = croom;
 	}
 
-	public int getProf() {
-		return prof;
+	public int getProfno() {
+		return profno;
 	}
 
-	public void setProf(int prof) {
-		this.prof = prof;
+	public void setProfno(int profno) {
+		this.profno = profno;
 	}
 
 	public int getSalesno() {

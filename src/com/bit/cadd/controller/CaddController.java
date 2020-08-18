@@ -27,12 +27,12 @@ public class CaddController extends HttpServlet {
 		String cbegin = req.getParameter("cbegin");
 		String cend = req.getParameter("cend");	
 		int croom = Integer.parseInt(req.getParameter("croom"));
-		int prof =  Integer.parseInt(req.getParameter("prof"));
+		int profno =  Integer.parseInt(req.getParameter("profno"));
 		int salesno = Integer.parseInt(req.getParameter("salesno"));
 
 		try {
 			CaddDao dao = new CaddDao();
-			dao.insertOne(ctitle, cbegin, cend, croom, prof, salesno);
+			dao.insertOne(ctitle, cbegin, cend, croom, profno, salesno);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

@@ -10,21 +10,27 @@ public class CourseDto {
 	private int cdays;
 	private int climit;
 	private int croom;
+	private int profno;
 	private String prof;
 	private int salesno;
 
 	public CourseDto() {}
-	
+
+	public String getProf() {
+		return prof;
+	}
+
+	public void setProf(String prof) {
+		this.prof = prof;
+	}
 
 	public int getClimit() {
 		return climit;
 	}
 
-
 	public void setClimit(int climit) {
 		this.climit = climit;
 	}
-
 
 	public int getCno() {
 		return cno;
@@ -74,12 +80,12 @@ public class CourseDto {
 		this.croom = croom;
 	}
 
-	public String getProf() {
-		return prof;
+	public int getProfno() {
+		return profno;
 	}
 
-	public void setProf(String prof) {
-		this.prof = prof;
+	public void setProfno(int profno) {
+		this.profno = profno;
 	}
 
 	public int getSalesno() {

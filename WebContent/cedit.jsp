@@ -166,20 +166,39 @@
 <jsp:useBean id = "cedit" class = "com.bit.course.model.CourseDto" scope="request"></jsp:useBean>		
 			<h2>과정수정 페이지</h2>
 			<form method = "post">
-			<div>
-				<label for = "cno">강의번호</label>
-<input type = "text" name = "cno" id = "cno" value = "<jsp:getProperty property= "cno"  name = "cedit"/>" readonly = "readonly">
-			</div>
-			
-			
-			
-			
-			
-			<div>
-				<input type = "submit" value="입력완료"/>
-				<input type = "reset" value="취소"/>
-				<input type = "button" value="뒤로가기" onclick="history.back();"/>
-			</div>
+				<div>
+					<label for = "cno">강의번호</label>
+<input type = "text" name = "cno" id = "cno" value = "<jsp:getProperty property= "cno"  name = "cedit"/>" readonly>
+				</div>
+				<div>
+					<label for = "ctitle">강좌명</label>
+<input type = "text" name = "ctitle" id = "ctitle" value = "<jsp:getProperty property= "ctitle"  name = "cedit"/>" >
+				</div>
+				<div>
+					<label for = "cbegin">개강일</label>
+<input type = "date" name = "cbegin" id = "cbegin" value = "<jsp:getProperty property= "cbegin"  name = "cedit"/>" >
+				</div>			
+				<div>
+					<label for = "cend">종강일</label>
+<input type = "date" name = "cend" id = "cend" value = "<jsp:getProperty property= "cend"  name = "cedit"/>" >
+				</div>					
+				<div>
+					<label for = "croom">강의실</label>
+<input type = "text" name = "croom" id = "croom" value = "<jsp:getProperty property= "croom"  name = "cedit"/>" >
+				</div>
+				<div>
+					<label for = "profno">강사</label>
+<input type = "text" name = "profno" id = "profno" value = "<jsp:getProperty property= "profno"  name = "cedit"/>" >
+				</div>	
+				<div>
+					<label for = "salesno">영업사원</label>
+<input type = "text" name = "salesno" id = "salesno" value = "<jsp:getProperty property= "salesno"  name = "cedit"/>" >
+				</div>								
+				<div>
+					<input type = "submit" value="입력완료"/>
+					<input type = "reset" value="취소"/>
+					<input type = "button" value="뒤로가기" onclick="history.back();"/>
+				</div>
 			</form>
 		</div>
 		<div id="footer">

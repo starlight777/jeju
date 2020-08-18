@@ -182,8 +182,8 @@
 					<input type = "date" name = "cend" id = "cend"/>
 				</div>
 				<div>
-					<label for = "prof">강사</label>
-					<input type = "text" name = "prof" id = "prof"/>
+					<label for = "profno">강사</label>
+					<input type = "text" name = "profno" id = "profno"/>
 				</div>
 				<div>
 					<label for = "salesno">영업사원</label>
