@@ -1,14 +1,17 @@
 package com.bit.courses.model;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import com.bit.courses.model.*;
 
 public class CourseDao {
 	Connection conn;
+	PreparedStatement pstmt;
+	ResultSet rs;
 	
 	public CourseDao() throws SQLException {
 		String driver = "oracle.jdbc.OracleDriver";
@@ -26,11 +29,11 @@ public class CourseDao {
 	}
 
 	public CourseDto selectOne(int cno) throws SQLException {
-		String sql ="select cno, ctitle, cbegin, cend, cdays, climit, croom, empl.name as prof, salesno from crs left join empl on empl.eno = crs.profno  where cno=?";
+		String sql = "select cno, ctitle, cbegin, cend, cdays, climit, croom, empl.name as prof, salesno from crs left join empl on empl.eno = crs.profno  where cno=?";
 		CourseDto bean = new CourseDto();
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		try {	
+		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, cno);
 			rs = pstmt.executeQuery();
@@ -89,7 +92,71 @@ public class CourseDao {
 		return result;
 	}
 
+	public ArrayList<CourseDto> selectAll() throws SQLException {
+		ArrayList<CourseDto> list=new ArrayList<CourseDto>();
+		String sql="select * from crs where cbegin > '2020-08-01' ORDER BY cno DESC";
+		System.out.println("selectAll()1");
+		try{
+			pstmt=conn.prepareStatement(sql);
+			rs=pstmt.executeQuery();
+			while(rs.next()){
+				list.add(new CourseDto(
+						 rs.getInt("cno")
+						,rs.getString("ctitle")
+						,rs.getDate("cbegin")
+						,rs.getDate("cend")
+						));
+			}
+		}finally{
+			if(rs!=null)rs.close();
+			if(pstmt!=null)pstmt.close();
+			if(conn!=null)conn.close();
+		}
+		System.out.println("selectAll()2");
+		return list;
+	}
+
+	public int registerOne (String id, int cno) throws SQLException {
+		String sql = "insert into std values (std_seq.nextval, ?, ?, null, null, null, null, null, null)";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			pstmt.setInt(2, cno);
+			return pstmt.executeUpdate();
+		
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally{
+				if (pstmt != null)pstmt.close();
+				if (conn != null)conn.close();
+			
+		}
+		return 0;
+		
+	}
+		
+	public int levelUp (String id) throws SQLException {
+		String sql2 = "update mbr set lvl='L02' where id=?";
+
+		try {
+			pstmt = conn.prepareStatement(sql2);
+			pstmt.setString(1, id);
+			return pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally{
+				if (pstmt != null)pstmt.close();
+				if (conn != null)conn.close();
+			
+		}
+		System.out.println(id);
+		System.out.println(sql2);
+		
+		return 0;
+	
+	}
+	
+	
+	
 }
-
-
 
