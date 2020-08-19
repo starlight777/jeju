@@ -9,6 +9,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.bit.std.model.StdDto;
+
 public class CourseDao {
 	Connection conn;
 	PreparedStatement pstmt = null;
@@ -91,9 +93,9 @@ public class CourseDao {
 			e.printStackTrace();
 		} finally {
 			try {
-				if(conn!=null)conn.close();
-				if(pstmt!=null)pstmt.close();
 				if(rs!=null)rs.close();
+				if(pstmt!=null)pstmt.close();
+				if(conn!=null)conn.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
@@ -101,10 +103,112 @@ public class CourseDao {
 		return list;
 	}
 	
-//	public getAssignList(int cno) {
-	//	String sql = "select std.sno, mbr.name, mbr.tel, crs.cno, crs.ctitle, crs.cbegin from std "
-	//			+ "left join mbr on std.id = mbr.id "
-	//			+ "left join crs on std.cno = crs.cno where cno = 1";
-//		
-//	}
+	public ArrayList<Object> getAssignList(int cno, int salesno) {
+		String sql = "select std.sno, mbr.id as id, mbr.name as mname, mbr.tel, mbr.lvl, crs.cno, crs.ctitle, crs.cbegin, empl.name as ename from std "
+				+ "left join mbr on std.id = mbr.id "
+				+ "left join crs on std.cno = crs.cno "
+				+ "left join empl on crs.profno = empl.eno "
+				+ "where cno = ? and salesno = ?";
+		StdDto std = null;
+		CourseDto crs = null;
+		ArrayList<Object> list = new ArrayList<Object>();
+		try {
+//			CourseDto crs = this.selectOne(cno);
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, cno);
+			pstmt.setInt(2, salesno);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				std = new StdDto();
+				std.setId(rs.getString("id"));
+				std.setSno(rs.getInt("sno"));
+				std.setName(rs.getString("mname"));
+				std.setTel(rs.getString("tel"));
+				std.setLvl(rs.getString("lvl"));
+				if(rs.isFirst()) {
+					crs = new CourseDto();
+					crs.setCno(cno);
+					crs.setCtitle(rs.getString("ctitle"));
+					crs.setCbegin(rs.getDate("cbegin"));
+					list.add(rs.getString("ename"));
+					list.add(crs);
+				}
+				list.add(std);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+				try {
+					if(rs!=null) rs.close();
+					if(pstmt!=null) pstmt.close();
+					if(conn!=null) conn.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+		}
+		for(int i = 0; i < list.size(); i++) {
+			System.out.println(list.get(i));
+		}
+		return list;
+	}
+	
+	public int assignStudent(String[] array) {
+		String sql = "UPDATE mbr SET lvl = 'L03' WHERE ";
+		for(int i = 0; i < array.length; i++) {
+			if(i == array.length - 1) {
+				sql += "id = ?"; 
+				break;
+			}
+			sql += "id = ? OR ";
+		}
+		System.out.println("assignStudent : " + sql);
+		try {
+			pstmt = conn.prepareStatement(sql);
+			for(int i = 0; i < array.length; i++) {
+				pstmt.setString(i + 1, array[i]);
+			}
+			return pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			try {
+				if(pstmt!=null)pstmt.close();
+				if(conn!=null)conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return 0;
+	}
+	public int cancelStudent(String[] array) {
+		String sql = "UPDATE mbr SET lvl = 'L02' WHERE ";
+		for(int i = 0; i < array.length; i++) {
+			if(i == array.length - 1){
+				sql += "id = ?"; 
+				break;
+			}
+			sql += "id = ? OR ";
+		}
+		System.out.println("cancelStudent : " + sql);
+		try {
+			pstmt = conn.prepareStatement(sql);
+			for(int i = 0; i < array.length; i++) {
+				pstmt.setString(i + 1, array[i]);
+			}
+			return pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			try {
+				if(pstmt!=null)pstmt.close();
+				if(conn!=null)conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return 0;
+	}
 }

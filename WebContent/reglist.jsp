@@ -90,7 +90,7 @@ $(document).ready(function() {
 			ArrayList<SalesCourseDto> list = (ArrayList<SalesCourseDto>) request.getAttribute("list"); 
 			for(SalesCourseDto bean : list) {
 			%>
-			<div><a href="/jeju/lms/courses/assign.bit?idx=<%= bean.getCno() %>"><%= bean.getCno() %>, <%= bean.getCtitle() %>, <%= bean.getCbegin() %>, <%= bean.getClimit() %>, <%= bean.getStdcnt() %></a></div>
+			<div><a href="/jeju/lms/courses/assign.bit?cno=<%= bean.getCno() %>"><%= bean.getCno() %>, <%= bean.getCtitle() %>, <%= bean.getCbegin() %>, <%= bean.getClimit() %>, <%= bean.getStdcnt() %></a></div>
 			<%
 			}
 			%>
