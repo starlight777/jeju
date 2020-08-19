@@ -1,5 +1,6 @@
+<%@page import="com.bit.courses.model.CourseDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -169,11 +170,11 @@ input {
 			</ul>
 		</div>
 		<div id = "content">
-			<h2>과정삭제 완료페이지</h2>
-				<div>
-<jsp:useBean id = "course" class = "com.bit.course.model.CourseDto" scope = "request"/>
-				<button type = "button" onclick="location.href='courses.bit'">홈으로 가기</button>
-				</div>
+			<h2>과정삭제 완료페이지</h2>	
+		<div><%=request.getParameter("ctitle")%>반이 삭제 되었습니다.</div>
+		<div>
+<button type = "button" onclick="location.href='courses.bit'">홈으로 가기</button>
+		</div>
 		</div>
 		<div id="footer">
 			<address>비트캠프 제주특별자치도 서귀포시 강정동 736</address>

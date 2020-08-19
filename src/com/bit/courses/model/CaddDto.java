@@ -1,8 +1,8 @@
-package com.bit.course.model;
+package com.bit.courses.model;
 
 import java.sql.Date;
 
-public class CourseDto {
+public class CaddDto {
 	private int cno;
 	private String ctitle;
 	private Date cbegin;
@@ -11,26 +11,9 @@ public class CourseDto {
 	private int climit;
 	private int croom;
 	private int profno;
-	private String prof;
 	private int salesno;
-
-	public CourseDto() {}
-
-	public String getProf() {
-		return prof;
-	}
-
-	public void setProf(String prof) {
-		this.prof = prof;
-	}
-
-	public int getClimit() {
-		return climit;
-	}
-
-	public void setClimit(int climit) {
-		this.climit = climit;
-	}
+	
+	public CaddDto() {}
 
 	public int getCno() {
 		return cno;
@@ -72,6 +55,14 @@ public class CourseDto {
 		this.cdays = cdays;
 	}
 
+	public int getClimit() {
+		return climit;
+	}
+
+	public void setClimit(int climit) {
+		this.climit = climit;
+	}
+
 	public int getCroom() {
 		return croom;
 	}
@@ -95,5 +86,6 @@ public class CourseDto {
 	public void setSalesno(int salesno) {
 		this.salesno = salesno;
 	}
-
+	
+	
 }

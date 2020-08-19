@@ -163,7 +163,7 @@
 			</ul>
 		</div>
 		<div id = "content">
-<jsp:useBean id = "cedit" class = "com.bit.course.model.CourseDto" scope="request"></jsp:useBean>		
+<jsp:useBean id = "cedit" class = "com.bit.courses.model.CourseDto" scope="request"></jsp:useBean>		
 			<h2>과정수정 페이지</h2>
 			<form method = "post">
 				<div>

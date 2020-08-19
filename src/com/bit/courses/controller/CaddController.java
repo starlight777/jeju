@@ -1,7 +1,6 @@
-package com.bit.cadd.controller;
+package com.bit.courses.controller;
 
 import java.io.IOException;
-import java.sql.Date;
 import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
@@ -11,7 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.bit.cadd.model.CaddDao;
+import com.bit.courses.model.CaddDao;
 
 @WebServlet("/cadd.bit")
 public class CaddController extends HttpServlet {

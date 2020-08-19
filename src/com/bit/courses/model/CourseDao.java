@@ -1,4 +1,4 @@
-package com.bit.course.model;
+package com.bit.courses.model;
 
 import java.sql.Connection;
 import java.sql.Date;

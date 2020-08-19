@@ -1,4 +1,4 @@
-package com.bit.course.controller;
+package com.bit.courses.controller;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.bit.course.model.CourseDao;
-import com.bit.course.model.CourseDto;
+import com.bit.courses.model.CourseDao;
+import com.bit.courses.model.CourseDto;
 
 @WebServlet("/course.bit")
 public class CourseController extends HttpServlet {
@@ -32,7 +32,8 @@ public class CourseController extends HttpServlet {
 	}
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
-			throws ServletException, IOException {
+			throws ServletException, IOException {		
+
 	}
 	
 }

@@ -195,7 +195,7 @@ button{
 			</ul>
 		</div>
 		<div id = "content">
-<jsp:useBean id = "course" class = "com.bit.course.model.CourseDto" scope = "request"/>
+<jsp:useBean id = "course" class = "com.bit.courses.model.CourseDto" scope = "request"/>
 			<h2>교육과정 디테일 페이지</h2>
 			<table>
 				<tr>
@@ -236,7 +236,7 @@ button{
 				</tr>
 			</table>
 			<button type = "button" onclick="location.href = 'cedit.bit?idx=<%=course.getCno()%>'">수정</button>
-			<button type = "button" onclick="location.href = 'cdel.bit?cno=<%=course.getCno() %>'">삭제</button>
+			<button type = "button" onclick="location.href = 'cdel.bit?cno=<%=course.getCno()%>&ctitle=<%=course.getCtitle() %>'">삭제</button>
 			<button type = "button" onclick="location.href = 'courses.bit'">뒤로가기</button>
 		</div>
 		<div id="footer">

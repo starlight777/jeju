@@ -1,7 +1,6 @@
-package com.bit.cdel.controller;
+package com.bit.courses.controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
@@ -11,12 +10,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.bit.course.model.CourseDao;
+import com.bit.courses.model.CourseDao;
 
 @WebServlet("/cdel.bit")
 public class CdelController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)throws ServletException, IOException {
+		req.setCharacterEncoding("utf-8");
 		int cno = Integer.parseInt(req.getParameter("cno"));
 		try {
 			CourseDao dao = new CourseDao();
