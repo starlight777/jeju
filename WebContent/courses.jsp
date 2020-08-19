@@ -185,6 +185,24 @@ $(document).ready(function() {
 
 </head>
 <body>
+<%
+	 final int ROWSIZE = 10;
+	 final int BLOCK = 5;
+	 
+	 int pg = 1;
+	 
+	 if(request.getParameter("pg")!=null) {
+		 	pg = Integer.parseInt(request.getParameter("pg"));
+	 }
+	 
+	 int start = (pg+ROWSIZE) - (ROWSIZE-1);
+	 int end = (pg+ROWSIZE);
+	 
+	 int allPage = 0;
+	 
+	 int startPage = ((pg-1) / BLOCK * BLOCK)+1;
+	 int endPage = ((pg-1) / BLOCK * BLOCK)+BLOCK;
+%>
 	<div class="bit">
 		<div id="header">
 			<ul>

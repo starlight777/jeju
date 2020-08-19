@@ -39,6 +39,8 @@ insert into crs values(crs_seq.nextval,'java',sysdate,sysdate,55,30,401,1008,100
 insert into crs values(crs_seq.nextval,'java',sysdate,sysdate,55,30,401,1008,1001);
 delete from crs where cno=49;
 
+select count(*) from crs;
+
 
 
 

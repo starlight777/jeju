@@ -26,11 +26,11 @@ public class CourseDao {
 	}
 
 	public CourseDto selectOne(int cno) throws SQLException {
-		String sql = "select cno, ctitle, cbegin, cend, cdays, climit, croom, prof, salesno from v_crs where cno=?";
+		String sql ="select cno, ctitle, cbegin, cend, cdays, climit, croom, empl.name as prof, salesno from crs left join empl on empl.eno = crs.profno  where cno=?";
 		CourseDto bean = new CourseDto();
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		try {
+		try {	
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, cno);
 			rs = pstmt.executeQuery();
