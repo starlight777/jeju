@@ -129,6 +129,29 @@
 	margin-left: 400px;
 }
 
+table{
+	text-align: center;
+	margin-left: 450px;
+	border-collapse: collapse;
+	border : 1px solid black;
+	width: 500px;
+		
+}
+
+table>tbody>tr{
+	height : 50px;
+}
+
+table>tbody>tr>th{
+	text-align: left;
+
+}
+
+table div {
+	margin-left : 795px;
+	margin-top : 30px;
+}
+
 #footer {
 	text-align: center;
 	background-color: gray;
@@ -166,34 +189,50 @@
 <jsp:useBean id = "cedit" class = "com.bit.courses.model.CourseDto" scope="request"></jsp:useBean>		
 			<h2>과정수정 페이지</h2>
 			<form method = "post">
-				<div>
-					<label for = "cno">강의번호</label>
+<table>
+		<tr>
+			<th>
+				<label for = "cno">강의번호</label>
 <input type = "text" name = "cno" id = "cno" value = "<jsp:getProperty property= "cno"  name = "cedit"/>" readonly>
-				</div>
-				<div>
-					<label for = "ctitle">강좌명</label>
-<input type = "text" name = "ctitle" id = "ctitle" value = "<jsp:getProperty property= "ctitle"  name = "cedit"/>" >
-				</div>
-				<div>
-					<label for = "cbegin">개강일</label>
+			<th>
+		</tr>
+		<tr>
+			<th>
+				<label for = "ctitle">강좌명</label>
+<input type = "text" name = "ctitle" id = "ctitle" style = "width:400px;" value = "<jsp:getProperty property= "ctitle"  name = "cedit"/>" >
+			<th>
+		</tr>
+		<tr>
+			<th>
+				<label for = "cbegin">개강일</label>
 <input type = "date" name = "cbegin" id = "cbegin" value = "<jsp:getProperty property= "cbegin"  name = "cedit"/>" >
-				</div>			
-				<div>
-					<label for = "cend">종강일</label>
-<input type = "date" name = "cend" id = "cend" value = "<jsp:getProperty property= "cend"  name = "cedit"/>" >
-				</div>					
-				<div>
-					<label for = "croom">강의실</label>
-<input type = "text" name = "croom" id = "croom" value = "<jsp:getProperty property= "croom"  name = "cedit"/>" >
-				</div>
-				<div>
-					<label for = "profno">강사</label>
-<input type = "text" name = "profno" id = "profno" value = "<jsp:getProperty property= "profno"  name = "cedit"/>" >
-				</div>	
-				<div>
-					<label for = "salesno">영업사원</label>
-<input type = "text" name = "salesno" id = "salesno" value = "<jsp:getProperty property= "salesno"  name = "cedit"/>" >
-				</div>								
+			<th>
+		</tr>
+		<tr>
+			<th>
+				<label for = "cend">종강일</label>
+<input type = "date" name = "cend" id = "cend" value = "<jsp:getProperty property= "cend"  name = "cedit"/>" >			
+			<th>
+		</tr>
+		<tr>
+			<th>
+				<label for = "croom">강의실</label>
+<input type = "text" name = "croom" id = "croom" value = "<jsp:getProperty property= "croom"  name = "cedit"/>" >			
+			<th>
+		</tr>										
+		<tr>
+			<th>
+				<label for = "profno">강사</label>
+<input type = "text" name = "profno" id = "profno" value = "<jsp:getProperty property= "profno"  name = "cedit"/>" >			
+			<th>
+		</tr>	
+		<tr>
+			<th>
+				<label for = "salesno">영업사원</label>
+<input type = "text" name = "salesno" id = "salesno" value = "<jsp:getProperty property= "salesno"  name = "cedit"/>" >			
+			<th>
+		</tr>									
+</table>										
 				<div>
 					<input type = "submit" value="입력완료"/>
 					<input type = "reset" value="취소"/>
