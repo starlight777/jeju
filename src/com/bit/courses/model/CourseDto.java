@@ -14,22 +14,22 @@ public class CourseDto {
 	private String prof;
 	private int salesno;
 
-	public CourseDto() {}
-
-	public String getProf() {
-		return prof;
+	public CourseDto() {
+		
 	}
 
-	public void setProf(String prof) {
-		this.prof = prof;
-	}
-
-	public int getClimit() {
-		return climit;
-	}
-
-	public void setClimit(int climit) {
+	public CourseDto(int cno, String ctitle, Date cbegin, Date cend) {
+		super();
+		this.cno = cno;
+		this.ctitle = ctitle;
+		this.cbegin = cbegin;
+		this.cend = cend;
+		this.cdays = cdays;
 		this.climit = climit;
+		this.croom = croom;
+		this.profno = profno;
+		this.prof = prof;
+		this.salesno = salesno;
 	}
 
 	public int getCno() {
@@ -72,6 +72,14 @@ public class CourseDto {
 		this.cdays = cdays;
 	}
 
+	public int getClimit() {
+		return climit;
+	}
+
+	public void setClimit(int climit) {
+		this.climit = climit;
+	}
+
 	public int getCroom() {
 		return croom;
 	}
@@ -88,6 +96,14 @@ public class CourseDto {
 		this.profno = profno;
 	}
 
+	public String getProf() {
+		return prof;
+	}
+
+	public void setProf(String prof) {
+		this.prof = prof;
+	}
+
 	public int getSalesno() {
 		return salesno;
 	}
@@ -96,4 +112,73 @@ public class CourseDto {
 		this.salesno = salesno;
 	}
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((cbegin == null) ? 0 : cbegin.hashCode());
+		result = prime * result + cdays;
+		result = prime * result + ((cend == null) ? 0 : cend.hashCode());
+		result = prime * result + climit;
+		result = prime * result + cno;
+		result = prime * result + croom;
+		result = prime * result + ((ctitle == null) ? 0 : ctitle.hashCode());
+		result = prime * result + ((prof == null) ? 0 : prof.hashCode());
+		result = prime * result + profno;
+		result = prime * result + salesno;
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		CourseDto other = (CourseDto) obj;
+		if (cbegin == null) {
+			if (other.cbegin != null)
+				return false;
+		} else if (!cbegin.equals(other.cbegin))
+			return false;
+		if (cdays != other.cdays)
+			return false;
+		if (cend == null) {
+			if (other.cend != null)
+				return false;
+		} else if (!cend.equals(other.cend))
+			return false;
+		if (climit != other.climit)
+			return false;
+		if (cno != other.cno)
+			return false;
+		if (croom != other.croom)
+			return false;
+		if (ctitle == null) {
+			if (other.ctitle != null)
+				return false;
+		} else if (!ctitle.equals(other.ctitle))
+			return false;
+		if (prof == null) {
+			if (other.prof != null)
+				return false;
+		} else if (!prof.equals(other.prof))
+			return false;
+		if (profno != other.profno)
+			return false;
+		if (salesno != other.salesno)
+			return false;
+		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "CourseDto [cno=" + cno + ", ctitle=" + ctitle + ", cbegin="
+				+ cbegin + ", cend=" + cend + ", cdays=" + cdays + ", climit="
+				+ climit + ", croom=" + croom + ", profno=" + profno
+				+ ", prof=" + prof + ", salesno=" + salesno + "]";
+	}	
+	
 }

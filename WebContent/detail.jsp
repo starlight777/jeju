@@ -36,7 +36,7 @@
 
 <h2>교육과정(상세)</h2>
 
-<jsp:useBean id = "course" class = "com.bit.course.model.CourseDto" scope = "request"/>
+<jsp:useBean id = "course" class = "com.bit.courses.model.CourseDto" scope = "request"/>
 <jsp:useBean id="bean" class="com.bit.lms_notice.model.NtcDto" scope="request"></jsp:useBean>
 			<div>
 				<form method="post" action="/jeju/opencourse/register.bit">

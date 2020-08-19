@@ -36,7 +36,7 @@
 
 <h2>수강신청이 완료되었습니다</h2>
 
-<jsp:useBean id = "course" class = "com.bit.course.model.CourseDto" scope = "request"/>
+<jsp:useBean id = "course" class = "com.bit.courses.model.CourseDto" scope = "request"/>
 			
 			
 		<table>

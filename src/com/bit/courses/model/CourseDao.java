@@ -6,7 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import com.bit.courses.model.*;
+import com.bit.courses.model.CourseDto;
 
 public class CourseDao {
 	Connection conn;
