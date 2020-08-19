@@ -170,11 +170,10 @@ input {
 		</div>
 		<div id = "content">
 			<h2>과정삭제 완료페이지</h2>
-				
 				<div>
-					<input type = "button" value="홈으로 가기" onClick="location.href='courses.bit'"/>
+<jsp:useBean id = "course" class = "com.bit.course.model.CourseDto" scope = "request"/>
+				<button type = "button" onclick="location.href='courses.bit'">홈으로 가기</button>
 				</div>
-			</form>
 		</div>
 		<div id="footer">
 			<address>비트캠프 제주특별자치도 서귀포시 강정동 736</address>

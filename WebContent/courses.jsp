@@ -156,11 +156,9 @@ button>a{
 }
 
 table tr>td:nth-child(2) {
-	color: red;
+	color: black;
 	text-decoration: underline;
 }
-
-table tr>td:nth-child(1) {}
 
 #footer {
 	text-align: center;
@@ -236,10 +234,8 @@ $(document).ready(function() {
 					}
 				%>
 			</table>
-			<button>
-				<a href = "cadd.bit">과정추가</a>
-			</button>
-			<button>수강신청관리</button>
+			<button type = "button" onclick="location.href = 'cadd.bit'">과정추가</button>
+			<button type = "button" onclick="location.href = '#'">수강신청관리</button>
 		</div>
 		<div id="footer">
 			<address>비트캠프 제주특별자치도 서귀포시 강정동 736</address>

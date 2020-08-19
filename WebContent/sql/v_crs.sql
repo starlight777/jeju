@@ -15,3 +15,8 @@ insert into crs values(crs_seq.nextval,'java',sysdate,sysdate,55,30,401,1008,100
 delete from crs where cno=49;
 update crs set ctitle='java1', cbegin=sysdate, cend=sysdate, croom=402, profno=1008, salesno=1001 where cno=52;
 update crs set ctitle='java2', cbegin='2020-08-01', cend='2020-08-01', croom=402, profno=1008, salesno=1001 where cno=53; 
+
+
+
+
+

@@ -24,7 +24,6 @@ public class CdelController extends HttpServlet {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		resp.setStatus(200);
 		RequestDispatcher rd = req.getRequestDispatcher("cdel.jsp");
 		rd.forward(req, resp);
 	}

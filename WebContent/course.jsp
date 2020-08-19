@@ -124,34 +124,41 @@
 	border:1px solid black;
 }
 
-#content>h2 {
+h2 {
 	margin: 100px;
 	margin-left: 400px;
 }
 
-#content>table{
-	width: 1000px;
+table{
 	text-align: center;
-	border-collapse: collapse;
 	margin-left: 450px;
+	border-collapse: collapse;
+	
 }
 
-#content>table>tbody>tr{
-	display:block;
-}
-
-#content>table>tbody>tr>th{
+table>tbody>tr{
 	border:1px solid black;
+	
 }
 
-#content>table>tbody>tr>td{
-	border:1px solid black;
+table>tbody>tr>th{
+	border: 1px solid black;
+	width:80px;
+	
 }
 
-#content>table>tbody>tr>th{}
+table>tbody>tr>td{
+	border: 1px solid black;	
+	width: 600px;
+	
+}
 
-#content>button{
-	margin-left: 100px;
+button{
+	width: 100px;
+	margin-top: 40px;
+	margin-left: 20px;
+	position: relative;
+	left: 473px;
 }
 
 #footer {
@@ -228,9 +235,9 @@
 					<td><jsp:getProperty property="salesno" name="course"/></td>
 				</tr>
 			</table>
-				<a href = "cedit.bit?idx=<%=course.getCno()%>">수정/확인</a>
-				<a href = "cdel.bit?cno=<%=course.getCno() %>">삭제</a>
-				<a href = "courses.bit">뒤로</a>
+			<button type = "button" onclick="location.href = 'cedit.bit?idx=<%=course.getCno()%>'">수정</button>
+			<button type = "button" onclick="location.href = 'cdel.bit?cno=<%=course.getCno() %>'">삭제</button>
+			<button type = "button" onclick="location.href = 'courses.bit'">뒤로가기</button>
 		</div>
 		<div id="footer">
 			<address>비트캠프 제주특별자치도 서귀포시 강정동 736</address>

@@ -170,10 +170,7 @@ input {
 		</div>
 		<div id = "content">
 			<h2>반개설 완료페이지</h2>
-				
-				<div>
-					<input type = "button" value="홈으로 가기" onClick="location.href='courses.bit'"/>
-				</div>
+				<button type = "button" onclick="location.href='courses.bit'">홈으로 가기</button>
 			</form>
 		</div>
 		<div id="footer">
