@@ -10,6 +10,13 @@ create table mbr(
 	lvl char(3) default 'L01' constraint mbr_lvl_fk references lvl(lvl)
 );
 create sequence mbr_seq;
+
+select id from std where sno=1; 
+
+update mbr set lvl='L04' where id=(select id from std where sno=1);
+
+select * from mbr where lvl='L04';
+
 --input data
 insert into mbr values ('user1','test!111','회원1','01012341111','user1@bitjeju.com','강아지','L01');
 insert into mbr values ('user2','test!111','회원2','01012341112','user2@bitjeju.com','강아지','L01');

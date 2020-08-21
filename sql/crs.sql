@@ -1,5 +1,6 @@
 drop table crs;
 drop sequence crs_seq;
+
 create table crs(
 	cno number constraint crs_cno_pk primary key,
 	ctitle varchar2(300),	

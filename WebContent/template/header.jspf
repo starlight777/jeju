@@ -1,24 +1,41 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<div>
-	<h1>HEADER</h1>
-	<div>
-		<% if(session.getAttribute("user") == null) {%>
-		<span><a href="/jeju/login.bit">로그인</a></span>
-		<span><a href="#">LMS 로그인</a></span>
-		<% } else { %>
-		<span><a href="/jeju/mypage/info.bit">마이페이지</a></span>
-		<span><a href="/jeju/login/logout.bit">로그아웃</a></span>
-		<% }%>
-	</div>
-	<div>
-	</div>
-</div>
-<div>
-	<ul>
-		<li><a href="/jeju/index.jsp">홈</a></li>
-		<li><a href="#">학원소개</a></li>
-		<li><a href="#">교육과정</a></li>
-		<li><a href="#">공지사항</a></li>
-	</ul>
-</div>
+		<div id="header">
+			<div>
+				<img alt="logo" src="<%=root %>/img/logo.png"/>
+				<ul>
+					<li>
+						<c:if test="${login ne null }">
+							<span>${login.dname }님 로그인 중</span>
+						</c:if>
+						<c:if test="${elogin ne null }">
+							<span>${elogin.dname }팀&nbsp;${elogin.name }님 로그인 중</span>
+						</c:if>
+					</li>
+					<li>
+						<c:if test="${login eq null }">
+							<a href="<%=root %>/login.bit">로그인</a>
+						</c:if>
+						<c:if test="${login ne null }">
+							<a href="<%=root %>/login/logout.bit">로그아웃</a>
+						</c:if>
+					</li>
+					<li>
+						<c:if test="${login ne null }">
+							<a href="<%=root %>/mypage.bit">마이페이지</a>
+						</c:if>
+						<c:if test="${elogin ne null }">
+							<a href="<%=root %>/lms/mytask.bit">LMS</a>
+						</c:if>
+					</li>
+					<li>
+						<c:if test="${elogin eq null }">
+							<a href="<%=root %>/login/elogin.bit">LMS로그인</a>
+						</c:if>
+						<c:if test="${elogin ne null }">
+							<a href="<%=root %>/login/elogout.bit">LMS로그아웃</a>
+						</c:if>
+					</li>
+				</ul>
+			</div>
+		</div>

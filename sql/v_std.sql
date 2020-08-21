@@ -1,10 +1,11 @@
 create or replace view v_std as
 select std.cno,ctitle,empl.name as prof,cbegin,cend,cdays,
-std.sno,mbr.name,lvl,gr1,gr2,gr3,
+std.sno,mbr.name,lvl,lname,ldesc,gr1,gr2,gr3,
 cnt,cnt-absent-floor((late+leftearly)/3) as att_total, 
 round((cnt-absent-floor((late+leftearly)/3))/cnt*100) as att_rate,late,leftearly,absent 
 from std
 left join mbr on std.id=mbr.id
+left join lvl on mbr.lvl=lvl.lvl
 left join crs on std.cno=crs.cno
 left join empl on crs.profno=empl.eno
 left join (select max(sno) as sno, count(sno) as cnt from att group by sno) t_count on std.sno=t_count.sno
@@ -14,3 +15,4 @@ left join (select max(sno) as sno, count(sno) as absent from att where ckin=0 or
 order by crs.cno, std.sno;
 
 select * from v_std;
+select * from v_std where cno=4;

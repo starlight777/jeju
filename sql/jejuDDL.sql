@@ -27,7 +27,7 @@ create table crs(
 	salesno number constraint crs_salesno_fk references empl(eno)
 );
 create sequence crs_seq;
-
+drop table ntc;
 create table ntc(
 	nno number constraint ntc_nno_pk primary key,
 	ntitle varchar2(300),
@@ -63,11 +63,11 @@ create table std(
 	id varchar2(20) constraint std_id_fk references mbr(id),
 	cno number constraint std_cno_fk references crs(cno),
 	date1 date,
-	gr1 number(3) check (gr1 between 1 and 100),
+	gr1 number(3),
 	date2 date,
-	gr2 number(3) check (gr2 between 1 and 100),
+	gr2 number(3),
 	date3 date,
-	gr3 number(3) check (gr3 between 1 and 100)
+	gr3 number(3)
 );
 create sequence std_seq;
 

@@ -5,13 +5,26 @@ create table std(
 	id varchar2(20) constraint std_id_fk references mbr(id),
 	cno number constraint std_cno_fk references crs(cno),
 	date1 date,
-	gr1 number(3) check (gr1 between 1 and 100),
+	gr1 number(3),
 	date2 date,
-	gr2 number(3) check (gr2 between 1 and 100),
+	gr2 number(3),
 	date3 date,
-	gr3 number(3) check (gr3 between 1 and 100)
+	gr3 number(3)
 );
 create sequence std_seq;
+
+update std set date1=sysdate, gr1=100 where sno=46;
+
+select (nvl(gr1,''), nvl(gr2,''), nvl(gr3,''))/ from std where sno=46;
+
+select * from v_std where rownum between 1 and 20;
+select * from v_std where rownum between 21 and 40;
+
+select * from (select cno, cdays, sno, gr1, gr2, gr3, cnt, att_total,att_rate, late,leftearly,absent,ctitle, prof, name, lvl, lname,ldesc,cbegin, cend, rownum as rn from v_std) where rn between 21 and 40;
+
+
+select * from std;
+
 --input data
 insert into std values (std_seq.nextval,'user11','1','2020-7-31','81','2020-8-1','82','2020-8-10','87');
 insert into std values (std_seq.nextval,'user12','1','2020-7-31','82','2020-8-1','83','2020-8-10','88');

@@ -8,6 +8,11 @@ create table att(
 	ckout number(1) default 0 check (ckout in(0,1,3))
 );
 create sequence att_seq;
+
+select att.*,v_std.name from att,v_std where v_std.sno=att.sno and att.sno=1;
+
+insert into att values (att_seq.nextval,?,sysdate,?,?);
+
 --input data
 insert into att values (att_seq.nextval,'1','2020-07-01','1','1');
 insert into att values (att_seq.nextval,'1','2020-07-02','2','1');
