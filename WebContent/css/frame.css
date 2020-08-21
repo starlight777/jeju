@@ -1,98 +1,24 @@
-#header{
-}
-#header>h1{
-	
-}
-
-#header>h2{
-	width: 213px;
-	height: 61px;
-	text-indent: -9999px;
-	background-image: url("../img/logo.png");
-	margin: auto;
-	display: block;
-}
-#header>div{
-	height: 30px;
-	background-color: paleturquoise;
-}
-#header>div>form{
-	/* top:-120px;
-	position:relative; */
-	/* width: 480px; */
-	float: right;
-	line-height: 30px;
-}
-#header>div>form>div{
-	display:inline-block;
-	width: 150px;
-}
-#header>div>form>div>label{
-	display:inline-block;
-	width: 20px;
-}
-#header>div>form>div>input{
-	width: 100px;
-}
-#header>div>form>div>button{}
-#menu{
-		text-align:center;
-	/* 	background-color: white; */
-		height: 50px;
-		
-		background-color: white;
-		
-		/* margin: auto; */
-	/* 	display: block; */
-	}
-	#menu>ul{
-		list-style: none;
-		width :500px;
-		height:50px;
-		margin:0px auto;
+* {
+		margin: 0px;
 		padding: 0px;
-		
 	}
-	#menu>ul>li{
-		float:left;
+	h1 {
 		width: 100px;
+	}
+	#content {
+		min-height: 800px;
+	}
+	body > div {
+		width: 100%;
+		height: 100px;
+	}
+	body > div > ul {
+		width: 500px;
 		height: 50px;
-		line-height: 50px;
-	/*	border-right: 1px solid black;
-		border-left: 1px solid black; */
-		box-sizing:border-box;	
-		
+		list-style: none;
 	}
-	
-	
-	#menu>ul>li>a{
-		color: black;
-		text-decoration:none;
-		text-align:center;
-		/* display: block; */
-		background-color: white;
-		
+	body > div > ul > li {
+		width: 100px;
+		float: left;
+		display: inline-block;
 	}
-	#menu>ul>li>a:hover{
-		color: paleturquoise; 
-		
-	}
-	
-
-	
-	.bx-wrapper {
-		margin: 0px auto;
-	}
-	
-	
-	#footer{
-		background-color: white;
-	}
-	
-	
-	#footer>div{
-		width: 2000px;
-		text-align: center;
-		Color: gray;
-	}
-	

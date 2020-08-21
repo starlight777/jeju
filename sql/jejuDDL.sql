@@ -79,4 +79,3 @@ create table att(
 	ckout number(1) default 0 check (ckout in(0,1,3))
 );
 create sequence att_seq;
-

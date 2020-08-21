@@ -10,7 +10,8 @@
 <body>
 	<%@ include file="template/header.jspf" %>
 	<div id="content">
-		<h2>carousel</h2>
+		<h2>회원으로 가입되었습니다!</h2>
+		<p><a href="/jeju/login.bit">로그인하기</a></p>
 	</div>
 	<%@ include file="template/footer.jspf" %>
 </body>
