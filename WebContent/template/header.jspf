@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<<<<<<< HEAD
 		<div id="header">
 			<div>
 				<img alt="logo" src="<%=root %>/img/logo.png"/>
@@ -40,27 +39,3 @@
 				</ul>
 			</div>
 		</div>
-=======
-<div>
-	<h1>HEADER</h1>
-	<div>
-		<% if(session.getAttribute("user") == null) {%>
-		<span><a href="/jeju/login.bit">로그인</a></span>
-		<span><a href="#">LMS 로그인</a></span>
-		<% } else { %>
-		<span><a href="/jeju/mypage/info.bit">마이페이지</a></span>
-		<span><a href="/jeju/login/logout.bit">로그아웃</a></span>
-		<% }%>
-	</div>
-	<div>
-	</div>
-</div>
-<div>
-	<ul>
-		<li><a href="/jeju/index.jsp">홈</a></li>
-		<li><a href="#">학원소개</a></li>
-		<li><a href="#">교육과정</a></li>
-		<li><a href="#">공지사항</a></li>
-	</ul>
-</div>
->>>>>>> firstdev

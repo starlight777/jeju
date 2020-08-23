@@ -1,12 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-		<div id="menu">
+    <div id="menu">
+    	<hr>
 			<ul>
 				<li><a href="<%=root %>/index.bit">홈</a></li>
 				<li><a href="<%=root %>/intro.bit">학원소개</a></li>
 				<li><a href="<%=root %>/opencourse.bit">교육과정</a></li>
 				<li><a href="<%=root %>/notice.bit">공지사항</a></li>
 			</ul>
+		<hr>
 		</div>
 		<div id="menu_left">
 			<c:if test="${login ne null}">
