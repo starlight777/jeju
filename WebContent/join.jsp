@@ -85,57 +85,53 @@
 <body>
 <%@ include file="template/header.jspf" %>
 <%@ include file="template/menu.jspf" %>
-	<div id="content">
+	<h2>회원가입</h2>
+	<div>
 		<div>
-			<h2>회원가입</h2>
+			<label for="id">아이디 (영문, 숫자 조합 최소 5자)</label>
+			<input type="text" id="id" class="default_input" name="id"/>
+			<span id="errid"></span>
 		</div>
 		<div>
-			<div>
-				<label for="id">아이디 (영문, 숫자 조합 최소 5자)</label>
-				<input type="text" id="id" class="default_input" name="id"/>
-				<span id="errid"></span>
-			</div>
-			<div>
-				<label for="pw">비밀번호 (영문, 한글, 특수문자 포함 최소 8자)</label>
-				<input type="password" id="pw" class="default_input" name="pw"/>
-				<span id="errpw"></span>
-			</div>
-			<div>
-				<label for="pwcheck">비밀번호 확인</label>
-				<input type="password" id="pwcheck" class="default_input" name="pwcheck"/>
-				<span id="errpwcheck"></span>
-			</div>
-			<div>
-				<div>비밀번호 찾기 질문: 가장 좋아하는 동물은?</div>
-				<label for="answer">비밀번호 찾기 답 (한글 기준 10자 이내)</label>
-				<input type="text" id="answer" class="default_input" name="answer"/>
-				<span id="erranswer"></span>
-			</div>
-			<div>
-				<label for="name">이름</label>
-				<input type="text" id="name" class="default_input" name="name"/>
-				<span id="errname"></span>
-			</div>
-			<div>
-				<label for="tel">전화번호</label>
-				<input type="text" id="tel" class="default_input" name="tel"/>
-				<span id="errtel"></span>
-			</div>
-			<div>
-				<label for="email">이메일</label>
-				<input type="text" id="email" class="default_input" name="email"/>
-				<span id="erremail"></span>
-			</div>
-			<div>
-				<input type="checkbox" id="legal" class="default_input" name="legal">
-				<label for="legal"> 이용약관 및 개인정보 처리방침에 동의합니다</label>
-				<span id="errlegal"></span>
-			</div>
-			<div>
-				<button type="button" id="btnjoin">가입</button>
-			</div>
+			<label for="pw">비밀번호 (영문, 한글, 특수문자 포함 최소 8자)</label>
+			<input type="password" id="pw" class="default_input" name="pw"/>
+			<span id="errpw"></span>
+		</div>
+		<div>
+			<label for="pwcheck">비밀번호 확인</label>
+			<input type="password" id="pwcheck" class="default_input" name="pwcheck"/>
+			<span id="errpwcheck"></span>
+		</div>
+		<div>
+			<div>비밀번호 찾기 질문: 가장 좋아하는 동물은?</div>
+			<label for="answer">비밀번호 찾기 답 (한글 기준 10자 이내)</label>
+			<input type="text" id="answer" class="default_input" name="answer"/>
+			<span id="erranswer"></span>
+		</div>
+		<div>
+			<label for="name">이름</label>
+			<input type="text" id="name" class="default_input" name="name"/>
+			<span id="errname"></span>
+		</div>
+		<div>
+			<label for="tel">전화번호</label>
+			<input type="text" id="tel" class="default_input" name="tel"/>
+			<span id="errtel"></span>
+		</div>
+		<div>
+			<label for="email">이메일</label>
+			<input type="text" id="email" class="default_input" name="email"/>
+			<span id="erremail"></span>
+		</div>
+		<div>
+			<input type="checkbox" id="legal" class="default_input" name="legal">
+			<label for="legal"> 이용약관 및 개인정보 처리방침에 동의합니다</label>
+			<span id="errlegal"></span>
+		</div>
+		<div>
+			<button type="button" id="btnjoin">가입</button>
 		</div>
 	</div>
-	<%@ include file="template/footer.jspf" %>
+<%@ include file="template/footer.jspf" %>
 </body>
 </html>

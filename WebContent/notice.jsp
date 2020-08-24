@@ -8,33 +8,10 @@
 <title>Insert title here</title>
 <%@ include file="template/head.jspf" %>
 <style rel="stylesheet" type="text/css">
-
 </style>
 <script type="text/javascript" src="js/jquery-1.12.4.js"></script>
 <script type="text/javascript">
-<%-- $(document).ready(function(){
-	$('table tr').first().siblings().click(function(){
-		var nno=$(this).children().first().text();
-		location.href='/lms/ntc/ndetail2.bit?idx='+nno;
-	});
-	
-});
---%>
 </script>
-
-<style type="text/css">
-	#content table{
-		border-collapse: collapse;
-	}
-	#content table tr{
-	}
-	#content table tr th{
-		border: 1px solid grey;
-	}
-	#content table tr td{
-		border: 1px solid grey;
-	}
-</style>
 </head>
 
 <body>

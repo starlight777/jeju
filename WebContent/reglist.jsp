@@ -9,14 +9,12 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>BitCamp Jeju</title>
 <%@ include file="template/head.jspf" %>
-<link rel="stylesheet" type="text/css" href="/jeju/css/frame.css"/>
-<script type="text/javascript" src="/jeju/js/jquery-1.12.4.js"></script>
 <style type="text/css">
 </style>
 <script type="text/javascript">
 </script>
-
 </head>
+
 <body>
 <%@ include file="template/header.jspf" %>
 <%@ include file="template/menu.jspf" %>

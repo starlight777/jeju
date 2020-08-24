@@ -84,56 +84,52 @@
 <body>
 <%@ include file="template/header.jspf" %>
 <%@ include file="template/menu.jspf" %>
-	<div id="content">
-		<div>
-			<h2>회원 정보 수정</h2>
-		</div>
-		<div>
-			<% 
-			String type = request.getParameter("type");
-			if(!type.equals("pw")) {
-				String label = null;
-				String value = null;
-				if("name".equals(type)) {
-					label = "이름";
-					value = ((MemberDto) request.getAttribute("user_info")).getName();
-				} else if("tel".equals(type)) {
-					label = "전화번호";
-					value = ((MemberDto) request.getAttribute("user_info")).getTel();
-				} else if("email".equals(type)) {
-					label = "이메일";
-					value = ((MemberDto) request.getAttribute("user_info")).getEmail();
-				} else if("answer".equals(type)) {
-					label = "비밀번호 찾기 답 (한글 기준 10자 이내)";
-					value = ((MemberDto) request.getAttribute("user_info")).getAnswer();
-				}
-			%>
-				<div>
-					<label for="<%= type %>"><%= label %></label>
-					<input type="text" name="<%= type %>" id="<%= type %>" class="default_input" value="<%= value %>">
-					<span id="err<%= type %>"></span>
-				</div>
-			<% 
-			} else { 
-			%>
-				<div>
-					<label for="pw">새 비밀번호 (영문, 한글, 특수문자 포함 최소 8자)</label>
-					<input type="password" name="pw" id="pw" class="default_input">
-					<span id="errpw"></span>
-				</div>
-				<div>
-					<label for="pwcheck">새 비밀번호 확인</label>
-					<input type="password" name="pwcheck" id="pwcheck" class="default_input">
-					<span id="errpwcheck"></span>
-				</div>
-			<% } %>
+	<h2>회원 정보 수정</h2>
+	<div>
+		<% 
+		String type = request.getParameter("type");
+		if(!type.equals("pw")) {
+			String label = null;
+			String value = null;
+			if("name".equals(type)) {
+				label = "이름";
+				value = ((MemberDto) request.getAttribute("user_info")).getName();
+			} else if("tel".equals(type)) {
+				label = "전화번호";
+				value = ((MemberDto) request.getAttribute("user_info")).getTel();
+			} else if("email".equals(type)) {
+				label = "이메일";
+				value = ((MemberDto) request.getAttribute("user_info")).getEmail();
+			} else if("answer".equals(type)) {
+				label = "비밀번호 찾기 답 (한글 기준 10자 이내)";
+				value = ((MemberDto) request.getAttribute("user_info")).getAnswer();
+			}
+		%>
 			<div>
-				<button type="button" id="btnedit">저장</button>
-				<button type="button" id="cancel">취소</button>
+				<label for="<%= type %>"><%= label %></label>
+				<input type="text" name="<%= type %>" id="<%= type %>" class="default_input" value="<%= value %>">
+				<span id="err<%= type %>"></span>
 			</div>
+		<% 
+		} else { 
+		%>
+			<div>
+				<label for="pw">새 비밀번호 (영문, 한글, 특수문자 포함 최소 8자)</label>
+				<input type="password" name="pw" id="pw" class="default_input">
+				<span id="errpw"></span>
+			</div>
+			<div>
+				<label for="pwcheck">새 비밀번호 확인</label>
+				<input type="password" name="pwcheck" id="pwcheck" class="default_input">
+				<span id="errpwcheck"></span>
+			</div>
+		<% } %>
+		<div>
+			<button type="button" id="btnedit">저장</button>
+			<button type="button" id="cancel">취소</button>
 		</div>
-	</div>					
-	<%@ include file="template/footer.jspf" %>
+	</div>
+<%@ include file="template/footer.jspf" %>
 </body>
 
 </html>

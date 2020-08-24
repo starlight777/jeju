@@ -57,26 +57,22 @@
 <body>
 <%@ include file="template/header.jspf" %>
 <%@ include file="template/menu.jspf" %>
-	<div id="content">
+	<h2>회원 탈퇴하기</h2>
+	<div>
+		<p>탈퇴하는 계정의 정보, 강의 수강 내역 등을 전부 삭제하며 이후에 복구할 수 없습니다. 
+			계정을 삭제하려면 비밀번호를 입력하고 탈퇴합니다 버튼을 누르세요.</p>
+	</div>
+	<div>
 		<div>
-			<h2>회원 탈퇴하기</h2>
+			<label for="pw">비밀번호</label>
+			<input type="password" id="pw" name="pw"/>
+			<span id="errpw"></span>
 		</div>
 		<div>
-			<p>탈퇴하는 계정의 정보, 강의 수강 내역 등을 전부 삭제하며 이후에 복구할 수 없습니다. 
-				계정을 삭제하려면 비밀번호를 입력하고 탈퇴합니다 버튼을 누르세요.</p>
-		</div>
-		<div>
-			<div>
-				<label for="pw">비밀번호</label>
-				<input type="password" id="pw" name="pw"/>
-				<span id="errpw"></span>
-			</div>
-			<div>
-				<button type="button" id="btnleave">탈퇴합니다</button>
-				<button type="button" id="cancel">취소</button>
-			</div>
+			<button type="button" id="btnleave">탈퇴합니다</button>
+			<button type="button" id="cancel">취소</button>
 		</div>
 	</div>
-	<%@ include file="template/footer.jspf" %>
+<%@ include file="template/footer.jspf" %>
 </body>
 </html>

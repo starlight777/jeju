@@ -10,7 +10,9 @@
 <body>
 <%@ include file="template/header.jspf" %>
 <%@ include file="template/menu.jspf" %>
+
 	<h2>계정을 삭제했습니다. <%= request.getParameter("name") %></h2>
+
 <%@ include file="template/footer.jspf" %>
 </body>
 

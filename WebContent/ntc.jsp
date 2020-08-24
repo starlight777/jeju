@@ -14,9 +14,9 @@
 <%@ include file="template/header.jspf" %>
 <%@ include file="template/menu.jspf" %>
 
-<h2>lms 공지사항</h2>
+<h2>LMS 공지사항</h2>
 
-<table width="500" cellpadding="0" cellspacing="0" border="1">
+<table>
 
 	<tr>
 		<th>번호</th>

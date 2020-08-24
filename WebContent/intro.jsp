@@ -17,7 +17,6 @@
 <%@ include file="template/menu.jspf" %>
 
 	<h2>제주점 소개</h2>
-	
 		<div><img src="<%=root %>/img/intro01.jpg" /></div>
         <div><img src="<%=root %>/img/intro02.jpg" /></div>
 

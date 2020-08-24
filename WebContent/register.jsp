@@ -8,26 +8,9 @@
 <title>Insert title here</title>
 <%@ include file="template/head.jspf" %>
 <style rel="stylesheet" type="text/css">
-
 </style>
 <script type="text/javascript">
-
 </script>
-
-<style type="text/css">
-	#content table{
-		border-collapse: collapse;
-	}
-	#content table tr{
-	}
-	#content table tr th{
-		border: 1px solid grey;
-	}
-	#content table tr td{
-		border: 1px solid grey;
-	}
-</style>
-
 
 </head>
 <body>
@@ -37,7 +20,6 @@
 <h2>수강신청이 완료되었습니다</h2>
 
 <jsp:useBean id = "course" class = "com.bit.course.model.CourseDto" scope = "request"/>
-			
 			
 		<table>
 				<tr>
@@ -53,7 +35,6 @@
 		<div>
 			<button><a href="/jeju/index.bit">홈으로 돌아가기</button>
 		</div>
-
 
 <%@ include file="template/footer.jspf" %>
 </body>

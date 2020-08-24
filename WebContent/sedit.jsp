@@ -8,22 +8,6 @@
 <%@ include file="template/head.jspf" %>
 <style rel="stylesheet" type="text/css">
 </style>
-<style type="text/css">
-	#content table{
-		border-collapse: collapse;
-	}
-	#content table tr{
-	}
-	#content table tr th{
-		border: 1px solid grey;
-	}
-	#content table tr td{
-		border: 1px solid grey;
-	}
-	input{
-		border: none;
-	}
-</style>
 <script type="text/javascript">
 </script>
 </head>

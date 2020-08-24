@@ -64,31 +64,27 @@
 <body>
 <%@ include file="template/header.jspf" %>
 <%@ include file="template/menu.jspf" %>
-	<div id="content">
+	<h2>로그인</h2>
+	<div>
 		<div>
-			<h2>로그인</h2>
+			<label for="id">아이디</label>
+			<input type="text" id="id" name="id"/>
+			<span id="errid"></span>
 		</div>
 		<div>
-			<div>
-				<label for="id">아이디</label>
-				<input type="text" id="id" name="id"/>
-				<span id="errid"></span>
-			</div>
-			<div>
-				<label for="pw">비밀번호</label>
-				<input type="password" id="pw" name="pw"/>
-				<span id="errpw"></span>
-			</div>
-			<div>
-				<button id="btnlogin">로그인</button>
-			</div>
-			<div>
-				<span><a href="login/findid.bit">아이디 찾기</a></span>
-				<span><a href="login/findpw.bit">비밀번호 찾기</a></span>
-				<span><a href="login/join.bit">회원가입</a></span>
-			</div>
+			<label for="pw">비밀번호</label>
+			<input type="password" id="pw" name="pw"/>
+			<span id="errpw"></span>
+		</div>
+		<div>
+			<button id="btnlogin">로그인</button>
+		</div>
+		<div>
+			<span><a href="login/findid.bit">아이디 찾기</a></span>
+			<span><a href="login/findpw.bit">비밀번호 찾기</a></span>
+			<span><a href="login/join.bit">회원가입</a></span>
 		</div>
 	</div>
-	<%@ include file="template/footer.jspf" %>
+<%@ include file="template/footer.jspf" %>
 </body>
 </html>
