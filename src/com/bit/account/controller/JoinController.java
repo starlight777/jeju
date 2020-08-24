@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.bit.account.model.MemberDAO;
-import com.bit.account.model.MemberDTO;
+import com.bit.account.model.MemberDao;
+import com.bit.account.model.MemberDto;
 
 @WebServlet("/login/join.bit")
 public class JoinController extends HttpServlet {
@@ -32,7 +32,7 @@ public class JoinController extends HttpServlet {
 		String name = req.getParameter("name");
 		String tel = req.getParameter("tel");
 		String email = req.getParameter("email");
-		MemberDAO dao = new MemberDAO();
+		MemberDao dao = new MemberDao();
 		resp.setContentType("text");
 		PrintWriter out = resp.getWriter();
 		int result = 0;

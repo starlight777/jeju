@@ -65,9 +65,9 @@ public class V_stdDao {
 		return list;
 	}
 	
-	public ArrayList<V_stdDto> selectAllByCrs(int cno) throws SQLException{
+	public ArrayList<V_stdDto> selectActiveStdByCrs(int cno) throws SQLException{
 		ArrayList<V_stdDto> list=new ArrayList<V_stdDto>();
-		String sql="select * from v_std where cno=?";
+		String sql="select * from v_std where lvl='L03' and cno=?";
 		try{
 			pstmt=conn.prepareStatement(sql);
 			pstmt.setInt(1, cno);

@@ -83,7 +83,8 @@
 </script>
 </head>
 <body>
-	<%@ include file="template/header.jspf" %>
+<%@ include file="template/header.jspf" %>
+<%@ include file="template/menu.jspf" %>
 	<div id="content">
 		<div>
 			<h2>회원가입</h2>

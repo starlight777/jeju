@@ -1,4 +1,4 @@
-package com.bit.courses.model;
+package com.bit.course.model;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -8,9 +8,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-
-import com.bit.course.model.CourseDto;
-import com.bit.course.model.SalesCourseDto;
 
 public class CoursesDao {
 	String driver =	"oracle.jdbc.OracleDriver";

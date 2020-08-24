@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.bit.account.model.MemberDTO;
+import com.bit.account.model.MemberDto;
 
 @WebServlet("/login/logout.bit")
 public class LogoutController extends HttpServlet {
@@ -18,7 +18,7 @@ public class LogoutController extends HttpServlet {
 			throws ServletException, IOException {
 		HttpSession session = req.getSession();
 		try {
-			String name = ((MemberDTO) session.getAttribute("user")).getName();
+			String name = ((MemberDto) session.getAttribute("user")).getName();
 			req.setAttribute("name", name);
 		} catch(NullPointerException e) {
 			resp.sendRedirect("/jeju/login.bit");

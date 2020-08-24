@@ -29,7 +29,7 @@ public class MystusController extends HttpServlet {
 		
 		try {
 			V_stdDao dao2 = new V_stdDao();
-			ArrayList<V_stdDto> stds=dao2.selectAllByCrs(Integer.parseInt(request.getParameter("cno")));
+			ArrayList<V_stdDto> stds=dao2.selectActiveStdByCrs(Integer.parseInt(request.getParameter("cno")));
 			request.setAttribute("stds", stds);
 		} catch (SQLException e) {
 			e.printStackTrace();

@@ -1,8 +1,8 @@
 package com.bit.student.model;
 
-import com.bit.util.DTO;
+import com.bit.util.Dto;
 
-public class AttendanceDTO extends DTO{
+public class AttendanceDto extends Dto{
 	
 	private int cnt;
 	private int att_total;

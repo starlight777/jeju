@@ -2,9 +2,9 @@ package com.bit.course.model;
 
 import java.sql.Date;
 
-import com.bit.util.DTO;
+import com.bit.util.Dto;
 
-public class CourseDTO extends DTO{
+public class CourseDto extends Dto{
 	
 	private int cno;
 	private String ctitle;
@@ -17,6 +17,33 @@ public class CourseDTO extends DTO{
 	private String prof;
 	private int salesno;
 	
+	public CourseDto() {
+		
+	}
+
+	public CourseDto(int cno, String ctitle, Date cbegin, Date cend) {
+		super();
+		this.cno = cno;
+		this.ctitle = ctitle;
+		this.cbegin = cbegin;
+		this.cend = cend;
+	}
+	
+	public CourseDto(int cno, String ctitle, Date cbegin, Date cend, int cdays,
+			int climit, String croom, int profno, String prof, int salesno) {
+		super();
+		this.cno = cno;
+		this.ctitle = ctitle;
+		this.cbegin = cbegin;
+		this.cend = cend;
+		this.cdays = cdays;
+		this.climit = climit;
+		this.croom = croom;
+		this.profno = profno;
+		this.prof = prof;
+		this.salesno = salesno;
+	}
+
 	public int getCno() {
 		return cno;
 	}
@@ -77,6 +104,71 @@ public class CourseDTO extends DTO{
 	public void setSalesno(int salesno) {
 		this.salesno = salesno;
 	}
+	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((cbegin == null) ? 0 : cbegin.hashCode());
+		result = prime * result + cdays;
+		result = prime * result + ((cend == null) ? 0 : cend.hashCode());
+		result = prime * result + climit;
+		result = prime * result + cno;
+		result = prime * result + ((croom == null) ? 0 : croom.hashCode());
+		result = prime * result + ((ctitle == null) ? 0 : ctitle.hashCode());
+		result = prime * result + ((prof == null) ? 0 : prof.hashCode());
+		result = prime * result + profno;
+		result = prime * result + salesno;
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		CourseDto other = (CourseDto) obj;
+		if (cbegin == null) {
+			if (other.cbegin != null)
+				return false;
+		} else if (!cbegin.equals(other.cbegin))
+			return false;
+		if (cdays != other.cdays)
+			return false;
+		if (cend == null) {
+			if (other.cend != null)
+				return false;
+		} else if (!cend.equals(other.cend))
+			return false;
+		if (climit != other.climit)
+			return false;
+		if (cno != other.cno)
+			return false;
+		if (croom == null) {
+			if (other.croom != null)
+				return false;
+		} else if (!croom.equals(other.croom))
+			return false;
+		if (ctitle == null) {
+			if (other.ctitle != null)
+				return false;
+		} else if (!ctitle.equals(other.ctitle))
+			return false;
+		if (prof == null) {
+			if (other.prof != null)
+				return false;
+		} else if (!prof.equals(other.prof))
+			return false;
+		if (profno != other.profno)
+			return false;
+		if (salesno != other.salesno)
+			return false;
+		return true;
+	}
+
 	@Override
 	public String toString() {
 		return "CourseDTO [cno=" + cno + ", ctitle=" + ctitle + ", cbegin="

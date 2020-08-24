@@ -16,7 +16,7 @@ hr {
 }
 
 body{
-	color: #333333;
+	color: #444444;
 	/* 진한회색 */
 
 }
@@ -64,9 +64,9 @@ height: 130px;
 	text-align:center;
 	height: 50px;
 	padding: 0;
-	margin: 0;
+	margin: 0 10px 0 0;
 }
-#menu>ul{
+#menu ul{
 	list-style: none;
 	width :600px;
 	height:50px;
@@ -74,7 +74,7 @@ height: 130px;
 	padding: 0px;
 	
 }
-#menu>ul>li{
+#menu ul>li{
 	float:left;
 	width: 150px;
 	height: 50px;
@@ -83,24 +83,44 @@ height: 130px;
 	font-weight: bold;	
 	
 }
-#menu>ul>li>a{
+#menu ul>li>a{
 	height: 50px;
 	text-decoration:none;
 	text-align:center;
 	display: block;
 /* 	color: grey; */
 }
-#menu>ul>li>a:hover{
+#menu ul>li>a:hover{
 	color: #81d8d0;
 /* 	티파니색 */
 }
 
 /********************** #menu_left *************************/
 #menu_left{
-	width: 15%;
-  	min-height: 700px;
+	padding: 0;
+	margin: 0;
 	float: left;
-	borfer-right: 1px solid grey;
+	width: 15%;
+}
+#menu_left ul{
+	padding: 0px;
+	list-style: none;
+}
+#menu_left ul>li{
+	height: 50px;
+	line-height: 50px;
+	font-size: large;
+	font-weight: bold;	
+
+}
+#menu_left ul>li>a{
+	height: 50px;
+	text-decoration:none;
+	display: block;
+
+}
+#menu_left ul>li>a:hover{
+	color: #81d8d0;
 }
 
 /********************** #menu_std *************************/
@@ -113,18 +133,33 @@ height: 130px;
 	
 /********************** #content *************************/
 #content{
-	width: 85%;
+	padding: 0;
+	margin: 0;
+	width: 80%;
 	float: left;
 	text-align: center;
   	min-height: 700px;
 }
 #content table{
+	width: 80%;
+	border-collapse: collapse;
 	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+#content table tr{
+}
+#content table tr th{
+	border: 1px solid grey;
+}
+#content table tr td{
+	border: 1px solid grey;
 }
 	
 /********************** .bx-wrapper **********************/
 #content .bx-wrapper {
 	margin: 0px auto;
+	margin-top: 30px;
 	width: 1200px;
 }
 

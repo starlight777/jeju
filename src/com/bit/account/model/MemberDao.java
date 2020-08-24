@@ -4,13 +4,13 @@ import com.bit.util.OracleJeju;
 
 import java.sql.*;
 
-public class MemberDAO {
+public class MemberDao {
 	Connection conn = null;
 	PreparedStatement ps = null;
 	ResultSet rs = null;
-	MemberDTO dto = null;
+	MemberDto dto = null;
 	
-	public MemberDAO() {
+	public MemberDao() {
 		conn = new OracleJeju().getConnection();
 	}
 	
@@ -72,7 +72,7 @@ public class MemberDAO {
 		return 0;
 	}
 	
-	public MemberDTO selectMemeber(String id) {
+	public MemberDto selectMemeber(String id) {
 		String sql = "SELECT * FROM mbr WHERE id = ?";
 		System.out.println("selectMemeber() : " + id);
 		try {
@@ -80,7 +80,7 @@ public class MemberDAO {
 			ps.setString(1, id);
 			rs = ps.executeQuery();
 			if(rs.next()) {
-				dto = new MemberDTO();
+				dto = new MemberDto();
 				dto.setId(rs.getString("id"));
 				dto.setAnswer(rs.getString("answer"));
 				dto.setName(rs.getString("name"));
@@ -147,7 +147,7 @@ public class MemberDAO {
 	}
 	
 	// 로그인 시 멤버 정보 세션 전달용
-	public MemberDTO login(String id, String pw) {
+	public MemberDto login(String id, String pw) {
 		String sql = "SELECT * FROM mbr WHERE id = ? AND pw = ?";
 		System.out.println("login() : " + id + ", " + pw);
 		try {
@@ -156,7 +156,7 @@ public class MemberDAO {
 			ps.setString(2, pw);
 			rs = ps.executeQuery();
 			if(rs.next()) {
-				dto = new MemberDTO();
+				dto = new MemberDto();
 				dto.setId(rs.getString("id"));
 				dto.setName(rs.getString("name"));
 				dto.setLvl(rs.getString("lvl"));

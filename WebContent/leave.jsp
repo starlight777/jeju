@@ -55,7 +55,8 @@
 </script>
 </head>
 <body>
-	<%@ include file="template/header.jspf" %>
+<%@ include file="template/header.jspf" %>
+<%@ include file="template/menu.jspf" %>
 	<div id="content">
 		<div>
 			<h2>회원 탈퇴하기</h2>

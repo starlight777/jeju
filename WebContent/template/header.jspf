@@ -5,24 +5,24 @@
 				<img alt="logo" src="<%=root %>/img/logo.png"/>
 				<ul>
 					<li>
-						<c:if test="${login ne null }">
-							<span>${login.dname }님 로그인 중</span>
+						<c:if test="${user ne null }">
+							<span>${user.name }님 로그인 중</span>
 						</c:if>
 						<c:if test="${elogin ne null }">
 							<span>${elogin.dname }팀&nbsp;${elogin.name }님 로그인 중</span>
 						</c:if>
 					</li>
 					<li>
-						<c:if test="${login eq null }">
+						<c:if test="${user eq null }">
 							<a href="<%=root %>/login.bit">로그인</a>
 						</c:if>
-						<c:if test="${login ne null }">
+						<c:if test="${user ne null }">
 							<a href="<%=root %>/login/logout.bit">로그아웃</a>
 						</c:if>
 					</li>
 					<li>
-						<c:if test="${login ne null }">
-							<a href="<%=root %>/mypage.bit">마이페이지</a>
+						<c:if test="${user ne null }">
+							<a href="<%=root %>/mypage/info.bit">마이페이지</a>
 						</c:if>
 						<c:if test="${elogin ne null }">
 							<a href="<%=root %>/lms/mytask.bit">LMS</a>

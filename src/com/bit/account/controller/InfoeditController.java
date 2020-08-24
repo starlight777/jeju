@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.bit.account.model.MemberDAO;
-import com.bit.account.model.MemberDTO;
+import com.bit.account.model.MemberDao;
+import com.bit.account.model.MemberDto;
 
 @WebServlet("/mypage/infoedit.bit")
 public class InfoeditController extends HttpServlet {
@@ -20,9 +20,9 @@ public class InfoeditController extends HttpServlet {
 			throws ServletException, IOException {
 		resp.setHeader("Cache-Control", "no-store");
 		
-		MemberDTO dto = (MemberDTO) req.getSession().getAttribute("user");
+		MemberDto dto = (MemberDto) req.getSession().getAttribute("user");
 		try {
-			dto = new MemberDAO().selectMemeber(dto.getId());
+			dto = new MemberDao().selectMemeber(dto.getId());
 			req.setAttribute("user_info", dto);
 		} catch(NullPointerException e) {
 			resp.sendRedirect("/jeju/login.bit");
@@ -38,8 +38,8 @@ public class InfoeditController extends HttpServlet {
 		String type = req.getParameter("type");
 		String data = req.getParameter("data");
 		HttpSession session = req.getSession();
-		String id = ((MemberDTO) session.getAttribute("user")).getId();
-		int result = new MemberDAO().editMember(id, type, data);
+		String id = ((MemberDto) session.getAttribute("user")).getId();
+		int result = new MemberDao().editMember(id, type, data);
 		System.out.println("result : " + result);
 		resp.setCharacterEncoding("utf-8");
 		resp.setContentType("text");
@@ -49,7 +49,7 @@ public class InfoeditController extends HttpServlet {
 		} else {
 			if(type.equals("name")) {
 				session.removeAttribute("user");
-				session.setAttribute("user", new MemberDAO().selectMemeber(id));
+				session.setAttribute("user", new MemberDao().selectMemeber(id));
 			}
 			out.print("edit success");
 		}

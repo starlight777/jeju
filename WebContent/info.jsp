@@ -20,8 +20,8 @@
 </script>
 </head>
 <body>
-	<%@ include file="template/header.jspf" %>
-	<%@ include file="template/section.jspf" %>
+<%@ include file="template/header.jspf" %>
+<%@ include file="template/menu.jspf" %>
 	<div id="content">
 		<div>
 			<h2>회원 정보 ${user.name }</h2>

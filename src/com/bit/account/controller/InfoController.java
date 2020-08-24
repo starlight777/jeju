@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.bit.account.model.MemberDAO;
-import com.bit.account.model.MemberDTO;
+import com.bit.account.model.MemberDao;
+import com.bit.account.model.MemberDto;
 
 @WebServlet("/mypage/info.bit")
 public class InfoController extends HttpServlet {
@@ -19,10 +19,10 @@ public class InfoController extends HttpServlet {
 			throws ServletException, IOException {
 		resp.setHeader("Cache-Control", "no-store");
 		
-		MemberDTO dto = (MemberDTO) req.getSession().getAttribute("user");
+		MemberDto dto = (MemberDto) req.getSession().getAttribute("user");
 //		System.out.println("controller : " + dto.getId());
 		try	 {
-			dto = new MemberDAO().selectMemeber(dto.getId());
+			dto = new MemberDao().selectMemeber(dto.getId());
 			req.setAttribute("user_info", dto);
 		} catch(NullPointerException e) {
 			resp.sendRedirect("/jeju/login.bit");

@@ -9,6 +9,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.bit.course.model.CourseDto;
 import com.bit.std.model.StdDto;
 
 public class CourseDao {
@@ -45,7 +46,7 @@ public class CourseDao {
 				bean.setCend(rs.getDate("cend"));
 				bean.setCdays(rs.getInt("cdays"));
 				bean.setClimit(rs.getInt("climit"));
-				bean.setCroom(rs.getInt("croom"));
+				bean.setCroom(rs.getString("croom"));
 				bean.setProf(rs.getString("prof"));
 				bean.setSalesno(rs.getInt("salesno"));
 			}
@@ -64,12 +65,96 @@ public class CourseDao {
 		try{
 			pstmt=conn.prepareStatement(sql);
 			pstmt.setInt(1, cno);
-			result = pstmt.executeUpdate();			
+			result = pstmt.executeUpdate();		
+			System.out.println("del : " + cno + " result : " + result);	
 		}finally{
 			if(pstmt!=null)pstmt.close();
 			if(conn!=null)conn.close();
 		}
 		return result;
+	}
+	
+	public int updateOne(int cno, String ctitle, String cbegin, String cend, int croom, int profno, int salesno) throws SQLException {
+		String sql = "update crs set ctitle=?, cbegin=?, cend=?, croom=?, profno=?, salesno=? where cno=?"; 
+		int result = 0;
+		PreparedStatement pstmt = null;
+		try{
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, ctitle);
+			pstmt.setString(2, cbegin);
+			pstmt.setString(3, cend);
+			pstmt.setInt(4, croom);
+			pstmt.setInt(5, profno);
+			pstmt.setInt(6, salesno);
+			pstmt.setInt(7, cno);		
+			result = pstmt.executeUpdate();
+		}finally{
+			if(pstmt!=null)pstmt.close();
+			if(conn!=null)conn.close();
+		}
+		return result;
+	}
+
+	public ArrayList<CourseDto> selectAll() throws SQLException {
+		ArrayList<CourseDto> list=new ArrayList<CourseDto>();
+		String sql="select * from crs where cbegin > '2020-08-01' ORDER BY cno DESC";
+		System.out.println("selectAll()1");
+		try{
+			pstmt=conn.prepareStatement(sql);
+			rs=pstmt.executeQuery();
+			while(rs.next()){
+				list.add(new CourseDto(
+						 rs.getInt("cno")
+						,rs.getString("ctitle")
+						,rs.getDate("cbegin")
+						,rs.getDate("cend")
+						));
+			}
+		}finally{
+			if(rs!=null)rs.close();
+			if(pstmt!=null)pstmt.close();
+			if(conn!=null)conn.close();
+		}
+		System.out.println("selectAll()2");
+		return list;
+	}
+
+	public int registerOne (String id, int cno) throws SQLException {
+		String sql = "insert into std values (std_seq.nextval, ?, ?, null, null, null, null, null, null)";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			pstmt.setInt(2, cno);
+			return pstmt.executeUpdate();
+		
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally{
+				if (pstmt != null)pstmt.close();
+				if (conn != null)conn.close();
+			
+		}
+		return 0;
+	}
+		
+	public int levelUp (String id) throws SQLException {
+		String sql2 = "update mbr set lvl='L02' where id=?";
+
+		try {
+			pstmt = conn.prepareStatement(sql2);
+			pstmt.setString(1, id);
+			return pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally{
+				if (pstmt != null)pstmt.close();
+				if (conn != null)conn.close();
+			
+		}
+		System.out.println(id);
+		System.out.println(sql2);
+		
+		return 0;
 	}
 	
 	public List<CourseDto> getSalesList(int eno) {
@@ -143,7 +228,6 @@ public class CourseDao {
 					if(pstmt!=null) pstmt.close();
 					if(conn!=null) conn.close();
 				} catch (SQLException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 		}
@@ -182,6 +266,7 @@ public class CourseDao {
 		}
 		return 0;
 	}
+	
 	public int cancelStudent(String[] array) {
 		String sql = "UPDATE mbr SET lvl = 'L02' WHERE ";
 		for(int i = 0; i < array.length; i++) {

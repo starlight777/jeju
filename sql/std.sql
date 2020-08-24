@@ -22,6 +22,7 @@ select * from v_std where rownum between 21 and 40;
 
 select * from (select cno, cdays, sno, gr1, gr2, gr3, cnt, att_total,att_rate, late,leftearly,absent,ctitle, prof, name, lvl, lname,ldesc,cbegin, cend, rownum as rn from v_std) where rn between 21 and 40;
 
+select * from v_std where lvl='L03' and cno=1;
 
 select * from std;
 

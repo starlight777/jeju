@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.bit.account.model.MemberDAO;
-import com.bit.account.model.MemberDTO;
+import com.bit.account.model.MemberDao;
+import com.bit.account.model.MemberDto;
 
 @WebServlet("/login.bit")
 public class MemberLoginController extends HttpServlet {
@@ -28,8 +28,8 @@ public class MemberLoginController extends HttpServlet {
 		
 		String id = req.getParameter("id");
 		String pw = req.getParameter("pw");
-		MemberDAO dao = new MemberDAO();
-		MemberDTO dto = null;
+		MemberDao dao = new MemberDao();
+		MemberDto dto = null;
 		resp.setCharacterEncoding("utf-8");
 		resp.setContentType("text");
 		PrintWriter out = resp.getWriter();

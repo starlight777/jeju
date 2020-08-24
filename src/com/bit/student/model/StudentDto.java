@@ -2,10 +2,10 @@ package com.bit.student.model;
 
 import java.sql.Date;
 
-import com.bit.account.model.MemberDTO;
-import com.bit.course.model.CourseDTO;
+import com.bit.account.model.MemberDto;
+import com.bit.course.model.CourseDto;
 
-public class StudentDTO extends MemberDTO {
+public class StudentDto extends MemberDto {
 	
 	private int sno;
 	private int cno;
@@ -15,19 +15,19 @@ public class StudentDTO extends MemberDTO {
 	private int gr2;
 	private Date date3;
 	private int gr3;
-	private CourseDTO crs;
-	private AttendanceDTO att;
+	private CourseDto crs;
+	private AttendanceDto att;
 	
-	public CourseDTO getCrs() {
+	public CourseDto getCrs() {
 		return crs;
 	}
-	public void setCrs(CourseDTO crs) {
+	public void setCrs(CourseDto crs) {
 		this.crs = crs;
 	}
-	public AttendanceDTO getAtt() {
+	public AttendanceDto getAtt() {
 		return att;
 	}
-	public void setAtt(AttendanceDTO att) {
+	public void setAtt(AttendanceDto att) {
 		this.att = att;
 	}
 	

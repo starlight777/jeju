@@ -82,8 +82,8 @@
 </script>
 </head>
 <body>
-	<%@ include file="template/header.jspf" %>
-	<%@ include file="template/section.jspf" %>
+<%@ include file="template/header.jspf" %>
+<%@ include file="template/menu.jspf" %>
 	<div id="content">
 		<div>
 			<h2>회원 정보 수정</h2>
@@ -96,16 +96,16 @@
 				String value = null;
 				if("name".equals(type)) {
 					label = "이름";
-					value = ((MemberDTO) request.getAttribute("user_info")).getName();
+					value = ((MemberDto) request.getAttribute("user_info")).getName();
 				} else if("tel".equals(type)) {
 					label = "전화번호";
-					value = ((MemberDTO) request.getAttribute("user_info")).getTel();
+					value = ((MemberDto) request.getAttribute("user_info")).getTel();
 				} else if("email".equals(type)) {
 					label = "이메일";
-					value = ((MemberDTO) request.getAttribute("user_info")).getEmail();
+					value = ((MemberDto) request.getAttribute("user_info")).getEmail();
 				} else if("answer".equals(type)) {
 					label = "비밀번호 찾기 답 (한글 기준 10자 이내)";
-					value = ((MemberDTO) request.getAttribute("user_info")).getAnswer();
+					value = ((MemberDto) request.getAttribute("user_info")).getAnswer();
 				}
 			%>
 				<div>

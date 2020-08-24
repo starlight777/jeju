@@ -1,8 +1,8 @@
 package com.bit.account.model;
 
-import com.bit.util.DTO;
+import com.bit.util.Dto;
 
-public class MemberDTO extends DTO {
+public class MemberDto extends Dto {
 	private String id;
 	private String pw;
 	private String name;

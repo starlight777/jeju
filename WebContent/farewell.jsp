@@ -8,11 +8,10 @@
 <%@ include file="template/head.jspf" %>
 </head>
 <body>
-	<%@ include file="template/header.jspf" %>
-	<div id="content">
-		<h2>계정을 삭제했습니다. <%= request.getParameter("name") %></h2>
-	</div>
-	<%@ include file="template/footer.jspf" %>
+<%@ include file="template/header.jspf" %>
+<%@ include file="template/menu.jspf" %>
+	<h2>계정을 삭제했습니다. <%= request.getParameter("name") %></h2>
+<%@ include file="template/footer.jspf" %>
 </body>
 
 </html>

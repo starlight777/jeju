@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.bit.account.model.MemberDAO;
+import com.bit.account.model.MemberDao;
 
 @WebServlet("/lookupid.bit")
 public class LookupIDController extends HttpServlet {
@@ -20,7 +20,7 @@ public class LookupIDController extends HttpServlet {
 		String id = req.getParameter("id");
 		int result = 2;
 		try {
-			result = new MemberDAO().lookupId(id);
+			result = new MemberDao().lookupId(id);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
