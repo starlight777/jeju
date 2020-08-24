@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.bit.crs.model.V_crsDao;
+import com.bit.crs.model.V_crsDto;
 import com.bit.std.model.V_stdDao;
 import com.bit.std.model.V_stdDto;
 
@@ -18,10 +20,17 @@ public class MystusController extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
-			V_stdDao dao = new V_stdDao();
-			ArrayList<V_stdDto> list=dao.selectAllByCrs(1);
-//			나중에서 목록에서 클릭해서 넘기는 값 받아서 넣어야 함
-			request.setAttribute("list", list);
+			V_crsDao dao = new V_crsDao();
+			V_crsDto crs = dao.selectOne(Integer.parseInt(request.getParameter("cno")));
+			request.setAttribute("crs", crs);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		try {
+			V_stdDao dao2 = new V_stdDao();
+			ArrayList<V_stdDto> stds=dao2.selectActiveStdByCrs(Integer.parseInt(request.getParameter("cno")));
+			request.setAttribute("stds", stds);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

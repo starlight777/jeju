@@ -26,3 +26,7 @@ insert into empl values (1011,'°ü¸®ÀÏ','test!111','01043211121','admin@bitjeju.c
 commit;
 
 select * from empl;
+
+select empl.*, dpt.dname from empl,dpt where empl.dno=dpt.dno;
+
+select empl.*, dpt.dname from empl,dpt where empl.dno=dpt.dno and eno=1008 and pw='test!111';

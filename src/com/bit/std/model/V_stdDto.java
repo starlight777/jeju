@@ -4,18 +4,17 @@ import java.sql.Date;
 
 public class V_stdDto {
 
-	int cno, cdays, sno, gr1, gr2, gr3, cnt, att_total, att_rate, late,leftearly,absent ;
-	String ctitle, prof, name, lvl;
-	Date cbegin, cend;
-
+	private int cno, cdays, sno, gr1, gr2, gr3, cnt, att_total, att_rate, late,leftearly,absent;
+	private String ctitle, prof, name, lvl, lname, ldesc;
+	private Date cbegin, cend;
+	
 	public V_stdDto() {
-		// TODO Auto-generated constructor stub
 	}
 
 	public V_stdDto(int cno, int cdays, int sno, int gr1, int gr2, int gr3,
 			int cnt, int att_total, int att_rate, int late, int leftearly,
 			int absent, String ctitle, String prof, String name, String lvl,
-			Date cbegin, Date cend) {
+			String lname, String ldesc, Date cbegin, Date cend) {
 		super();
 		this.cno = cno;
 		this.cdays = cdays;
@@ -33,11 +32,11 @@ public class V_stdDto {
 		this.prof = prof;
 		this.name = name;
 		this.lvl = lvl;
+		this.lname = lname;
+		this.ldesc = ldesc;
 		this.cbegin = cbegin;
 		this.cend = cend;
 	}
-
-
 
 	public int getCno() {
 		return cno;
@@ -183,6 +182,22 @@ public class V_stdDto {
 		this.absent = absent;
 	}
 
+	public String getLname() {
+		return lname;
+	}
+
+	public void setLname(String lname) {
+		this.lname = lname;
+	}
+
+	public String getLdesc() {
+		return ldesc;
+	}
+
+	public void setLdesc(String ldesc) {
+		this.ldesc = ldesc;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -200,7 +215,9 @@ public class V_stdDto {
 		result = prime * result + gr2;
 		result = prime * result + gr3;
 		result = prime * result + late;
+		result = prime * result + ((ldesc == null) ? 0 : ldesc.hashCode());
 		result = prime * result + leftearly;
+		result = prime * result + ((lname == null) ? 0 : lname.hashCode());
 		result = prime * result + ((lvl == null) ? 0 : lvl.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		result = prime * result + ((prof == null) ? 0 : prof.hashCode());
@@ -252,7 +269,17 @@ public class V_stdDto {
 			return false;
 		if (late != other.late)
 			return false;
+		if (ldesc == null) {
+			if (other.ldesc != null)
+				return false;
+		} else if (!ldesc.equals(other.ldesc))
+			return false;
 		if (leftearly != other.leftearly)
+			return false;
+		if (lname == null) {
+			if (other.lname != null)
+				return false;
+		} else if (!lname.equals(other.lname))
 			return false;
 		if (lvl == null) {
 			if (other.lvl != null)
@@ -273,7 +300,7 @@ public class V_stdDto {
 			return false;
 		return true;
 	}
-
+	
 	@Override
 	public String toString() {
 		return "V_stdDto [cno=" + cno + ", cdays=" + cdays + ", sno=" + sno
@@ -281,10 +308,7 @@ public class V_stdDto {
 				+ cnt + ", att_total=" + att_total + ", att_rate=" + att_rate
 				+ ", late=" + late + ", leftearly=" + leftearly + ", absent="
 				+ absent + ", ctitle=" + ctitle + ", prof=" + prof + ", name="
-				+ name + ", lvl=" + lvl + ", cbegin=" + cbegin + ", cend="
-				+ cend + "]";
+				+ name + ", lvl=" + lvl + ", lname=" + lname + ", ldesc="
+				+ ldesc + ", cbegin=" + cbegin + ", cend=" + cend + "]";
 	}
-
-
-
 }
