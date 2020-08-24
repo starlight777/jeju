@@ -12,22 +12,33 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.bit.courses.model.CoursesDao;
 import com.bit.courses.model.CoursesDto;
+import com.bit.courses.model.PagingDto;
 
 @WebServlet("/courses.bit")
 public class CoursesController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
 		CoursesDao dao = new CoursesDao();
-		List<CoursesDto> list = dao.getList();
+	
+		int page = 1;
+		
+		if(req.getParameter("page")!=null) {
+			page = Integer.parseInt(req.getParameter("page"));
+		}
+		PagingDto paging = new PagingDto();
+		paging.setPage(page);
+
+		int count = dao.getAllCount();
+		paging.setTotalCount(count);
+		
+		
+		List<CoursesDto> list = dao.getList(page);
 		req.setAttribute("courses", list);
+		req.setAttribute("paging", paging);
 
 		RequestDispatcher rd = req.getRequestDispatcher("courses.jsp");
 		rd.forward(req, resp);
 	}
 
-	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
-			throws ServletException, IOException {
-	}
 }
+

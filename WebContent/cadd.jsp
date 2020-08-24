@@ -128,6 +128,29 @@
 	margin: 100px;
 	margin-left: 400px;
 }
+table{
+	text-align: center;
+	margin-left: 450px;
+	border-collapse: collapse;
+	border : 1px solid black;
+	width: 500px;
+		
+}
+
+table>tbody>tr{
+	height : 50px;
+}
+
+table>tbody>tr>th{
+	text-align: left;
+
+}
+
+table+div {
+	margin-left : 793px;
+	margin-top : 30px;
+}
+
 
 #footer {
 	text-align: center;
@@ -165,30 +188,44 @@
 		<div id = "content">
 			<h2>교육과정추가 페이지</h2>
 			<form method = "post">
-				<div>
+			<table>
+				<tr>
+					<th>
 					<label for = "ctitle">강좌명</label>
 					<input type = "text" name = "ctitle" id = "ctitle"/>
-				</div>
-				<div>
+					</th>
+				</tr>
+				<tr>
+					<th>
 					<label for = "croom">강의실</label>
 					<input type = "text" name = "croom" id = "croom"/>
-				</div>
-				<div>
+					</th>
+				</tr>
+				<tr>
+					<th>
 					<label for = "cbegin">개강일</label>
 					<input type = "date" name = "cbegin" id = "cbegin"/>
-				</div>	
-				<div>
+					</th>
+				</tr>
+				<tr>
+					<th>
 					<label for = "cend">종강일</label>
 					<input type = "date" name = "cend" id = "cend"/>
-				</div>
-				<div>
+					</th>
+				</tr>
+				<tr>
+					<th>
 					<label for = "profno">강사</label>
 					<input type = "text" name = "profno" id = "profno"/>
-				</div>
-				<div>
+					</th>
+				</tr>			
+				<tr>
+					<th>
 					<label for = "salesno">영업사원</label>
 					<input type = "text" name = "salesno" id = "salesno"/>
-				</div>
+					</th>
+				</tr>	
+			</table>		
 				<div>
 					<input type = "submit" value="입력완료"/>
 					<input type = "reset" value="취소"/>

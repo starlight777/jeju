@@ -16,8 +16,7 @@ import com.bit.courses.model.CourseDto;
 @WebServlet("/course.bit")
 public class CourseController extends HttpServlet {
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
-			throws ServletException, IOException {
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp)throws ServletException, IOException {
 		int cno = Integer.parseInt(req.getParameter("idx"));
 		try {
 			CourseDao dao = new CourseDao();

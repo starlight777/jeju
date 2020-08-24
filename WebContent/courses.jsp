@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>BitCamp Jeju</title>
+<title>BitCamp 제주</title>
 <script type="text/javascript" src="js/jquery-1.12.4.js"></script>
 <style type="text/css">
 * {
@@ -120,7 +120,7 @@
 	border: 1px solid black;
 }
 
-#content>h2 {
+h2 {
 	margin: 100px;
 	margin-left: 400px;
 }
@@ -139,9 +139,6 @@ table>tbody>tr>th {
 table>tbody>tr>td {
 	border: 1px solid black;
 }
-
-table>tbody>tr>th {}
-
 button {
 	width: 100px;
 	margin-top: 40px;
@@ -158,6 +155,8 @@ button>a{
 table tr>td:nth-child(2) {
 	color: black;
 	text-decoration: underline;
+	width: 600px;
+	
 }
 
 #footer {
@@ -174,35 +173,9 @@ $(document).ready(function() {
 			location.href = 'course.bit?idx=' + cno;
 		});
 	});
-/* 	$(document).ready(function(){
-		$('table tr').first().siblings().click(function(){
-			var cno=$(this).children().first().text();
-			location.href = 'course.bit?idx='+cno;
-		});
-	});
-*/
 </script>
-
 </head>
 <body>
-<%
-	 final int ROWSIZE = 10;
-	 final int BLOCK = 5;
-	 
-	 int pg = 1;
-	 
-	 if(request.getParameter("pg")!=null) {
-		 	pg = Integer.parseInt(request.getParameter("pg"));
-	 }
-	 
-	 int start = (pg+ROWSIZE) - (ROWSIZE-1);
-	 int end = (pg+ROWSIZE);
-	 
-	 int allPage = 0;
-	 
-	 int startPage = ((pg-1) / BLOCK * BLOCK)+1;
-	 int endPage = ((pg-1) / BLOCK * BLOCK)+BLOCK;
-%>
 	<div class="bit">
 		<div id="header">
 			<ul>
@@ -237,23 +210,30 @@ $(document).ready(function() {
 					<th>강좌명</th>
 					<th>개강일</th>
 					<th>종강일</th>
-				</tr>
-				<%
-					List<CoursesDto> list = (List<CoursesDto>) request.getAttribute("courses");
-					for (CoursesDto bean : list) {
-				%>
+				</tr>				
+<%
+				List<CoursesDto> list = (List<CoursesDto>) request.getAttribute("courses");
+				for (CoursesDto bean : list) {
+%>
 				<tr>
 					<td><%=bean.getCno()%></td>
 					<td><%=bean.getCtitle()%></td>
 					<td><%=bean.getCbegin()%></td>
 					<td><%=bean.getCend()%></td>
 				</tr>
-				<%
-					}
-				%>
+<%
+}
+%>
 			</table>
 			<button type = "button" onclick="location.href = 'cadd.bit'">과정추가</button>
 			<button type = "button" onclick="location.href = '#'">수강신청관리</button>
+			<jsp:include page = "/paging.jsp">
+				<jsp:param value = "${paging.page}" name = "page"/>		
+				<jsp:param value = "${paging.beginPage}" name = "beginPage"/>
+				<jsp:param value = "${paging.endPage}" name = "endPage"/>
+				<jsp:param value = "${paging.prev}" name = "prev"/>	
+				<jsp:param value = "${paging.next}" name = "next"/>	
+			</jsp:include>
 		</div>
 		<div id="footer">
 			<address>비트캠프 제주특별자치도 서귀포시 강정동 736</address>

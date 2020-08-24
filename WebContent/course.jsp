@@ -237,7 +237,7 @@ button{
 			</table>
 			<button type = "button" onclick="location.href = 'cedit.bit?idx=<%=course.getCno()%>'">수정</button>
 			<button type = "button" onclick="location.href = 'cdel.bit?cno=<%=course.getCno()%>&ctitle=<%=course.getCtitle() %>'">삭제</button>
-			<button type = "button" onclick="location.href = 'courses.bit'">뒤로가기</button>
+			<button type = "button" onclick="history.back();">뒤로가기</button>
 		</div>
 		<div id="footer">
 			<address>비트캠프 제주특별자치도 서귀포시 강정동 736</address>

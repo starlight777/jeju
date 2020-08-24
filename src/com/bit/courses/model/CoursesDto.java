@@ -7,7 +7,7 @@ public class CoursesDto {
 	private String ctitle;
 	private Date cbegin;
 	private Date cend;
-	
+
 	public CoursesDto() {
 		//µğÆúÆ®
 	}

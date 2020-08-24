@@ -147,8 +147,8 @@ table>tbody>tr>th{
 
 }
 
-table div {
-	margin-left : 795px;
+table+div {
+	margin-left : 793px;
 	margin-top : 30px;
 }
 
@@ -194,43 +194,43 @@ table div {
 			<th>
 				<label for = "cno">강의번호</label>
 <input type = "text" name = "cno" id = "cno" value = "<jsp:getProperty property= "cno"  name = "cedit"/>" readonly>
-			<th>
+			</th>
 		</tr>
 		<tr>
 			<th>
 				<label for = "ctitle">강좌명</label>
 <input type = "text" name = "ctitle" id = "ctitle" style = "width:400px;" value = "<jsp:getProperty property= "ctitle"  name = "cedit"/>" >
-			<th>
+			</th>
 		</tr>
 		<tr>
 			<th>
 				<label for = "cbegin">개강일</label>
 <input type = "date" name = "cbegin" id = "cbegin" value = "<jsp:getProperty property= "cbegin"  name = "cedit"/>" >
-			<th>
+			</th>
 		</tr>
 		<tr>
 			<th>
 				<label for = "cend">종강일</label>
 <input type = "date" name = "cend" id = "cend" value = "<jsp:getProperty property= "cend"  name = "cedit"/>" >			
-			<th>
+			</th>
 		</tr>
 		<tr>
 			<th>
 				<label for = "croom">강의실</label>
 <input type = "text" name = "croom" id = "croom" value = "<jsp:getProperty property= "croom"  name = "cedit"/>" >			
-			<th>
+			</th>
 		</tr>										
 		<tr>
 			<th>
 				<label for = "profno">강사</label>
 <input type = "text" name = "profno" id = "profno" value = "<jsp:getProperty property= "profno"  name = "cedit"/>" >			
-			<th>
+			</th>
 		</tr>	
 		<tr>
 			<th>
 				<label for = "salesno">영업사원</label>
 <input type = "text" name = "salesno" id = "salesno" value = "<jsp:getProperty property= "salesno"  name = "cedit"/>" >			
-			<th>
+			</th>
 		</tr>									
 </table>										
 				<div>
