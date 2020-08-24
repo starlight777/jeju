@@ -7,7 +7,7 @@ String root=request.getContextPath();//동적연동
 %>
 <style type="text/css">
 
-hr {
+body hr {
 	height: 3px; 
 	background: #81d8d0;
 	border: 0;
@@ -18,45 +18,56 @@ hr {
 body{
 	color: #444444;
 	/* 진한회색 */
-
 }
+body a:visited{
+	color: #444444;
+}
+body a:link{
+	color: #444444;
+}
+body a:active{
+	color: #81d8d0;
+	font-weight: bold;
+}
+body a:hover{
+	color: #81d8d0;
+	font-weight: bold;
+}
+body a{
+    text-decoration: none;
+    margin: 0px 10px;
+}
+body li{
+    list-style: none;
+}
+
 /********************** #header **************************/
 #header{
-height: 130px;
+height: 105px;
+}
 
-}
-#header>h1{
-}
-#header>h2{
-	width: 213px;
-	height: 61px;
-	text-indent: -9999px;
-	background-image: url("<%=root %>/img/logo.png");
-	margin: auto;
-	display: block;
-}
-#header>div{
-	height: 65px;
-}
-#header>div>ul{
-	float: right;
-	line-height: 20px;
-}
-#header>div>ul>li{
-	display:inline-block;
-	padding: 0px 10px;
-	border-left: 1px solid grey;
+#header div{
+} 
 
-}
-#header>div>ul>li:first-child{
+#logo{
 	text-align: center;
-	border-left: none;
-	color: grey;
+ 	width: 209px;
+ 	height: 73px;
+	margin-left: auto;
+	margin-right: auto;
 }
-#header>div>ul>li>a{
-	display:inline-block;
-	text-align: center;
-	text-decoration: none;
+
+#user{
+	height: 30px;
+	display: inline-block;
+	marging: 10px;
+}
+
+#login{
+	height: 30px;
+	float:right;
+	marging: 10px;
+	display: inline-block;
 }
 
 /********************** #menu ****************************/
@@ -164,21 +175,16 @@ height: 130px;
 }
 
 /********************** #footer **************************/
-	#footer{
-		clear: both;
-		background-color: white;
-		margin: 0px auto;
-	}
-		
-	
-	#footer>div{
-/* 		width: 2000px; */
-	}
-	#footer>div>p{
-		text-align: center;
-		margin: 0px auto;
-		Color: gray;
-	}
+#footer{
+	clear: both;
+	margin: 0px auto;
+}
+#footer>div{
+}
+#footer>div>p{
+	text-align: center;
+	margin: 0px auto;
+}
 	
 </style>
 <script type="text/javascript" src="<%=root %>/js/jquery-1.12.4.js"></script>

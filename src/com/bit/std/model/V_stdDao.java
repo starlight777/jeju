@@ -103,6 +103,44 @@ public class V_stdDao {
 		return list;
 	}
 	
+	public ArrayList<V_stdDto> selectAllStdByCrs(int cno) throws SQLException{
+		ArrayList<V_stdDto> list=new ArrayList<V_stdDto>();
+		String sql="select * from v_std where cno=?";
+		try{
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setInt(1, cno);
+			rs=pstmt.executeQuery();
+			while(rs.next()){
+				list.add(new V_stdDto(
+						rs.getInt("cno"),
+						rs.getInt("cdays"),
+						rs.getInt("sno"),
+						rs.getInt("gr1"),
+						rs.getInt("gr2"),
+						rs.getInt("gr3"),
+						rs.getInt("cnt"),
+						rs.getInt("att_total"),
+						rs.getInt("att_rate"),
+						rs.getInt("late"),
+						rs.getInt("leftearly"),
+						rs.getInt("absent"),
+						rs.getString("ctitle"),
+						rs.getString("prof"),
+						rs.getString("name"),
+						rs.getString("lvl"),
+						rs.getString("lname"),
+						rs.getString("ldesc"),
+						rs.getDate("cbegin"),
+						rs.getDate("cend")));
+			}
+		}finally{
+			if(rs!=null)rs.close();
+			if(pstmt!=null)pstmt.close();
+			if(conn!=null)conn.close();
+		}
+		return list;
+	}
+	
 	public ArrayList<V_stdDto> selectAllPerPage(int startRow, int endRow) throws SQLException{
 		ArrayList<V_stdDto> list=new ArrayList<V_stdDto>();
 		String sql="select * from (select cno, cdays, sno, gr1, gr2, gr3, cnt, att_total,"

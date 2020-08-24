@@ -29,7 +29,7 @@
 <h2>${std.sno}번 ${std.name} 상세 보기</h2>
 
 <a href="<%=root %>/lms/mytask/mystus/gedit.bit?sno=${std.sno}">성적관리</a>
-<a href="<%=root %>/lms/mytask/mystus.bit?cno=${std.cno}">현재 우리반으로 돌아가기</a>
+<a href="<%=root %>/lms/mytask/mystus.bit?cno=${std.cno}">강의 상세 페이지로 돌아가기</a>
 <a href="<%=root %>/lms/mytask/mystus/mystu.bit?sno=${std.sno-1}">이전 학번</a>
 <a href="<%=root %>/lms/mytask/mystus/mystu.bit?sno=${std.sno+1}">다음 학번</a>
 

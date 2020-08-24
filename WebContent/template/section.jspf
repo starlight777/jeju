@@ -1,8 +1,0 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-	<div id="section">
-		<ul>
-			<li><a href="/jeju/mypage/info.bit">회원정보</a></li>
-			<li><a href="/jeju/mypage/study.bit">내강의</a></li>
-		</ul>
-	</div>

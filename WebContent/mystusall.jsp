@@ -29,7 +29,7 @@
 <h2>강의 상세 보기</h2>
 
 <a href="<%=root %>/lms/mytask/mystus/att.bit?cno=${crs.cno}">출결입력</a>
-<a href="<%=root %>/lms/mytask/mystusall.bit?cno=${crs.cno}">전체학생보기</a>
+<a href="<%=root %>/lms/mytask/mystus.bit?cno=${crs.cno}">수강중인 학생만 보기</a>
 <a href="<%=root %>/lms/mytask/mycourses.bit?eno=${elogin.eno}">내강의목록으로 돌아가기</a>
 
 <table>
@@ -84,6 +84,7 @@
 		<th>수업일수</th>
 		<th>출석일수</th>
 		<th>출석률</th>
+		<th>학생상태</th>
 	</tr>
 	<c:forEach items="${stds }" var="std">
 		<tr>
@@ -110,6 +111,7 @@
 			<td>${std.cnt }</td>
 			<td>${std.att_total }</td>
 			<td>${std.att_rate }%</td>
+			<td>${std.ldesc }</td>
 		</tr>
 	</c:forEach>
 </table>

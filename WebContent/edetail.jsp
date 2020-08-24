@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>emp</title>
+<title>edetail</title>
 <%@ include file="template/head.jspf" %>
 <style rel="stylesheet" type="text/css">
 </style>
@@ -13,33 +13,42 @@
 <body>
 <%@ include file="template/header.jspf" %>
 <%@ include file="template/menu.jspf" %>
-<h2>전체 직원 목록</h2>
+<h2>직원 상세 보기</h2>
 
 <table>
 	<tr>
 		<th>직원번호</th>
-		<th>직원이름</th>
-		<th>전화번호</th>
-		<th>이메일주소</th>
-		<th>입사일</th>
-		<th>부서번호</th>
-		<th>부서명</th>
+		<td>${emp.eno }</td>
 	</tr>
-	<c:forEach items="${emps }" var="emp">
-		<tr>
-			<td><a href="<%=root %>/lms/emp/edetail.bit?eno=${emp.eno}">${emp.eno }</a></td>
-			<td><a href="<%=root %>/lms/emp/edetail.bit?eno=${emp.eno}">${emp.name }</a></td>
-			<td>
-				<fmt:formatNumber var="tel" value="${emp.tel }" pattern="000,0000,0000" />
-				<c:out value="${fn:replace(tel,',','-') }" />
-			</td>
-			<td>${emp.email }</td>
-			<td>${emp.hdate }</td>
-			<td>${emp.dno }</td>
-			<td>${emp.dname }</td>
-		</tr>
-	</c:forEach>
+	<tr>
+		<th>직원이름</th>
+		<td>${emp.name }</td>
+	</tr>
+	<tr>
+		<th>전화번호</th>
+		<td>
+			<fmt:formatNumber var="tel" value="${emp.tel }" pattern="000,0000,0000" />
+			<c:out value="${fn:replace(tel,',','-') }" />
+		</td>
+	</tr>
+	<tr>
+		<th>이메일주소</th>
+		<td>${emp.email }</td>
+	</tr>
+	<tr>
+		<th>입사일</th>
+		<td>${emp.hdate }</td>
+	</tr>
+	<tr>
+		<th>부서번호</th>
+		<td>${emp.dno }</td>
+	</tr>
+	<tr>
+		<th>부서명</th>
+		<td>${emp.dname }</td>
+	</tr>
 </table>
+<a href="<%=root %>/lms/emp.bit">직원 목록으로 돌아가기</a>
 
 <%@ include file="template/footer.jspf" %>
 </body>

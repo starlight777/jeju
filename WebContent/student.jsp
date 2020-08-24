@@ -7,6 +7,7 @@
 <title>student</title>
 <%@ include file="template/head.jspf" %>
 <style rel="stylesheet" type="text/css">
+$
 </style>
 <style type="text/css">
 	#content table{

@@ -56,6 +56,31 @@ public class EmpDao {
 		return bean;
 	}
 	
+	public EmpDto selectOne(int eno) throws SQLException{
+		String sql="select empl.*, dpt.dname from empl,dpt where empl.dno=dpt.dno and eno=?";
+		try{
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setInt(1, eno);
+			rs=pstmt.executeQuery();
+			if(rs.next()){return new EmpDto(
+						rs.getInt("eno"),
+						rs.getString("name"),
+						rs.getString("pw"),
+						rs.getString("tel"),
+						rs.getString("email"),
+						rs.getString("answer"),
+						rs.getString("dno"),
+						rs.getString("dname"),
+						rs.getDate("hdate"));
+			}
+		}finally{
+			if(rs!=null)rs.close();
+			if(pstmt!=null)pstmt.close();
+			if(conn!=null)conn.close();
+		}
+		return null;
+	}
+	
 	public EmpDto elogin(int eno, String pw){
 		String sql="select empl.*, dpt.dname from empl,dpt where empl.dno=dpt.dno and eno=? and pw=?";
 		EmpDto bean=new EmpDto();
