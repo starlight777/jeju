@@ -26,16 +26,16 @@
 				}
 			}
 			
-			console.log(pw);
+			/* console.log(pw); */
 			
 			$.ajax({
 				type: 'post',
 				data: {'pw': pw},
 				url: '/jeju/login/leave.bit',
 				success: function(v) {
-					alert(v);
+					/* alert(v); */
 					if(v == 'wrong pw') {
-						$('#errpw').text('비밀번호가 다릅니다.');
+						$('#errpw').text('비밀번호가 일치하지 않습니다.');
 					} else {
 						var table = document.createElement("form");
 						document.body.appendChild(table);

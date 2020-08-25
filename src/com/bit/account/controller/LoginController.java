@@ -37,23 +37,17 @@ public class LoginController extends HttpServlet {
 		
 		String id = req.getParameter("id");
 		String pw = req.getParameter("pw");
-		MemberDao dao = new MemberDao();
 		MemberDto dto = null;
 		resp.setCharacterEncoding("utf-8");
 		resp.setContentType("text");
 		PrintWriter out = resp.getWriter();
-		int result = 0;
-		try {
-			result = dao.lookupId(id);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+		int result =  new MemberDao().lookupId(id);
 		if(result == 0) {
 			out.print("no id");
 //			req.setAttribute("err", "no id");
 //			req.getRequestDispatcher("login.jsp").forward(req, resp);
 		} else if (result == 1) {
-			dto = dao.login(id, pw);
+			dto = new MemberDao().login(id, pw);
 			if(dto == null) {
 				out.print("wrong pw");
 //				req.setAttribute("err", "wrong pw");

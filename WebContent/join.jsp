@@ -50,7 +50,7 @@
 	}
 	.modal_content > p {
 		width: 100%;
-		height: 80%;
+		height: 60%;
 		overflow-y: auto;
 		align-items: center;
 		margin: 10px 0px;
@@ -61,6 +61,11 @@
 </style>
 <script type="text/javascript">
 	$(document).ready(function() {
+		// * * * * * 블록 변수 * * * * *
+		var tryjoin = false;
+		// * * * * * * * * * * * * * * *
+		
+		// * * * * * 이용약관 및 개인정보 모달 제어 * * * * *
 		var openModal = function() {
 			if(document.querySelector('#legal').checked == true) {
 				document.querySelector('.modal').classList.remove('hidden');
@@ -73,13 +78,18 @@
 		document.getElementById('legal').addEventListener('click', openModal);
 		document.querySelector('.modal_layer').addEventListener('click', closeModal);
 		document.querySelector('.close_legal').addEventListener('click', closeModal);
-		var tryjoin = false;
+		// * * * * * * * * * * * * * * * * * * * * * * * * *
+		
+		// * * * * * 각 필드별 에러메시지 출력 함수 * * * * *
 		var err_message = function(field, message) {
 			$('#err' + field).text(message);	
 			$('#' + field).addClass('change_input');	
-			tryjoin = true;	
+			tryjoin = true;	// true면 post 실행하지 않음
 		}
+		// * * * * * * * * * * * * * * * * * * * * * * * * *
+		
 		$('#btnjoin').on('click', function() {
+			// * * * * * 에러 메시지 및 값 초기화 * * * * *
 			$('span').text('');
 			$('input').removeClass('change_input').removeClass('change_check');
 			tryjoin = false;
@@ -92,16 +102,18 @@
 			var tel = $('#tel').val();
 			var email = $('#email').val();
 			var legal = $('#legal').prop('checked');
+			// * * * * * * * * * * * * * * * * * * * * * * * * *
 			
+			// * * * * * 필드 별 유효성 검증 및 에러메시지 출력 함수 실행 * * * * *
 			if(id == '') {	
 				err_message('id', '아이디를 입력하세요');	
-			} else {
-				if(id.length < 5) {
+			} else if(id.length < 5) {
 					err_message('id', '5자 이상의 ID를 입력하세요')
-				} else {
-					if(id.search(/[^a-zA-Z0-9]/) + 1) {
-						err_message('id', '영문 또는 숫자로만 이루어진 ID를 입력하세요')
-					}
+			} else if(id.length > 20) {
+					err_message('id', '20자 이하의 ID를 입력하세요')
+			} else {	
+				if(id.search(/[^a-zA-Z0-9]/) + 1) {
+					err_message('id', '영문 또는 숫자로만 이루어진 ID를 입력하세요')
 				}
 			}
 			
@@ -110,6 +122,8 @@
 			} else {
 				if(pw.length < 8) {
 					err_message('pw', '8자 이상의 비밀번호를 입력해주세요');
+				} else if(pw.length > 20){
+					err_message('pw', '20자 이하의 비밀번호를 입력해주세요');
 				} else {
 					if(!((pw.search(/[a-zA-z]/) + 1) && 
 							(pw.search(/[0-9]/) + 1) && 
@@ -119,18 +133,32 @@
 				}
 			}
 			
-			if(pwcheck == '' || pw != pwcheck) {	err_message('pwcheck', '입력한 비밀번호와 동일한 비밀번호를 입력하세요');	}
+			if(pwcheck == '' || pw != pwcheck) {	
+				err_message('pwcheck', '입력한 비밀번호와 동일한 비밀번호를 입력하세요');	
+			}
 			
 			if(answer == '') {	
 				err_message('answer', '비밀번호 찾기 답을 입력하세요');
-			} else {
-				
+			} else if(answer.length > 10) {
+				err_message('answer', '10자 이하로 입력하세요');
 			}
-			if(name == '') {	$('#errname').text('이름을 입력하세요');	$('#name').addClass('change_input');	tryjoin = true;	} 
-			if(tel == '') {	$('#errtel').text('전화번호를 입력하세요');	$('#tel').addClass('change_input');	tryjoin = true;	} 
+			
+			if(name == '') {	
+				err_message('name', '이름을 입력하세요');	
+			} else if(name.length > 6) {
+				err_message('name', '6자 이하로 입력하세요');	
+			}
+			
+			if(tel == '') {	
+				err_message('tel', '전화번호를 입력하세요');	
+			} else if(tel.length > 11) {
+				err_message('tel', '11자리 이하의 올바른 전화번호를 입력하세요');	
+			} 
 			
 			if(email == '') {
 				err_message('email', '이메일을 입력하세요');
+			} else if(email.length > 30) { 
+				err_message('email', '30자 이하의 이메일을 입력하세요');
 			} else {
 				var x = email.match(/(?:[A-Za-z0-9]+)\@(?:[A-Za-z0-9]+)\.(?:[A-Za-z0-9]+)/);
 				console.log(x);
@@ -143,19 +171,21 @@
 				}
 			}
 			
+			if(legal == false) err_message('legal', '이용약관 및 개인정보 처리방침에 동의해주세요'); 
+			// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 			
-			
-			if(legal == false) {	$('#errlegal').text('이용약관 및 개인정보 처리방침에 동의해주세요');	$('#legal').addClass('change_check');	tryjoin = true;	} 
-			
+			// * * * * * tryjoin이 true면 오류 필드 중 가장 위 필드를 포커스하고 중지 * * * * *
 			if(tryjoin) {
 				$('span').each(function(i, e) {
                     if($(e).text()) {	$(e).prev('input').focus();	return false;		};
                 });
 				return;
 			}
+			// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 			
 			console.log(id + ', ' + pw);
 			
+			// * * * * * tryjoin이 false면 ajax 실행 * * * * *
 			$.ajax({
 				type: 'post',
 				data: 'id=' + id + '&pw=' + pw + '&answer=' + answer + '&name=' + name + '&tel=' + tel + '&email=' + email,
@@ -170,6 +200,7 @@
 					}
 				}
 			});
+			// * * * * * * * * * * * * * * * * * * * * * * * * *
 			
 		});
 	});
@@ -177,6 +208,7 @@
 </head>
 <body>
 	<%@ include file="template/header.jspf" %>
+	<%@ include file="template/menu.jspf" %>
 	<div id="content">
 		<div>
 			<h2>회원가입</h2>

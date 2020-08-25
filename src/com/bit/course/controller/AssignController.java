@@ -20,7 +20,7 @@ public class AssignController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		if(new ErrorChecker().elogin(req, resp) < 0) return;
+//		if(new ErrorChecker().elogin(req, resp) < 0) return;
 		// 임시 로그인 정보
 		req.setAttribute("salesno", 1001);
 		int cno = Integer.parseInt(req.getParameter("cno"));

@@ -12,12 +12,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.bit.course.model.CoursesDao;
 import com.bit.course.model.CoursesDto;
+import com.bit.util.ErrorChecker;
 
 @WebServlet("/lms/courses.bit")
 public class CoursesController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+//		if(new ErrorChecker().elogin(req, resp) < 0) return;
 		CoursesDao dao = new CoursesDao();
 		List<CoursesDto> list = dao.getList();
 		req.setAttribute("courses", list);

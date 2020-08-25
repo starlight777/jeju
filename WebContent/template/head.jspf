@@ -197,6 +197,7 @@ $(function(){
 	if(url_here.includes('lms',7)){
 		if('마이페이지' == $('#login a').eq(0).text()) {
 			console.log('unauthorized access to LMS');
+			location.replace('/jeju');
 		} else if('LMS' != $('#login a').eq(0).text()) {
 			location.href = '/jeju/login/elogin.bit';
 			/* location.replace('/jeju/login/elogin.bit'); */
