@@ -3,7 +3,6 @@ package com.bit.lms_notice.controller;
 import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.Enumeration;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -14,8 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.bit.lms_notice.model.NtcDao;
 import com.bit.lms_notice.model.NtcDto;
-import com.oreilly.servlet.MultipartRequest;
-import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 
 @WebServlet("/lms/ntc/nedit.bit")
