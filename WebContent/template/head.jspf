@@ -189,14 +189,18 @@ height: 105px;
 	
 </style>
 <script type="text/javascript" src="<%=root %>/js/jquery-1.12.4.js"></script>
-<link rel="stylesheet" type="text/css" href="<%=root %>/css/jquery.bxslider.min.css"/>
-<script type="text/javascript" src="<%=root %>/js/jquery.bxslider.min.js"></script>
 <script type="text/javascript">
 $(function(){
 	var url_here=window.location.href;
 	console.log(url_here);
 	//http://localhost:8080/jeju/index.bit
 	if(url_here.includes('lms',7)){
+		if('마이페이지' == $('#login a').eq(0).text()) {
+			console.log('unauthorized access to LMS');
+		} else if('LMS' != $('#login a').eq(0).text()) {
+			location.href = '/jeju/login/elogin.bit';
+			/* location.replace('/jeju/login/elogin.bit'); */
+		}
 		$('#menu_left').show();
 	}else if(url_here.includes('mypage',7)){
 		$('#menu_left').show();

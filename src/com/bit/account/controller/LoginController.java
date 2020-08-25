@@ -3,6 +3,7 @@ package com.bit.account.controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.util.Enumeration;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,10 +16,18 @@ import com.bit.account.model.MemberDao;
 import com.bit.account.model.MemberDto;
 
 @WebServlet("/login.bit")
-public class MemberLoginController extends HttpServlet {
+public class LoginController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
+		resp.setHeader("Cache-Control", "no-store");
+		// 회원 또는 직원이 로그인을 해서 Session에 Attribute가 존재하는 경우 비정상적인 접근
+		// 우선 오류페이지로 타입 파라미터와 이동
+		if(req.getSession().getAttributeNames().hasMoreElements()) {
+			System.out.println("unauthorized access to member login");
+			resp.sendRedirect("/jeju/error.bit?errtype=login");
+			return;
+		}
 		req.getRequestDispatcher("/login.jsp").forward(req, resp);
 	}
 	
@@ -58,7 +67,7 @@ public class MemberLoginController extends HttpServlet {
 				out.print("login");
 			}
 		} else {
-			System.out.println("error a");
+			System.out.println("알 수 없는 로그인 오류");
 		}
 	}
 }
