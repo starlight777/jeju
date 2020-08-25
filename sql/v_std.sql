@@ -15,4 +15,8 @@ left join (select max(sno) as sno, count(sno) as absent from att where ckin=0 or
 order by crs.cno, std.sno;
 
 select * from v_std;
+<<<<<<< HEAD:sql/v_std.sql
 select * from v_std where cno=4;
+=======
+
+>>>>>>> course3:WebContent/sql/v_std.sql
