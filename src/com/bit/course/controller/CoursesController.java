@@ -10,14 +10,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-<<<<<<< HEAD:src/com/bit/course/controller/CoursesController.java
 import com.bit.course.model.CoursesDao;
 import com.bit.course.model.CoursesDto;
-=======
-import com.bit.courses.model.CoursesDao;
-import com.bit.courses.model.CoursesDto;
-import com.bit.courses.model.PagingDto;
->>>>>>> course3:src/com/bit/courses/controller/CoursesController.java
+import com.bit.course.model.PagingDto;
+
 
 @WebServlet("/lms/courses.bit")
 public class CoursesController extends HttpServlet {

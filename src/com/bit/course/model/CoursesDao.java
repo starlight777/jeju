@@ -84,10 +84,5 @@ public class CoursesDao {
 			}
 		}
 		return list;
-	}
-<<<<<<< HEAD:src/com/bit/course/model/CoursesDao.java
-	
-=======
-
->>>>>>> course3:src/com/bit/courses/model/CoursesDao.java
+	} 
 }

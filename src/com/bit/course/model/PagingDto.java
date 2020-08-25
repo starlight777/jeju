@@ -1,4 +1,4 @@
-package com.bit.courses.model;
+package com.bit.course.model;
 
 public class PagingDto {
 	private int page = 1; // 현재 페이지 (get)
