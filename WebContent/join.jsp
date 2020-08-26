@@ -189,7 +189,7 @@
 			$.ajax({
 				type: 'post',
 				data: 'id=' + id + '&pw=' + pw + '&answer=' + answer + '&name=' + name + '&tel=' + tel + '&email=' + email,
-				url: 'join.bit',
+				url: '/jeju/login/join.bit',
 				success: function(value) {
 					console.log(value);
 					if(value == 'existed id') {
@@ -220,7 +220,7 @@
 				<span id="errid"></span>
 			</div>
 			<div>
-				<label for="pw">비밀번호 (영문, 한글, 특수문자 포함 8자 이상)</label>
+				<label for="pw">비밀번호 (영문, 숫자, 특수문자 포함 8자 이상)</label>
 				<input type="password" id="pw" class="default_input" name="pw"/>
 				<span id="errpw"></span>
 			</div>

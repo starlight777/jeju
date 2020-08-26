@@ -20,44 +20,6 @@
 		outline-color: red;
 		outline-style: auto;
 	}
-	.modal {
-		left: 0;
-		top: 0;
-		width: 100%;
-		height: 100%;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		position: fixed;
-	}
-	.modal_layer {
-		background-color: rgba(0, 0, 0, 0.3);
-		left: 0;
-		top: 0;
-		width: 100%;
-		height: 100%;
-		position: absolute;
-	}
-	.modal_content {
-		background-color: white;
-		text-align: center;
-		padding: 5px 50px;
-		width: 30%;
-		height: 50%;
-		position: relative;
-		border-radius: 10px;
-		box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-	}
-	.modal_content > p {
-		width: 100%;
-		height: 60%;
-		overflow-y: auto;
-		align-items: center;
-		margin: 10px 0px;
-	}
-	.hidden {
-		display: none;
-	}
 </style>
 <script type="text/javascript">
 	$(document).ready(function() {
@@ -131,9 +93,10 @@
 	<div id="content">
 		<div>
 			<h2>아이디 찾기</h2>
+			<p>회원가입 시 입력했던 정보들을 입력하세요</p>
 		</div>
 		<div>
-			<form>
+			<form method="post" onsubmit="return checkFindId();">
 				<div>
 					<label for="name">이름</label>
 					<input type="text" id="name" class="default_input" name="name"/>
@@ -150,26 +113,9 @@
 					<span id="erremail"></span>
 				</div>
 				<div>
-					<input type="checkbox" id="legal" class="default_input" name="legal">
-					<label for="legal"> 이용약관 및 개인정보 처리방침에 동의합니다</label>
-					<span id="errlegal"></span>
-				</div>
-				<div>
-					<button type="button" id="btnjoin">가입</button>
+					<button type="submit" id="btnfindid">아이디 찾기</button>
 				</div>
 			</form>
-		</div>
-		<div class="modal hidden">
-			<div class="modal_layer"></div>
-			<div class="modal_content">
-				<h3>이용약관 및 개인정보 처리방침</h3>
-				<p class="legal_content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-				sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-				 Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-				 Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-				 Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-				<button class="close_legal" type="button">닫기</button>
-			</div>
 		</div>
 	</div>
 	<%@ include file="template/footer.jspf" %>

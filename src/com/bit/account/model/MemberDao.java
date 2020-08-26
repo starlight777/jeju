@@ -216,6 +216,29 @@ public class MemberDao {
 		return dto;
 	}
 	
+	public int checkAnswer(String id, String answer) {
+		String sql = "SELECT * FROM mbr WHERE id = ? AND answer = ?";
+		System.out.println("checkAnswer() : " + id + ", " + answer);
+		try {
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, id);
+			ps.setString(2, answer);
+			rs = ps.executeQuery();
+			if(rs.next()) return 1;
+		} catch(SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(rs != null) rs.close();
+				if(ps != null) ps.close();
+				if(conn != null) conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return 0;
+	}
+	
 //	public static void main(String[] args) {
 //		
 //		MemberDTO dto = null;

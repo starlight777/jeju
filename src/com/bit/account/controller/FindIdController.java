@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.bit.account.model.MemberDao;
 
@@ -30,7 +31,9 @@ public class FindIdController extends HttpServlet {
 		if(id == null) {
 			req.getRequestDispatcher("/findid_noid.jsp").forward(req, resp);
 		} else {
-			req.getSession().setAttribute("foundid", id);
+			HttpSession session = req.getSession();
+			session.setAttribute("foundid_name", name);
+			session.setAttribute("foundid_id", id);
 			req.getRequestDispatcher("/findid_foundid.jsp").forward(req, resp);
 		}
 	}
