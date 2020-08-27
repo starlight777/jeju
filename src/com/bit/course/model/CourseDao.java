@@ -193,7 +193,7 @@ public class CourseDao {
 				+ "left join mbr on std.id = mbr.id "
 				+ "left join crs on std.cno = crs.cno "
 				+ "left join empl on crs.profno = empl.eno "
-				+ "where cno = ? and salesno = ?";
+				+ "where crs.cno = ? and crs.salesno = ?";
 		StdDto std = null;
 		CourseDto crs = null;
 		ArrayList<Object> list = new ArrayList<Object>();

@@ -52,12 +52,12 @@ $(document).ready(function() {
 			data : {'assignList' : assignList, 'cancelList' : cancelList},
 			dataType: 'text',
 			success: function(message) {
-				console.log(message);
+				/* console.log(message); */
 				if(message.search("assign")) {
 					var regex = /, L02/;
 					for(var i = 0; i < assignList.length; i++) {
 						var student = assignList[i];
-						console.log("assign : " + student);
+						/* console.log("assign : " + student); */
 						$('.student').each(function() {
 							console.log("assign each" + student == $(this).children().eq(0).text().trim().substr(0, $(this).children().eq(0).text().trim().search(',')))
 							if(student == $(this).children().eq(0).text().trim().substr(0, $(this).children().eq(0).text().trim().search(','))) {
@@ -65,13 +65,13 @@ $(document).ready(function() {
 							}
 						});
 					}
-					$('#resultassign').text('Something');
+					/* $('#resultassign').text('Something'); */
 				}
 				if(message.search("cancel")) {
 					var regex = /, L03/;
 					for(var i = 0; i < cancelList.length; i++) {
 						var student = cancelList[i];
-						console.log("cancel : " + student);
+						/* console.log("cancel : " + student); */
 						$('.student').each(function() {
 							console.log("cancel each" + student == $(this).children().eq(0).text().trim().substr(0, $(this).children().eq(0).text().trim().search(',')))
 							if(student == $(this).children().eq(0).text().trim().substr(0, $(this).children().eq(0).text().trim().search(','))) {
@@ -79,11 +79,11 @@ $(document).ready(function() {
 							}
 						});
 					}
-					$('#resultassign').text('Something');
+					/* $('#resultassign').text('Something'); */
 				}
 				if("nothing" == message) {
-					$('#resultassign').text('Nothing happened');
 				}
+				$('#resultassign').text('변경사항을 저장했습니다.');
 			}
 		});
 	});

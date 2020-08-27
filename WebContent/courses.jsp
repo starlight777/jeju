@@ -69,8 +69,8 @@ $(document).ready(function() {
 		}
 	%>
 </table>
-	<button type = "button" onclick="location.href = 'cadd.bit'">과정추가</button>
-	<button type = "button" onclick="location.href = '#'">수강신청관리</button>
+	<button type = "button" onclick="location.href = '<%=root %>/lms/courses/cadd.bit'">과정추가</button>
+	<button type = "button" onclick="location.href = '<%=root %>/lms/courses/reglist.bit'">수강신청관리</button>
 <%@ include file="template/footer.jspf" %>
 </body>
 </html>
