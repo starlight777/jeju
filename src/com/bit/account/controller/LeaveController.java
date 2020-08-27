@@ -38,25 +38,33 @@ public class LeaveController extends HttpServlet {
 		resp.setContentType("text");
 		PrintWriter out = resp.getWriter();
 		MemberDao dao = new MemberDao();
-		int result = 0;
-		try {
-			result = dao.lookupPw(id, pw);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		// ��й�ȣ ��ġ
+		int result = dao.deleteMember(id, pw);
+		// 성공 시 result 1
 		if(result == 1) {
-//			result = dao.deleteMember(id);
 			System.out.println("leave : " + result);
-			if(result == 1) {
-				out.print(name);
-				
-			} else {
-				out.print("error");
-			}
-		// ��й�ȣ ����ġ
+			out.print(name);
+		// 실패 시 pw 오류 메시지 출력
 		} else {
 			out.print("wrong pw");
 		}
+//		try {
+//			result = dao.lookupPw(id, pw);
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		}
+//		// ��й�ȣ ��ġ
+//		if(result == 1) {
+//			result = dao.deleteMember(id, pw);
+//			System.out.println("leave : " + result);
+//			if(result == 1) {
+//				out.print(name);
+//				
+//			} else {
+//				out.print("error");
+//			}
+//			// ��й�ȣ ����ġ
+//		} else {
+//			out.print("wrong pw");
+//		}
 	}
 }

@@ -12,13 +12,21 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.bit.course.model.CoursesDao;
 import com.bit.course.model.CoursesDto;
+<<<<<<< HEAD
 import com.bit.course.model.PagingDto;
 
+=======
+import com.bit.util.ErrorChecker;
+>>>>>>> bb0b37d5f8070455159190b3a296eb4f60d9b549
 
 @WebServlet("/lms/courses.bit")
 public class CoursesController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+<<<<<<< HEAD
+=======
+//		if(new ErrorChecker().elogin(req, resp) < 0) return;
+>>>>>>> bb0b37d5f8070455159190b3a296eb4f60d9b549
 		CoursesDao dao = new CoursesDao();
 	
 		int page = 1;
