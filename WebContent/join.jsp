@@ -160,7 +160,7 @@
 			} else if(email.length > 30) { 
 				err_message('email', '30자 이하의 이메일을 입력하세요');
 			} else {
-				var x = email.match(/(?:[A-Za-z0-9]+)\@(?:[A-Za-z0-9]+)\.(?:[A-Za-z0-9]+)/);
+				var x = email.match(/(?:[A-Za-z0-9]+)\@(?:[A-Za-z0-9\.]+)(?:[A-Za-z]+)/);
 				console.log(x);
 				if(x) {
 					if(x != email) {

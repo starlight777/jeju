@@ -18,7 +18,7 @@
 		$('tr').each(function(i, e) {
 			if(i == 0) return;
 			$(e).on('click', function() {
-				console.log($(e).children().eq(1).text());
+				/* console.log($(e).children().eq(1).text()); */
 				location.href = '/jeju/mypage/infoedit.bit?type=' + typelist[i];
 			});
 		});
