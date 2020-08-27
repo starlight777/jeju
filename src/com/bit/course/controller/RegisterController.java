@@ -26,16 +26,14 @@ public class RegisterController extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 				
-
-		
 		MemberDto dto = (MemberDto) req.getSession().getAttribute("user");
 		int cno = Integer.parseInt(req.getParameter("cno"));
 		String id = req.getParameter("id");
-		
+		System.out.println("1");
 		try	 {
 			dto = new MemberDao().selectMemeber(dto.getId());
 			req.setAttribute("user_info", dto);
-			
+			System.out.println("2");
 			try	 {
 				
 				
@@ -48,16 +46,17 @@ public class RegisterController extends HttpServlet {
 				CourseDao dao3 = new CourseDao();
 				CourseDto bean = dao3.selectOne(cno);
 				req.setAttribute("course", bean);
-				
+				System.out.println("3");
 					
 			} catch (SQLException e) {
 				e.printStackTrace();
+				System.out.println("4");
 			}
 			req.getRequestDispatcher("/register.jsp").forward(req, resp);
-			
+			System.out.println("5");
 		} catch(NullPointerException e) {
 			resp.sendRedirect("/jeju/login.bit");
-			return;
+			System.out.println("6");
 		}
 		
 	}
