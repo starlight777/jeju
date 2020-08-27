@@ -15,8 +15,8 @@
 		$('.slider').bxSlider({
 			mode: 'fade',
 			auto: true,			
-			controls : true,	
-			pager: true,		
+			controls : false,	
+			pager: false,		
 			pause: 3000,
 			autoDelay: 0,	
 			slideWidth: 800,
