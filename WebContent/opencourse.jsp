@@ -8,6 +8,10 @@
 <title>Insert title here</title>
 <%@ include file="template/head.jspf" %>
 <style rel="stylesheet" type="text/css">
+#content>table{
+	width: 80%;
+}
+
 </style>
 <script type="text/javascript">
 </script>

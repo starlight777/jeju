@@ -7,13 +7,27 @@
 <title>BitCamp Jeju</title>
 <%@ include file="template/head.jspf" %>
 <style type="text/css">
+.linkclick{
+	height: 40px;
+}
+#content form table input{
+	border: none;
+	font-size: 16px;
+	font-family: arial;
+	background-color: #ffffff00;
+	color: #81d8d0;
+}
+#content table td{
+	padding: 0 30px;
+	text-align: left;
+}
 </style>
 </head>
 <body>
 <%@ include file="template/header.jspf" %>
 <%@ include file="template/menu.jspf" %>
 <jsp:useBean id = "cedit" class = "com.bit.course.model.CourseDto" scope="request"></jsp:useBean>		
-<h2>과정수정 페이지</h2>
+<h2>교육과정 수정</h2>
 <form method = "post">
 	<table>
 		<tr>
@@ -46,9 +60,9 @@
 		</tr>									
 	</table>										
 	<div>
-		<input type = "submit" value="입력완료"/>
-		<input type = "reset" value="취소"/>
-		<input type = "button" value="뒤로가기" onclick="history.back();"/>
+		<input class="linkclick" type = "submit" value="입력완료"/>
+		<input class="linkclick" type = "reset" value="취소"/>
+		<input class="linkclick" type = "button" value="뒤로가기" onclick="history.back();"/>
 	</div>
 </form>
 <%@ include file="template/footer.jspf" %>

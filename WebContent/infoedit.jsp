@@ -21,6 +21,45 @@
 		outline-color: red;
 		outline-style: auto;
 	}
+#content table{
+	width: 500px;
+	text-align: left;
+}
+#content table tr{
+	border: none;
+}
+#content table tr th{
+/* 	width: 500px; */
+	text-align: left;
+	background-color: white;
+	border: none;
+}
+#content table tr td{
+/* 	width: 200px; */
+	text-align: left;
+	background-color: white;
+	border: none;
+}
+#errpw,#errpwcheck{
+	color: #81d8d0;
+}
+#content label{
+	width: 500px;
+	height: 50px;
+	font-size: 16px;
+	text-align: left;
+}
+#content input{
+  	border: none;
+ 	background-color: #81d8d04a;
+ 	width: 500px;
+ 	width: 500px;
+ 	height: 40px;
+ 	font-size: 20px;
+}
+#content input:focus{outline:none;}
+#content span>a{
+}
 </style>
 <script type="text/javascript">
 	$(document).ready(function() {
@@ -160,7 +199,7 @@
 <%@ include file="template/header.jspf" %>
 <%@ include file="template/menu.jspf" %>
 	<h2>회원 정보 수정</h2>
-	<div>
+	<table>
 		<% 
 		String type = request.getParameter("type");
 		if(!type.equals("pw")) {
@@ -180,29 +219,23 @@
 				value = ((MemberDto) request.getAttribute("user_info")).getAnswer();
 			}
 		%>
-			<div>
-				<label for="<%= type %>"><%= label %></label>
-				<input type="text" name="<%= type %>" id="<%= type %>" class="default_input" value="<%= value %>">
-				<span id="err<%= type %>"></span>
-			</div>
+			<tr><th><label for="<%= type %>"><%= label %></label></th></tr>
+			<tr><td><input type="text" name="<%= type %>" id="<%= type %>" class="default_input" value="<%= value %>">
+				<span id="err<%= type %>"></span></td></tr>
 		<% 
 		} else { 
 		%>
-			<div>
-				<label for="pw">새 비밀번호 (영문, 한글, 특수문자 포함 최소 8자)</label>
-				<input type="password" name="pw" id="pw" class="default_input">
-				<span id="errpw"></span>
-			</div>
-			<div>
-				<label for="pwcheck">새 비밀번호 확인</label>
-				<input type="password" name="pwcheck" id="pwcheck" class="default_input">
-				<span id="errpwcheck"></span>
-			</div>
+			<tr><th><label for="pw">새 비밀번호 (영문, 한글, 특수문자 포함 최소 8자)</label></th></tr>
+			<tr><td><input type="password" name="pw" id="pw" class="default_input"></td></tr>
+			<tr><td><span id="errpw"></span></td></tr>
+			<tr><th><label for="pwcheck">새 비밀번호 확인</label></th></tr>
+			<tr><td><input type="password" name="pwcheck" id="pwcheck" class="default_input"></td></tr>
+			<tr><td><span id="errpwcheck"></span></td></tr>
 		<% } %>
-		<div>
-			<button type="button" id="btnedit">저장</button>
-			<button type="button" id="cancel">취소</button>
-		</div>
+	</table>
+	<div>
+		<button type="button" id="btnedit">저장</button>
+		<button type="button" id="cancel">취소</button>
 	</div>
 <%@ include file="template/footer.jspf" %>
 </body>

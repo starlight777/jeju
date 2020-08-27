@@ -6,6 +6,12 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>비트캠프 제주지점 : 회원정보</title>
 <%@ include file="template/head.jspf" %>
+<style type="text/css">
+#content table tr:nth-child(n+2):hover{
+	color: #81d8d0;
+}
+
+</style>
 <script type="text/javascript">
 	$(document).ready(function() {
 		var typelist = ['id', 'pw', 'answer', 'name', 'tel', 'email'];
@@ -26,12 +32,12 @@
 	<div>
 		<table>
 			<tbody>
-				<tr><td>아이디</td><td>${user_info.id }</td><td>></td></tr>
-				<tr><td>비밀번호</td><td>xxxxxxxx</td><td>></td></tr>
-				<tr><td>비밀번호 찾기 답</td><td>${user_info.answer }</td><td>></td></tr>
-				<tr><td>이름</td><td>${user_info.name }</td><td>></td></tr>
-				<tr><td>전화번호</td><td>${user_info.tel }</td><td>></td></tr>
-				<tr><td>이메일</td><td>${user_info.email }</td><td>></td></tr>
+				<tr><th>아이디</th><td>${user_info.id }</td><td></td></tr>
+				<tr><th>비밀번호</th><td>xxxxxxxx</td><td>수정</td></tr>
+				<tr><th>비밀번호 찾기 답</th><td>${user_info.answer }</td><td>수정</td></tr>
+				<tr><th>이름</th><td>${user_info.name }</td><td>수정</td></tr>
+				<tr><th>전화번호</th><td>${user_info.tel }</td><td>수정</td></tr>
+				<tr><th>이메일</th><td>${user_info.email }</td><td>수정</td></tr>
 			</tbody>
 		</table>
 	</div>

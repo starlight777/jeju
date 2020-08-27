@@ -8,13 +8,17 @@
 <%@ include file="template/head.jspf" %>
 <script type = "text/javascript" src = "js/jquery-1.12.4.js" ></script>
 <style type="text/css">
+#content table td{
+	padding: 0 30px;
+	text-align: left;
+}
 </style>
 </head>
 <body>
 <%@ include file="template/header.jspf" %>
 <%@ include file="template/menu.jspf" %>
 <jsp:useBean id = "course" class = "com.bit.course.model.CourseDto" scope = "request"/>
-<h2>교육과정 디테일 페이지</h2>
+<h2>교육과정 상세</h2>
 <table>
 	<tr>
 		<th>강의번호</th>
