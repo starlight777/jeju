@@ -19,7 +19,6 @@
 <body>
 	<%@ include file="template/header.jspf" %>
 	<%@ include file="template/menu.jspf" %>
-	<div id="content">
 		<div>
 			<h2>비밀번호 찾기</h2>
 			<p>올바른 답이 아닙니다. 다시 입력하세요.</p>
@@ -30,7 +29,6 @@
 		<div>
 			<p>답이 기억나지 않는다면 학원에 문의하세요.</p>
 		</div>
-	</div>
 	<%@ include file="template/footer.jspf" %>
 </body>
 </html>

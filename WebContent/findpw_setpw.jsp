@@ -19,7 +19,6 @@
 <body>
 	<%@ include file="template/header.jspf" %>
 	<%@ include file="template/menu.jspf" %>
-	<div id="content">
 		<div>
 			<h2>비밀번호 찾기</h2>
 			<p><%= request.getParameter("id") %>님의 새 비밀번호가 설정되었습니다.</p>
@@ -28,7 +27,6 @@
 		<div>
 			<button type="button" id="goLogin">로그인하기</button>		
 		</div>
-	</div>
 	<%@ include file="template/footer.jspf" %>
 </body>
 </html>
