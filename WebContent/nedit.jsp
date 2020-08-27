@@ -36,6 +36,10 @@
 			<input type="text" name="ndate" id="ndate" value="${bean.ndate }" readonly />
 		</div>
 		<div>
+			<label for="nbody">내용</label>
+			<input type="text" name="nbody" id="nbody" value="${bean.nbody }" />
+		</div>
+		<div>
 			<label for="nurl"></label>
 			<input type="file" name="nurl" id="nurl" value="${bean.nurl }" /><br>
 			<td colspan="2"><img alt="" src="<%=root%>/up/${bean.nurl}"/></td>

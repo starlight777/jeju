@@ -16,38 +16,12 @@ $(document).ready(function() {
 			location.href = 'course.bit?idx=' + cno;
 		});
 	});
-/* 	$(document).ready(function(){
-		$('table tr').first().siblings().click(function(){
-			var cno=$(this).children().first().text();
-			location.href = 'course.bit?idx='+cno;
-		});
-	});
-*/
 </script>
-
 </head>
 <body>
 <%@ include file="template/header.jspf" %>
 <%@ include file="template/menu.jspf" %>
-<%
-	 final int ROWSIZE = 10;
-	 final int BLOCK = 5;
-	 
-	 int pg = 1;
-	 
-	 if(request.getParameter("pg")!=null) {
-		 	pg = Integer.parseInt(request.getParameter("pg"));
-	 }
-	 
-	 int start = (pg+ROWSIZE) - (ROWSIZE-1);
-	 int end = (pg+ROWSIZE);
-	 
-	 int allPage = 0;
-	 
-	 int startPage = ((pg-1) / BLOCK * BLOCK)+1;
-	 int endPage = ((pg-1) / BLOCK * BLOCK)+BLOCK;
-%>
-<h2>전체과정 페이지</h2>
+<h2>전체과정</h2>
 <table>
 	<tr>
 		<th>강의번호</th>
@@ -69,8 +43,16 @@ $(document).ready(function() {
 		}
 	%>
 </table>
-	<button type = "button" onclick="location.href = 'cadd.bit'">과정추가</button>
-	<button type = "button" onclick="location.href = '#'">수강신청관리</button>
+	<a href="<%=root %>/lms/courses/cadd.bit">과정추가</a>
+	<a href="<%=root %>/lms/courses/reglist.bit">수강신청관리</a>
+
+	<jsp:include page = "/paging.jsp">
+		<jsp:param value = "${paging.page}" name = "page"/>		
+		<jsp:param value = "${paging.beginPage}" name = "beginPage"/>
+		<jsp:param value = "${paging.endPage}" name = "endPage"/>
+		<jsp:param value = "${paging.prev}" name = "prev"/>	
+		<jsp:param value = "${paging.next}" name = "next"/>	
+	</jsp:include>
 <%@ include file="template/footer.jspf" %>
 </body>
 </html>

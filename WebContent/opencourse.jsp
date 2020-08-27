@@ -11,11 +11,9 @@
 #content>table{
 	width: 80%;
 }
-
 </style>
 <script type="text/javascript">
 </script>
-
 </head>
 
 <body>
@@ -48,8 +46,6 @@
 </table>
 
 <%-- 페이지 추가 --%>
-
-
 
 <%@ include file="template/footer.jspf" %>
 </body>

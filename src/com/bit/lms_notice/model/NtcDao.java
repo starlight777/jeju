@@ -72,6 +72,7 @@ public class NtcDao {
 				bean.setNtitle(rs.getString("ntitle"));
 				bean.setNurl(rs.getString("nurl"));
 				bean.setNdate(rs.getDate("ndate"));	
+				bean.setNbody(rs.getString("nbody"));
 			}
 			
 		}finally{
@@ -100,13 +101,14 @@ public class NtcDao {
 		}
 	}
 	
-	public void insertOne(String ntitle, String nurl, String ntype){
-		String sql="insert into ntc (nno, ntitle, nurl, ntype) values (ntc_seq.nextval,?, ?, ?)";
+	public void insertOne(String ntitle, String nurl, String ntype, String nbody){
+		String sql="insert into ntc (nno, ntitle, nurl, ntype, nbody) values (ntc_seq.nextval,?, ?, ?,?)";
 		try{
 			pstmt=conn.prepareStatement(sql);
 			pstmt.setString(1, ntitle);
 			pstmt.setString(2, nurl);
 			pstmt.setString(3, ntype);
+			pstmt.setString(4, nbody);
 			pstmt.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -120,32 +122,25 @@ public class NtcDao {
 				e.printStackTrace();
 			}
 		}
-		
 	}
 	
-
-	
-	public int updateOne(int nno, String ntitle, String nurl) throws SQLException{		// 수정
-		String sql="update ntc set ntitle=?, nurl=? where nno=?";
+	public int updateOne(int nno, String ntitle, String nurl, String nbody) throws SQLException{		// 수정
+		String sql="update ntc set ntitle=?, nurl=? nbody=? where nno=?";
 		try{
 			pstmt=conn.prepareStatement(sql);
-			
 			pstmt.setString(1, ntitle);
 			pstmt.setString(2, nurl);
 			pstmt.setInt(3, nno);
-			
-	
+			pstmt.setString(4, nbody);
 			return pstmt.executeUpdate();
 		}finally{
 			if(pstmt!=null)pstmt.close();
 			if(conn!=null)conn.close();
 		}
-}
-	
+	}
 	
 	public int deleteOne(int nno) throws SQLException{						// 삭제
 //		String sql="update ntc set ntcAvailable=0 where nno=?";
-		
 		String sql="delete from ntc where nno=?";
 		try{
 			pstmt=conn.prepareStatement(sql);
@@ -156,6 +151,4 @@ public class NtcDao {
 			if(conn!=null)conn.close();
 		}
 	}
-			
-	
 }
