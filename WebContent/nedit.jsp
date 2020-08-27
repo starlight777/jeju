@@ -41,6 +41,11 @@
 			<td colspan="2"><img alt="" src="<%=root%>/up/${bean.nurl}"/></td>
 		</div>
 		<div>
+			<label for="nbody">내용</label>
+			<input type="text" name="nbody" id="nbody" value="${bean.nbody }" />
+		</div>
+		
+		<div>
 			
 			<button type="submit">수정</button>
 			

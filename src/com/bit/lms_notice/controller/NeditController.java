@@ -65,12 +65,13 @@ public class NeditController extends HttpServlet {
 
 				String nurl = mpReq.getFilesystemName("nurl");
 				String ntitle = mpReq.getParameter("ntitle");
+				String nbody = mpReq.getParameter("nbody");
 				int nno = Integer.parseInt(req.getParameter("idx"));
 				System.out.println(ntitle);
 				try {
 					NtcDao dao = new NtcDao();
 				//	dao.insertOne(ntitle, nurl);//DB에 제목+url 저장
-					dao.updateOne(nno, ntitle, nurl);
+					dao.updateOne(nno, ntitle, nurl, nbody);
 				} catch (SQLException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();

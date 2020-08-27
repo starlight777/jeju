@@ -25,7 +25,7 @@ public class NoticeController extends HttpServlet {
 		try {
 			NtcDao dao=new NtcDao();
 			ArrayList<NtcDto> list = dao.selectAll();
-//			나중에서 목록에서 클릭해서 넘기는 값 받아서 넣어야 함
+
 			request.setAttribute("list",list);
 		} catch (SQLException e) {
 			e.printStackTrace();

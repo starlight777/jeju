@@ -56,10 +56,12 @@ public class NaddController extends HttpServlet {
 		String nurl = mpReq.getFilesystemName("file1");
 		String ntitle = mpReq.getParameter("ntitle");
 		String ntype = mpReq.getParameter("ntype");
+		String nbody = mpReq.getParameter("nbody");
+		
 		System.out.println(ntitle);
 		try {
 			NtcDao dao = new NtcDao();
-			dao.insertOne(ntitle, nurl, ntype);//DB俊 力格+url 历厘
+			dao.insertOne(ntitle, nurl, ntype, nbody);//DB俊 力格+url 历厘
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

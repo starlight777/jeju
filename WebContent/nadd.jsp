@@ -18,7 +18,7 @@
 	}
 	#content>form>div>label{
 		width: 200px;
-		display: inline-block;
+		display: inline;
 	}
 	#content>form>div{
 		text-align: center;
@@ -38,13 +38,19 @@
 			<input type="text" name="ntitle" id="ntitle" />
 		</div>
 		<div>
-			<label for="ntitle">종류</label>
-			<input type="text" name="ntype" id="ntype"/>
+			<label for="ntype">종류</label>
+			<input type="radio" name="ntype" id="ntype" value="센터공지"/>센터공지
+			<input type="radio" name="ntype" id="ntype" value="과정공지"/>과정공지
+			<input type="radio" name="ntype" id="ntype" value="기타공지"/>기타공지
 		</div>
  		<div>
 			<label for="file1">파일첨부</label>
 			<input type="file" name="file1" id="file1" />
 		</div> 
+		<div>
+			<label for="nbody">내용</label>
+			<input type="text" name="nbody" id="nbody" maxlength="666"/>
+		</div>
 
 		<div>	
 			<button type="submit">글쓰기</button>

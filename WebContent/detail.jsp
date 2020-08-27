@@ -16,7 +16,7 @@
 <%@ include file="template/header.jspf" %>
 <%@ include file="template/menu.jspf" %>
 
-<h2>교육과정(상세)</h2>
+<h2>교육과정</h2>
 
 <jsp:useBean id = "course" class = "com.bit.course.model.CourseDto" scope = "request"/>
 <jsp:useBean id="bean" class="com.bit.lms_notice.model.NtcDto" scope="request"></jsp:useBean>

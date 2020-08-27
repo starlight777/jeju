@@ -34,7 +34,7 @@
 <%@ include file="template/header.jspf" %>
 <%@ include file="template/menu.jspf" %>
 
-<h2>lms 공지사항(상세)</h2>
+<h2>Lms 공지사항</h2>
 
 <jsp:useBean id="bean" class="com.bit.lms_notice.model.NtcDto" scope="request"></jsp:useBean>
 <table width="500" cellpadding="0" cellspacing="0" border="1">
@@ -50,6 +50,10 @@
 	<tr>	
 		<td colspan="2"><img alt="" src="<%=root%>/up/${bean.nurl}"/></td>	
 <%-- 		<td colspan="2"><img alt="" src="/jeju/up/${bean.nurl}"/></td>	 --%>
+	</tr>
+	<tr>
+		<th>내용</th>	
+		<td><jsp:getProperty property="nbody" name="bean"/> </td>
 	</tr>				
 </table>
 		<div>
