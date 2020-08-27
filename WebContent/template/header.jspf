@@ -19,8 +19,8 @@
 			</div>
 			<div id="login">
 				<c:if test="${user ne null }">
-					<span><a href="<%=root %>/login/logout.bit">로그아웃</a></span>
 					<span><a href="<%=root %>/mypage/info.bit">마이페이지</a></span>
+					<span><a href="<%=root %>/login/logout.bit">로그아웃</a></span>
 				</c:if>
 				<c:if test="${user eq null }">
 					<c:if test="${elogin ne null }">

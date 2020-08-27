@@ -3,31 +3,30 @@
     <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>index</title>
-<%@ include file="template/head.jspf" %>
-<style rel="stylesheet" type="text/css">
-</style>
-
-<script type="text/javascript">
-
-$(document).ready(function(){
-
-	$('.slider').bxSlider({
-		mode: 'fade',
-		auto: true,			
-		controls : true,	
-		pager: true,		
-		pause: 3000,
-		autoDelay: 0,	
-		slideWidth: 800,
-		speed: 500
-				
+	<meta charset="UTF-8">
+	<title>index</title>
+	<%@ include file="template/head.jspf" %>
+	<link rel="stylesheet" type="text/css" href="<%=root %>/css/jquery.bxslider.min.css"/>
+	<script type="text/javascript" src="<%=root %>/js/jquery.bxslider.min.js"></script>
+	<script type="text/javascript">
+	
+	$(document).ready(function(){
+	
+		$('.slider').bxSlider({
+			mode: 'fade',
+			auto: true,			
+			controls : true,	
+			pager: true,		
+			pause: 3000,
+			autoDelay: 0,	
+			slideWidth: 800,
+			speed: 500
+					
+		});
+	 	
+		$(".bx-start").hide();	
 	});
- 	
-	$(".bx-start").hide();	
-});
-</script>
+	</script>
 </head>
 <body>
 

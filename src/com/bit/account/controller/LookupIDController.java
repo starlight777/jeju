@@ -19,12 +19,12 @@ public class LookupIDController extends HttpServlet {
 			throws ServletException, IOException {
 		String id = req.getParameter("id");
 		int result = 2;
-		try {
-			result = new MemberDao().lookupId(id);
+		result = new MemberDao().lookupId(id);
+/*		try {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		req.setAttribute("lookup", result);
+*/		req.setAttribute("lookup", result);
 	}
 }

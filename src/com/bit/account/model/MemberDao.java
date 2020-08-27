@@ -24,14 +24,50 @@ public class MemberDao {
 		}
 	}
 	
-	public int lookupId(String id) throws SQLException {
+	public int lookupId(String id) {
 		String sql = "SELECT * FROM mbr WHERE id = ?";
 		System.out.println("lookupId() : " + id);
-		ps = conn.prepareStatement(sql);
-		ps.setString(1, id);
-		rs = ps.executeQuery();
-		if(rs.next()) return 1;
+		try {
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, id);
+			rs = ps.executeQuery();
+			if(rs.next()) return 1;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(rs != null) rs.close();
+				if(ps != null) ps.close();
+				if(conn != null) conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
 		return 0;
+	}
+	
+	public String lookupId(String name, String tel, String email) {
+		String sql = "SELECT * FROM mbr WHERE name = ? AND tel = ? AND email = ?";
+		System.out.println("lookupId() : " + name + ", " + tel + ", " + email);
+		try {
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, name);
+			ps.setString(2, tel);
+			ps.setString(3, email);
+			rs = ps.executeQuery();
+			if(rs.next()) return rs.getString("id");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(rs != null) rs.close();
+				if(ps != null) ps.close();
+				if(conn != null) conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return null;
 	}
 	
 	public int lookupPw(String id, String pw) throws SQLException {
@@ -126,12 +162,16 @@ public class MemberDao {
 		return 0;
 	}
 	
-	public int deleteMember(String id) {
-		String sql = "DELETE FROM mbr WHERE id = ?";
-		System.out.println("deleteMember() : " + id);
+	public int deleteMember(String id, String pw) {
+//		String sql = "UPDATE mbr SET lvl = 'L07' and id =  WHERE id = ? and pw = ?";
+		String sql = "UPDATE mbr SET id = '#' || LPAD(deleted_member_seq.nextval, 5, '0') "
+				+ "|| TO_CHAR(sysdate, 'yyyymmdd'), lvl = 'L07' "
+				+ "WHERE id = ? AND pw = ?";
+		System.out.println("deleteMember() : " + id + ", " + pw);
 		try {
 			ps = conn.prepareStatement(sql);
 			ps.setString(1, id);
+			ps.setString(2, pw);
 			return ps.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -146,7 +186,7 @@ public class MemberDao {
 		return 0;
 	}
 	
-	// ·Î±×ÀÎ ½Ã ¸â¹ö Á¤º¸ ¼¼¼Ç Àü´Þ¿ë
+	// ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Þ¿ï¿½
 	public MemberDto login(String id, String pw) {
 		String sql = "SELECT * FROM mbr WHERE id = ? AND pw = ?";
 		System.out.println("login() : " + id + ", " + pw);
@@ -174,6 +214,29 @@ public class MemberDao {
 		}
 		System.out.println("login() : " + dto);
 		return dto;
+	}
+	
+	public int checkAnswer(String id, String answer) {
+		String sql = "SELECT * FROM mbr WHERE id = ? AND answer = ?";
+		System.out.println("checkAnswer() : " + id + ", " + answer);
+		try {
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, id);
+			ps.setString(2, answer);
+			rs = ps.executeQuery();
+			if(rs.next()) return 1;
+		} catch(SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(rs != null) rs.close();
+				if(ps != null) ps.close();
+				if(conn != null) conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return 0;
 	}
 	
 //	public static void main(String[] args) {

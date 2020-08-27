@@ -11,7 +11,7 @@
 <%@ include file="template/header.jspf" %>
 <%@ include file="template/menu.jspf" %>
 
-	<h2><%= request.getParameter("name") %>회원님의 계정을 삭제했습니다. </h2>
+	<h2>올바른 접근이 아닙니다. 오류 종류: <%= request.getParameter("errtype") %></h2>
 
 <%@ include file="template/footer.jspf" %>
 </body>
