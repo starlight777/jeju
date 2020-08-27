@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.bit.course.model.CourseDao;
-import com.bit.util.ErrorChecker;
+//import com.bit.util.ErrorChecker;
 
 @WebServlet("/lms/courses/assign.bit")
 public class AssignController extends HttpServlet {
@@ -21,7 +21,7 @@ public class AssignController extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 //		if(new ErrorChecker().elogin(req, resp) < 0) return;
-		// 임시 로그인 정보
+
 		req.setAttribute("salesno", 1001);
 		int cno = Integer.parseInt(req.getParameter("cno"));
 		int salesno = (int) req.getAttribute("salesno");

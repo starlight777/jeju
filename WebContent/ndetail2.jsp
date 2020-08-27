@@ -11,24 +11,7 @@
 
 </style>
 <script type="text/javascript">
-
 </script>
-
-<style type="text/css">
-	#content table{
-		border-collapse: collapse;
-	}
-	#content table tr{
-	}
-	#content table tr th{
-		border: 1px solid grey;
-	}
-	#content table tr td{
-		border: 1px solid grey;
-	}
-</style>
-
-
 </head>
 <body>
 <%@ include file="template/header.jspf" %>
@@ -52,12 +35,9 @@
 <%-- 		<td colspan="2"><img alt="" src="/jeju/up/${bean.nurl}"/></td>	 --%>
 	</tr>				
 </table>
-		<div>
-			<button><a href="/jeju/lms/ntc.bit">목록으로 돌아가기</button>
-			<button><a href="/jeju/lms/ntc/nedit.bit?idx=${bean.nno }">수정</a></button>
-			<button><a onclick="return confirm('삭제하시겠습니까?')" href="/jeju/lms/ntc/ndel.bit?idx=${bean.nno }">삭제</a></button>
-		</div>
-		<%--href="/jeju/lms/ntc/ndel.bit?idx=${bean.nno } /jeju/lms/ntc/ndel.bit--%>
+<a href="/jeju/lms/ntc.bit">목록으로 돌아가기</a>
+<a href="/jeju/lms/ntc/nedit.bit?idx=${bean.nno }">수정</a>
+<a onclick="return confirm('삭제하시겠습니까?')" href="/jeju/lms/ntc/ndel.bit?idx=${bean.nno }">삭제</a>
 	
 <%@ include file="template/footer.jspf" %>
 </body>

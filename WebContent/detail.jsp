@@ -8,6 +8,9 @@
 <title>Insert title here</title>
 <%@ include file="template/head.jspf" %>
 <style rel="stylesheet" type="text/css">
+#content>table{
+	width: 80%;
+}
 </style>
 <script type="text/javascript">
 </script>
@@ -20,12 +23,6 @@
 
 <jsp:useBean id = "course" class = "com.bit.course.model.CourseDto" scope = "request"/>
 <jsp:useBean id="bean" class="com.bit.lms_notice.model.NtcDto" scope="request"></jsp:useBean>
-<div>
-	<form method="post" action="/jeju/opencourse/register.bit">
-		<input type="text" name="cno" value="<jsp:getProperty property="cno" name="course"/>" hidden="true" readonly="true">
-		<button type="submit" >수강신청</button>
-	</form>
-</div>
 			
 <table>
 	<tr>
@@ -69,7 +66,11 @@
 		</tr>		
 </table>
 <div>
-	<button><a href="/jeju/opencourse.bit">목록으로 돌아가기</button>
+	<form method="post" action="/jeju/opencourse/register.bit">
+		<input type="text" name="cno" value="<jsp:getProperty property="cno" name="course"/>" hidden="true" readonly="true">
+		<button type="submit" >수강신청</button>
+		<a href="/jeju/opencourse.bit">목록으로 돌아가기</a>
+	</form>
 </div>
 <%@ include file="template/footer.jspf" %>
 </body>

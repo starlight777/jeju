@@ -16,14 +16,15 @@ body hr {
 }
 
 body{
-	color: #444444;
+/* 	font: arial, Malgun Gothic; */
+	color: #333333;
 	/* 진한회색 */
 }
 body a:visited{
-	color: #444444;
+	color: #333333;
 }
 body a:link{
-	color: #444444;
+	color: #333333;
 }
 body a:active{
 	color: #81d8d0;
@@ -31,7 +32,7 @@ body a:active{
 }
 body a:hover{
 	color: #81d8d0;
-	font-weight: bold;
+/* 	font-weight: bold; */
 }
 body a{
     text-decoration: none;
@@ -150,22 +151,84 @@ height: 105px;
 	width: 80%;
 	float: left;
 	text-align: center;
-  	min-height: 700px;
+  	min-height: 600px;
+}
+#content>h2{
+	color: #555555;
+	font-size: 2.5em;
+	font-weight: bolder;
+	margin: 40px 0;
 }
 #content table{
-	width: 80%;
+	width: 100%;
 	border-collapse: collapse;
 	text-align: center;
 	margin-left: auto;
 	margin-right: auto;
 }
 #content table tr{
+	height: 50px;
+}
+#content table tr:nth-child(2n-1){
+	background-color: #daf7f4;
+	background-color: #81d8d04a;
+	background-color: #daf7f4b3;
+	background-color: #eeeeee;
+	border: 1px solid #ffffff;
+	
 }
 #content table tr th{
-	border: 1px solid grey;
+	border: 1px solid #eeeeee;
+	background-color: #dddddd;
+ 	color: #333333;
 }
 #content table tr td{
-	border: 1px solid grey;
+	border: 1px solid #eeeeee;
+}
+#content table tr:nth-child(2n-1) td{
+	border: 1px solid #ffffff;
+}
+#content>a, #content>div a, #content button{
+	display: inline-block;
+/* 	width: 100px; */
+	height: 30px;
+	text-align: center;
+	line-height: 30px;
+	background-image: linear-gradient(#cccccc,#777777,#bbbbbb); 
+	border-radius: 5px;
+ 	margin: 20px 5px;
+	padding: 5px 20px;
+	text-decoration: none;
+	font-size: 16px;
+	font-weight: bold;
+	color: white;
+	border: none;
+}
+#content button{
+	height: 40px;
+	margin: 10px 5px;
+}
+#content>a:hover, #content>div a:hover, #content button:hover{
+	background-image: linear-gradient(#daf7f4,#28bfb1,#81d8d0); 
+}
+.linkclick{
+	display: inline-block;
+/* 	width: 100px; */
+	height: 30px;
+	text-align: center;
+	line-height: 30px;
+	background-image: linear-gradient(#cccccc,#777777,#bbbbbb); 
+	border-radius: 5px;
+ 	margin: 20px 5px;
+	padding: 5px 20px;
+	text-decoration: none;
+	font-size: 16px;
+	font-weight: bold;
+	color: white;
+	border: none;
+}
+.linkclick:hover{
+	background-image: linear-gradient(#daf7f4,#28bfb1,#81d8d0); 
 }
 	
 /********************** .bx-wrapper **********************/
