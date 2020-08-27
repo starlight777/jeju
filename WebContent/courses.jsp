@@ -44,6 +44,7 @@ $(document).ready(function() {
 </head>
 <%@ include file="template/header.jspf" %>
 <%@ include file="template/menu.jspf" %>
+<<<<<<< HEAD
 <body>
 	<table>
 		<tr>
@@ -78,5 +79,40 @@ $(document).ready(function() {
 				<jsp:param value = "${paging.next}" name = "next"/>	
 			</jsp:include>
 			<%@ include file="template/footer.jspf" %>
+=======
+<h2>전체과정</h2>
+<table>
+	<tr>
+		<th>강의번호</th>
+		<th>강좌명</th>
+		<th>개강일</th>
+		<th>종강일</th>
+	</tr>
+	<%
+		List<CoursesDto> list = (List<CoursesDto>) request.getAttribute("courses");
+		for (CoursesDto bean : list) {
+	%>
+	<tr>
+		<td><%=bean.getCno()%></td>
+		<td><a href ="<%=root %>/lms/courses/course.bit?idx=<%=bean.getCno()%>"><%=bean.getCtitle()%></a></td>
+		<td><%=bean.getCbegin()%></td>
+		<td><%=bean.getCend()%></td>
+	</tr>
+	<%
+		}
+	%>
+</table>
+	<a href="<%=root %>/lms/courses/cadd.bit">과정추가</a>
+	<a href="<%=root %>/lms/courses/reglist.bit">수강신청관리</a>
+
+	<jsp:include page = "/paging.jsp">
+		<jsp:param value = "${paging.page}" name = "page"/>		
+		<jsp:param value = "${paging.beginPage}" name = "beginPage"/>
+		<jsp:param value = "${paging.endPage}" name = "endPage"/>
+		<jsp:param value = "${paging.prev}" name = "prev"/>	
+		<jsp:param value = "${paging.next}" name = "next"/>	
+	</jsp:include>
+<%@ include file="template/footer.jspf" %>
+>>>>>>> 04a9fdeffd7e77a4c760cb103d491f8148ccdfd3
 </body>
 </html>

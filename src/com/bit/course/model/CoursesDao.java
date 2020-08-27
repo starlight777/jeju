@@ -18,7 +18,11 @@ public class CoursesDao {
 	Statement stmt;
 	PreparedStatement pstmt;
 	ResultSet rs;
+<<<<<<< HEAD
 
+=======
+	
+>>>>>>> 04a9fdeffd7e77a4c760cb103d491f8148ccdfd3
 	public int getAllCount() {
 		String sql = "select count(*) as count from crs";
 		int count = 0;
@@ -44,8 +48,13 @@ public class CoursesDao {
 			}
 		}
 		return count;
+<<<<<<< HEAD
 	}
 
+=======
+	}	
+	
+>>>>>>> 04a9fdeffd7e77a4c760cb103d491f8148ccdfd3
 	public List<CoursesDto> getList(int page) {
 		int startNum = (page-1)*10+1;
 		int endNum = page*10;
@@ -83,5 +92,9 @@ public class CoursesDao {
 			}
 		}
 		return list;
+<<<<<<< HEAD
 	} 
+=======
+	}
+>>>>>>> 04a9fdeffd7e77a4c760cb103d491f8148ccdfd3
 }

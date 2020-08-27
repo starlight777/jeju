@@ -48,8 +48,6 @@
 
 <%-- 페이지 추가 --%>
 
-<a href = "/jeju/lms/ntc/nadd.bit">글쓰기</a>
-
 <%@ include file="template/footer.jspf" %>
 </body>
 </html>

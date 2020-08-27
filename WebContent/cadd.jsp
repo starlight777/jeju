@@ -5,8 +5,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>BitCamp Jeju</title>
+<<<<<<< HEAD
 <%@ include file="template/head.jspf"%>
 <script type="text/javascript" src="<%=root %>/js/jquery-1.12.4.js"></script>
+=======
+<%@ include file="template/head.jspf" %>
+>>>>>>> 04a9fdeffd7e77a4c760cb103d491f8148ccdfd3
 <style type="text/css">
 
 	#content table{
@@ -33,8 +37,14 @@
 </style>
 </head>
 <body>
+<<<<<<< HEAD
 <%@ include file="template/header.jspf"%>
 <%@ include file="template/menu.jspf"%>
+=======
+<%@ include file="template/header.jspf" %>
+<%@ include file="template/menu.jspf" %>
+	<h2>교육과정추가 페이지</h2>
+>>>>>>> 04a9fdeffd7e77a4c760cb103d491f8148ccdfd3
 	<form method="post">
 			<table>
 				<tr>

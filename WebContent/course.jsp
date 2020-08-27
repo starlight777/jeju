@@ -5,8 +5,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>BitCamp Jeju</title>
+<<<<<<< HEAD
 <%@ include file="template/head.jspf"%>
 <script type="text/javascript" src="<%=root %>/js/jquery-1.12.4.js"></script>
+=======
+<%@ include file="template/head.jspf" %>
+>>>>>>> 04a9fdeffd7e77a4c760cb103d491f8148ccdfd3
 <style type="text/css">
 <<<<<<< HEAD
 
@@ -127,9 +131,9 @@
 	</tr>
 </table>
 <div>
-	<button type = "button" onclick="location.href = 'cedit.bit?idx=<%=course.getCno()%>'">수정</button>
-	<button type = "button" onclick="location.href = 'cdel.bit?cno=<%=course.getCno()%>&ctitle=<%=course.getCtitle() %>'">삭제</button>
-	<button type = "button" onclick="location.href = '../courses.bit'">뒤로가기</button>
+	<button type="button" onclick="location.href = 'cedit.bit?idx=<%=course.getCno()%>'">수정</button>
+	<button type="button" onclick="location.href = 'cdel.bit?cno=<%=course.getCno()%>&ctitle=<%=course.getCtitle() %>'">삭제</button>
+	<button type="button" onclick="location.href = '../courses.bit'">뒤로가기</button>
 </div>
 <%@ include file="template/footer.jspf" %>
 >>>>>>> fbc285131a34f1608c18665a20d9cc181da73493
