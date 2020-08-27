@@ -32,14 +32,13 @@ public class JoinController extends HttpServlet {
 		String name = req.getParameter("name");
 		String tel = req.getParameter("tel");
 		String email = req.getParameter("email");
-		MemberDao dao = new MemberDao();
 		resp.setContentType("text");
 		PrintWriter out = resp.getWriter();
-		int result = dao.lookupId(id);
+		int result = new MemberDao().lookupId(id);
 		if(result == 1) {
 			out.print("existed id");
 		} else if (result == 0) {
-			result = dao.joinMember(id, pw, answer, name, tel, email);
+			result = new MemberDao().joinMember(id, pw, answer, name, tel, email);
 			System.out.println("join success : " + (result == 1));
 			out.print("join");
 		}

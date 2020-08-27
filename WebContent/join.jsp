@@ -83,7 +83,7 @@
 		// * * * * * 각 필드별 에러메시지 출력 함수 * * * * *
 		var err_message = function(field, message) {
 			$('#err' + field).text(message);	
-			$('#' + field).addClass('change_input');	
+			$('#' + field).addClass('change_input').addClass('change_check');	
 			tryjoin = true;	// true면 post 실행하지 않음
 		}
 		// * * * * * * * * * * * * * * * * * * * * * * * * *
