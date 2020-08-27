@@ -21,24 +21,24 @@ public class RegisterController extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-	
 	}
 
 	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		HttpSession session = request.getSession();
-		MemberDto member = (MemberDto) session.getAttribute("login");
-		
-		if(member!=null){		
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 				
-			String id = request.getParameter("id");
-			String pw = request.getParameter("pw");
-			int cno = Integer.parseInt(request.getParameter("cno"));
-			MemberDao dao = new MemberDao();
-			dao.login(id, pw);
-			System.out.println("login");
-			try {
+
+		
+		MemberDto dto = (MemberDto) req.getSession().getAttribute("user");
+		int cno = Integer.parseInt(req.getParameter("cno"));
+		String id = req.getParameter("id");
+		
+		try	 {
+			dto = new MemberDao().selectMemeber(dto.getId());
+			req.setAttribute("user_info", dto);
+			
+			try	 {
+				
+				
 				CourseDao dao1 = new CourseDao();
 				dao1.registerOne(id, cno);
 				
@@ -47,18 +47,57 @@ public class RegisterController extends HttpServlet {
 				
 				CourseDao dao3 = new CourseDao();
 				CourseDto bean = dao3.selectOne(cno);
-				request.setAttribute("course", bean);
+				req.setAttribute("course", bean);
 				
-				request.getRequestDispatcher("/register.jsp").forward(request, response);	
-				
-			} catch (SQLException e) {	
+					
+			} catch (SQLException e) {
 				e.printStackTrace();
 			}
-			System.out.println("RegisterController : " + cno);
-		}else{
-			response.sendRedirect("/jeju/login.bit");
+			req.getRequestDispatcher("/register.jsp").forward(req, resp);
+			
+		} catch(NullPointerException e) {
+			resp.sendRedirect("/jeju/login.bit");
+			return;
 		}
 		
 	}
+	
+		
+		
+		
+			
+		
+		
+		
+//		if(member!=null){		
+				
+//			String id = request.getParameter("id");
+	//		String pw = request.getParameter("pw");
+		//	int cno = Integer.parseInt(request.getParameter("cno"));
+		//	MemberDao dao = new MemberDao();
+	//		dao.login(id, pw);
+	//		System.out.println("login");
+	//		try {
+	//			CourseDao dao1 = new CourseDao();
+//				dao1.registerOne(id, cno);
+//				
+//				CourseDao dao2 = new CourseDao();
+//				dao2.levelUp(id);
+//				
+//				CourseDao dao3 = new CourseDao();
+//				CourseDto bean = dao3.selectOne(cno);
+//				request.setAttribute("course", bean);
+				
+//				request.getRequestDispatcher("/register.jsp").forward(request, response);	
+				
+//			} catch (SQLException e) {	
+//				e.printStackTrace();
+//			}
+//			System.out.println("RegisterController : " + cno);
+//		}else{
+//			response.sendRedirect("/jeju/login.bit");
+//		}
+		
+//	}
 
 }
