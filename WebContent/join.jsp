@@ -83,7 +83,7 @@
 		// * * * * * 각 필드별 에러메시지 출력 함수 * * * * *
 		var err_message = function(field, message) {
 			$('#err' + field).text(message);	
-			$('#' + field).addClass('change_input');	
+			$('#' + field).addClass('change_input').addClass('change_check');	
 			tryjoin = true;	// true면 post 실행하지 않음
 		}
 		// * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -209,7 +209,6 @@
 <body>
 	<%@ include file="template/header.jspf" %>
 	<%@ include file="template/menu.jspf" %>
-	<div id="content">
 		<div>
 			<h2>회원가입</h2>
 		</div>
@@ -271,7 +270,6 @@
 				<button class="close_legal" type="button">닫기</button>
 			</div>
 		</div>
-	</div>
 	<%@ include file="template/footer.jspf" %>
 </body>
 </html>

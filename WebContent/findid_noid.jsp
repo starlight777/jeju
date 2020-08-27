@@ -19,7 +19,6 @@
 <body>
 	<%@ include file="template/header.jspf" %>
 	<%@ include file="template/menu.jspf" %>
-	<div id="content">
 		<div>
 			<h2>아이디 찾기</h2>
 			<p>입력한 정보와 일치하는 아이디를 찾지 못했습니다.</p>
@@ -27,7 +26,6 @@
 		<div>
 			<button type="button" id="gofindid">아이디 다시 찾기</button>		
 		</div>
-	</div>
 	<%@ include file="template/footer.jspf" %>
 </body>
 </html>
