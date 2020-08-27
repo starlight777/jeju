@@ -22,4 +22,13 @@ select * from(select * from ( select rownum as row_num, crs.* from crs order by 
 select * from(select rownum as row_num, crs.* from crs) where row_num <= 10
 select count(*) as count from crs;
 
+delete from crs where cno > 7;
 
+
+select * from ( select * from ( select rownum row_num, crs.* from crs order by cno desc) where row_num > = 1)where row_num <= 15;
+
+insert into crs values (crs_seq.nextval,'디지털컨버전스 기반 자바(JAVA)응용SW개발자 양성과정','2020-7-1','2020-9-30','55','30','401','1008','1001');
+insert into crs values (crs_seq.nextval,'디지털컨버전스 기반 자바(JAVA)응용SW개발자 양성과정','2020-7-1','2020-9-30','55','30','401','1008','1001');
+insert into crs values (crs_seq.nextval,'디지털컨버전스 기반 자바(JAVA)응용SW개발자 양성과정','2020-7-1','2020-9-30','55','30','401','1008','1001');
+insert into crs values (crs_seq.nextval,'디지털컨버전스 기반 자바(JAVA)응용SW개발자 양성과정','2020-7-1','2020-9-30','55','30','401','1008','1001');
+insert into crs values (crs_seq.nextval,'디지털컨버전스 기반 자바(JAVA)응용SW개발자 양성과정','2020-7-1','2020-9-30','55','30','401','1008','1001');

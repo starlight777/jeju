@@ -27,7 +27,6 @@ public class CoursesDao {
 			conn = DriverManager.getConnection(url, user, password);
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery(sql);
-			System.out.println("¼º°ø");
 			if (rs.next()) {
 				count = rs.getInt("count");
 			}
@@ -52,7 +51,7 @@ public class CoursesDao {
 		int endNum = page*10;
 		String sql = "select * from "
 				+ "( select * from "
-				+ "( select rownum row_num, crs.* from crs order by cno desc) where row_num > = ?"
+				+ "( select rownum row_num, crs.* from crs order by row_num desc) where row_num > = ?"
 				+ ")where row_num <= ?";
 		List<CoursesDto> list = new ArrayList<CoursesDto>();
 		try {

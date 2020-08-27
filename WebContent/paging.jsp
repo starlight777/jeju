@@ -9,14 +9,15 @@
 <style type="text/css">
 #paging{
     font-size: 20pt;
-    margin-left: 775px;
+    margin-top: 100px;
+    margin-left: -100px;
 }
 </style>
 </head>
 <body>
 <div id="paging">
 <!-- 1~10까지 있는 페이지의 페이징 -->
-<c:url var="action" value="/courses.bit"/>
+<c:url var="action" value="courses.bit"/>
 <c:if test="${param.prev}">
     <a href="${action}?page=${param.beginPage-1}">prev</a>
 </c:if>

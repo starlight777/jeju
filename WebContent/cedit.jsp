@@ -7,13 +7,35 @@
 <title>BitCamp Jeju</title>
 <%@ include file="template/head.jspf" %>
 <style type="text/css">
+
+	#content table{
+		margin-top: 100px;
+		margin-left: 300px;
+		width: 600px;
+	}
+	
+	table+div {
+		margin-left: 655px;
+		margin-top: 30px;		
+		width: 300px;
+	}
+
+	table tr>th{
+		width:100px;
+	}
+	
+	table tr>td{
+		width:300px;
+		text-align: left;
+	}
+	
+
 </style>
 </head>
 <body>
 <%@ include file="template/header.jspf" %>
 <%@ include file="template/menu.jspf" %>
 <jsp:useBean id = "cedit" class = "com.bit.course.model.CourseDto" scope="request"></jsp:useBean>		
-<h2>과정수정 페이지</h2>
 <form method = "post">
 	<table>
 		<tr>
