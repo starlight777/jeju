@@ -25,7 +25,6 @@ public class NaddController extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		
-		
 		req.getRequestDispatcher("/nadd.jsp").forward(req, resp);
 	}
 	@Override
@@ -56,18 +55,14 @@ public class NaddController extends HttpServlet {
 		String nurl = mpReq.getFilesystemName("file1");
 		String ntitle = mpReq.getParameter("ntitle");
 		String ntype = mpReq.getParameter("ntype");
+		String nbody = mpReq.getParameter("nbody");
 		System.out.println(ntitle);
 		try {
 			NtcDao dao = new NtcDao();
-			dao.insertOne(ntitle, nurl, ntype);//DB俊 力格+url 历厘
+			dao.insertOne(ntitle, nurl, ntype, nbody);//DB俊 力格+url 历厘
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		resp.sendRedirect("/jeju/lms/ntc.bit");
-//			req.getRequestDispatcher("/ntc.jsp").forward(req, resp);
 	}
-}	
-
-
-	
+}

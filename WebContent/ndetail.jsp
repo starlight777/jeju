@@ -24,10 +24,10 @@
 <%@ include file="template/header.jspf" %>
 <%@ include file="template/menu.jspf" %>
 
-<h2>공지사항(상세)</h2>
+<h2>공지사항</h2>
 
 <jsp:useBean id="bean" class="com.bit.lms_notice.model.NtcDto" scope="request"></jsp:useBean>
-<table width="500" cellpadding="0" cellspacing="0" border="1">
+<table>
 
 	<tr>
 		<th>제목</th>
@@ -37,10 +37,14 @@
 		<th>날짜</th>	
 		<td><jsp:getProperty property="ndate" name="bean"/> </td>
 	</tr>
+	<tr>
+		<th>내용</th>
+		<td><jsp:getProperty property="nbody" name="bean"/> </td>
+	</tr>					
 	<tr>	
 		<td colspan="2"><img alt="" src="<%=root%>/up/${bean.nurl}"/></td>	
 <%-- 		<td colspan="2"><img alt="" src="/jeju/up/${bean.nurl}"/>up/${bean.nurl}</td>	 --%>
-	</tr>				
+	</tr>
 </table>
 <a href="/jeju/notice.bit">목록으로 돌아가기</a>
 <%@ include file="template/footer.jspf" %>

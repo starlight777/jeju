@@ -19,15 +19,49 @@ public class CoursesDao {
 	PreparedStatement pstmt;
 	ResultSet rs;
 	
-	public List<CoursesDto> getList() {
-		String sql = "select * from crs ORDER BY cno DESC";
-		List<CoursesDto> list = new ArrayList<CoursesDto>();
+	public int getAllCount() {
+		String sql = "select count(*) as count from crs";
+		int count = 0;
 		try {
 			Class.forName(driver);
 			conn = DriverManager.getConnection(url, user, password);
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery(sql);
-			while(rs.next()) {
+			if (rs.next()) {
+				count = rs.getInt("count");
+			}
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (conn != null)conn.close();
+				if (stmt != null)stmt.close();
+				if (rs != null)rs.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return count;
+	}	
+	
+	public List<CoursesDto> getList(int page) {
+		int startNum = (page-1)*10+1;
+		int endNum = page*10;
+		String sql = "select * from "
+				+ "( select * from "
+				+ "( select rownum row_num, crs.* from crs order by row_num desc) where row_num > = ?"
+				+ ")where row_num <= ?";
+		List<CoursesDto> list = new ArrayList<CoursesDto>();
+		try {
+			Class.forName(driver);
+			conn = DriverManager.getConnection(url, user, password);
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, startNum);
+			pstmt.setInt(2, endNum);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
 				CoursesDto bean = new CoursesDto();
 				bean.setCno(rs.getInt("cno")); 
 				bean.setCtitle(rs.getString("ctitle"));
@@ -49,7 +83,5 @@ public class CoursesDao {
 			}
 		}
 		return list;
-		
 	}
-	
 }
