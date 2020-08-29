@@ -34,22 +34,14 @@
 				<th><label for="ntitle">제목</label></th>
 				<td><input type="text" name="ntitle" id="ntitle" /></td>
 			</tr>	
-				<th><label for="ntype">종류</label></th>
-				<td><select name="ntype">
-				<option value="센터공지">센터공지</option>
-				<option value="과정공지">과정공지</option>
-				<option value="기타공지">기타공지</option></td>
-			</tr> 
-			
-<%--			<tr>
+			<tr>
 				<th><label for="ntype">종류</label></th>
 				<td>
 					<input type="radio" name="ntype" id="ntype" value="센터공지"/>센터공지
 					<input type="radio" name="ntype" id="ntype" value="과정공지"/>과정공지
 					<input type="radio" name="ntype" id="ntype" value="기타공지"/>기타공지
 				</td>
-			</tr>  --%>
-			
+			</tr>
 	 		<tr>
 				<th><label for="file1">파일첨부</label></th>
 				<td><input type="file" name="file1" id="file1" /></td>

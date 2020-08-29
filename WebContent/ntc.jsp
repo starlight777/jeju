@@ -40,7 +40,7 @@
 </table>
 	<a href = "/jeju/lms/ntc/nadd.bit">글쓰기</a>
 	
-	<jsp:include page = "/paging.jsp">
+	<jsp:include page = "/paging2.jsp">
 		<jsp:param value = "${paging.page}" name = "page"/>		
 		<jsp:param value = "${paging.beginPage}" name = "beginPage"/>
 		<jsp:param value = "${paging.endPage}" name = "endPage"/>

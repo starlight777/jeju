@@ -186,13 +186,13 @@ public class NtcDao {
 	}
 	
 	public int updateOne(int nno, String ntitle, String nurl, String nbody) throws SQLException{		// ¼öÁ¤
-		String sql="update ntc set ntitle=?, nurl=? nbody=? where nno=?";
+		String sql="update ntc set ntitle=?, nbody=?, nurl=? where nno=?";
 		try{
 			pstmt=conn.prepareStatement(sql);
 			pstmt.setString(1, ntitle);
-			pstmt.setString(2, nurl);
-			pstmt.setInt(3, nno);
-			pstmt.setString(4, nbody);
+			pstmt.setString(2, nbody);
+			pstmt.setString(3, nurl);
+			pstmt.setInt(4, nno);
 			return pstmt.executeUpdate();
 		}finally{
 			if(pstmt!=null)pstmt.close();
