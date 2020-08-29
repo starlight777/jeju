@@ -8,33 +8,13 @@
 <title>Insert title here</title>
 <%@ include file="template/head.jspf" %>
 <style rel="stylesheet" type="text/css">
-
+#content>table{
+	width: 80%;
+}
 </style>
 <script type="text/javascript" src="js/jquery-1.12.4.js"></script>
 <script type="text/javascript">
-<%-- $(document).ready(function(){
-	$('table tr').first().siblings().click(function(){
-		var nno=$(this).children().first().text();
-		location.href='/lms/ntc/ndetail2.bit?idx='+nno;
-	});
-	
-});
---%>
 </script>
-
-<style type="text/css">
-	#content table{
-		border-collapse: collapse;
-	}
-	#content table tr{
-	}
-	#content table tr th{
-		border: 1px solid grey;
-	}
-	#content table tr td{
-		border: 1px solid grey;
-	}
-</style>
 </head>
 
 <body>
@@ -66,9 +46,13 @@
 			
 </table>
 
-<%-- 페이지 추가 --%>
-
-
+	<jsp:include page = "/paging.jsp">
+		<jsp:param value = "${paging.page}" name = "page"/>		
+		<jsp:param value = "${paging.beginPage}" name = "beginPage"/>
+		<jsp:param value = "${paging.endPage}" name = "endPage"/>
+		<jsp:param value = "${paging.prev}" name = "prev"/>	
+		<jsp:param value = "${paging.next}" name = "next"/>	
+	</jsp:include>
 
 <%@ include file="template/footer.jspf" %>
 </body>

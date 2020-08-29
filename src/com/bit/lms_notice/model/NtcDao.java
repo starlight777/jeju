@@ -7,14 +7,17 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
 
-
+import com.bit.course.model.CoursesDto;
 import com.bit.lms_notice.model.NtcDto;
 
 public class NtcDao {
 	
 	Connection conn;
+	Statement stmt;
 	PreparedStatement pstmt;
 	ResultSet rs;
 	
@@ -29,6 +32,64 @@ public class NtcDao {
 			e.printStackTrace();
 		}
 		conn=DriverManager.getConnection(url, user, password);
+	}
+	
+	public int getAllCount() {
+		String sql = "select count(*) as count from ntc";
+		int count = 0;
+		try {
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(sql);
+			if (rs.next()) {
+				count = rs.getInt("count");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (conn != null)conn.close();
+				if (stmt != null)stmt.close();
+				if (rs != null)rs.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return count;
+	}	
+	
+	public ArrayList<NtcDto> getList(int page) {
+		int startNum = (page-1)*10+1;
+		int endNum = page*10;
+		String sql = "select * from "
+				+ "( select * from "
+				+ "( select rownum row_num, ntc.* from ntc order by nno desc) where row_num > = ?"
+				+ ")where row_num <= ?";
+		ArrayList<NtcDto> list = new ArrayList<NtcDto>();
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, startNum);
+			pstmt.setInt(2, endNum);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				NtcDto bean = new NtcDto();
+				bean.setNno(rs.getInt("nno")); 
+				bean.setNtitle(rs.getString("ntitle"));
+				bean.setNtype(rs.getString("ntype"));
+				bean.setNdate(rs.getDate("ndate"));
+				list.add(bean);				
+			}			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(conn!=null)conn.close();
+				if(stmt!=null)stmt.close();
+				if(rs!=null)rs.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return list;
 	}
 	
 	public ArrayList<NtcDto> selectAll() throws SQLException{	// 모두 출력
@@ -71,7 +132,7 @@ public class NtcDao {
 				bean.setNno(rs.getInt("nno"));
 				bean.setNtitle(rs.getString("ntitle"));
 				bean.setNurl(rs.getString("nurl"));
-				bean.setNdate(rs.getDate("ndate"));
+				bean.setNdate(rs.getDate("ndate"));	
 				bean.setNbody(rs.getString("nbody"));
 			}
 			
@@ -122,33 +183,25 @@ public class NtcDao {
 				e.printStackTrace();
 			}
 		}
-		
 	}
-	
-
 	
 	public int updateOne(int nno, String ntitle, String nurl, String nbody) throws SQLException{		// 수정
 		String sql="update ntc set ntitle=?, nurl=? nbody=? where nno=?";
 		try{
 			pstmt=conn.prepareStatement(sql);
-			
 			pstmt.setString(1, ntitle);
 			pstmt.setString(2, nurl);
 			pstmt.setInt(3, nno);
 			pstmt.setString(4, nbody);
-			
-	
 			return pstmt.executeUpdate();
 		}finally{
 			if(pstmt!=null)pstmt.close();
 			if(conn!=null)conn.close();
 		}
-}
-	
+	}
 	
 	public int deleteOne(int nno) throws SQLException{						// 삭제
 //		String sql="update ntc set ntcAvailable=0 where nno=?";
-		
 		String sql="delete from ntc where nno=?";
 		try{
 			pstmt=conn.prepareStatement(sql);
@@ -159,6 +212,4 @@ public class NtcDao {
 			if(conn!=null)conn.close();
 		}
 	}
-			
-	
 }

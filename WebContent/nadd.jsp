@@ -8,24 +8,20 @@
 <title>Insert title here</title>
 <%@ include file="/template/head.jspf" %>
 <style type="text/css">
-	#content{}
-	#content>h2{
-		text-align: center;
-	}
-	#content>form{
-		width: 500px;
-		margin: 0px auto;
-	}
-	#content>form>div>label{
-		width: 200px;
-		display: inline;
-	}
-	#content>form>div{
-		text-align: center;
-	}
-	#content>form>div:first-child~div{
-		border-top:1px dotted gray;
-	}
+#content form table input{
+	border: none;
+	font-size: 16px;
+	height: 40px;
+	width: 100%;
+	line-height: 40px;
+	font-family: arial;
+	background-color: #ffffff00;
+	color: #81d8d0;
+}
+#content table td{
+	padding: 0 30px;
+	text-align: left;
+}
 </style>
 </head>
 <body>	
@@ -33,26 +29,37 @@
 <%@ include file="template/menu.jspf" %>
 	<h2>공지사항 추가</h2>
 	<form action="/jeju/lms/ntc/nadd.bit" method="post" enctype="multipart/form-data">
+		<table>
+			<tr>
+				<th><label for="ntitle">제목</label></th>
+				<td><input type="text" name="ntitle" id="ntitle" /></td>
+			</tr>	
+				<th><label for="ntype">종류</label></th>
+				<td><select name="ntype">
+				<option value="센터공지">센터공지</option>
+				<option value="과정공지">과정공지</option>
+				<option value="기타공지">기타공지</option></td>
+			</tr> 
+			
+<%--			<tr>
+				<th><label for="ntype">종류</label></th>
+				<td>
+					<input type="radio" name="ntype" id="ntype" value="센터공지"/>센터공지
+					<input type="radio" name="ntype" id="ntype" value="과정공지"/>과정공지
+					<input type="radio" name="ntype" id="ntype" value="기타공지"/>기타공지
+				</td>
+			</tr>  --%>
+			
+	 		<tr>
+				<th><label for="file1">파일첨부</label></th>
+				<td><input type="file" name="file1" id="file1" /></td>
+			</tr>
+	 		<tr>
+				<th><label for="nbody">내용</label></th>
+				<td><input type="text" name="nbody" id="nbody" maxlength="666"/></td>
+			</tr>
+		</table>
 		<div>
-			<label for="ntitle">제목</label>
-			<input type="text" name="ntitle" id="ntitle" />
-		</div>
-		<div>
-			<label for="ntype">종류</label>
-			<input type="radio" name="ntype" id="ntype" value="센터공지"/>센터공지
-			<input type="radio" name="ntype" id="ntype" value="과정공지"/>과정공지
-			<input type="radio" name="ntype" id="ntype" value="기타공지"/>기타공지
-		</div>
- 		<div>
-			<label for="file1">파일첨부</label>
-			<input type="file" name="file1" id="file1" />
-		</div> 
-		<div>
-			<label for="nbody">내용</label>
-			<input type="text" name="nbody" id="nbody" maxlength="666"/>
-		</div>
-
-		<div>	
 			<button type="submit">글쓰기</button>
 			<button type="button" onclick="history.back();">목록으로 돌아가기</button>
 		</div>

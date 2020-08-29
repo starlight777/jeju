@@ -90,7 +90,6 @@
 <body>
 	<%@ include file="template/header.jspf" %>
 	<%@ include file="template/menu.jspf" %>
-	<div id="content">
 		<div>
 			<h2>아이디 찾기</h2>
 			<p>회원가입 시 입력했던 정보들을 입력하세요</p>
@@ -117,7 +116,6 @@
 				</div>
 			</form>
 		</div>
-	</div>
 	<%@ include file="template/footer.jspf" %>
 </body>
 </html>

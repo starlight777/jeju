@@ -14,9 +14,9 @@
 <%@ include file="template/header.jspf" %>
 <%@ include file="template/menu.jspf" %>
 
-<h2>Lms 공지사항</h2>
+<h2>LMS 공지사항</h2>
 
-<table width="500" cellpadding="0" cellspacing="0" border="1">
+<table>
 
 	<tr>
 		<th>번호</th>
@@ -38,10 +38,15 @@
 		<%} %>
 			
 </table>
-
-<%-- 페이지 추가 --%>
-
-<a href = "/jeju/lms/ntc/nadd.bit">글쓰기</a>
+	<a href = "/jeju/lms/ntc/nadd.bit">글쓰기</a>
+	
+	<jsp:include page = "/paging.jsp">
+		<jsp:param value = "${paging.page}" name = "page"/>		
+		<jsp:param value = "${paging.beginPage}" name = "beginPage"/>
+		<jsp:param value = "${paging.endPage}" name = "endPage"/>
+		<jsp:param value = "${paging.prev}" name = "prev"/>	
+		<jsp:param value = "${paging.next}" name = "next"/>	
+	</jsp:include>
 
 <%@ include file="template/footer.jspf" %>
 </body>

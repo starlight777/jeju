@@ -69,7 +69,6 @@
 <body>
 	<%@ include file="template/header.jspf" %>
 	<%@ include file="template/menu.jspf" %>
-	<div id="content">
 		<div>
 			<h2>비밀번호 찾기</h2>
 			<p>비밀번호 찾기 질문: 가장 좋아하는 동물은?</p>
@@ -86,7 +85,6 @@
 				</div>
 			</form>
 		</div>
-	</div>
 	<%@ include file="template/footer.jspf" %>
 </body>
 </html>

@@ -21,6 +21,45 @@
 		outline-color: red;
 		outline-style: auto;
 	}
+#content table{
+	width: 500px;
+	text-align: left;
+}
+#content table tr{
+	border: none;
+}
+#content table tr th{
+/* 	width: 500px; */
+	text-align: left;
+	background-color: white;
+	border: none;
+}
+#content table tr td{
+/* 	width: 200px; */
+	text-align: left;
+	background-color: white;
+	border: none;
+}
+#errpw,#errpwcheck{
+	color: #81d8d0;
+}
+#content label{
+	width: 500px;
+	height: 50px;
+	font-size: 16px;
+	text-align: left;
+}
+#content input{
+  	border: none;
+ 	background-color: #81d8d04a;
+ 	width: 500px;
+ 	width: 500px;
+ 	height: 40px;
+ 	font-size: 20px;
+}
+#content input:focus{outline:none;}
+#content span>a{
+}
 </style>
 <script type="text/javascript">
 	$(document).ready(function() {
@@ -43,85 +82,78 @@
 		})
 		// * * * * * * * * * * * * * * *
 		
-		// * * * * * 수정 버튼 * * * * *
+		// * * * * * 수정 버튼 클릭 시 이벤트 * * * * *
 		$('#btnedit').on('click', function() {
-			// * * * * * 에러 메시지 및 값 초기화 * * * * *
+			// * * * * * 에러 메시지 초기화 * * * * *
 			$('span').text('');
 			$('input').removeClass('change_input').removeClass('change_check');
-			
-			var pw = $('#pw').val();
-			var pwcheck = $('#pwcheck').val();
-			var answer = $('#answer').val();
-			var name = $('#name').val();
-			var tel = $('#tel').val();
-			var email = $('#email').val();
 			// * * * * * * * * * * * * * * * * * * * * * * * * *
 			
-			// * * * * * 필드 별 유효성 검증 및 에러메시지 출력 함수 실행 * * * * *
-			if(pw == '') {	
-				err_message('pw', '비밀번호를 입력하세요');
-			} else {
-				if(pw.length < 8) {
-					err_message('pw', '8자 이상의 비밀번호를 입력해주세요');
-				} else if(pw.length > 20){
-					err_message('pw', '20자 이하의 비밀번호를 입력해주세요');
+			if(type == 'pw') {
+				var pw = $('#pw').val();
+				var pwcheck = $('#pwcheck').val();
+				
+				if(pw == '') {	
+					err_message('pw', '비밀번호를 입력하세요');
 				} else {
-					if(!((pw.search(/[a-zA-z]/) + 1) && 
-							(pw.search(/[0-9]/) + 1) && 
-							(pw.search(/[^a-zA-z0-9]/) + 1))) {
-						err_message('pw', '영문, 숫자, 특수문자로 조합된 비밀번호를 입력하세요');
+					if(pw.length < 8) {
+						err_message('pw', '8자 이상의 비밀번호를 입력해주세요');
+					} else if(pw.length > 20){
+						err_message('pw', '20자 이하의 비밀번호를 입력해주세요');
+					} else {
+						if(!((pw.search(/[a-zA-z]/) + 1) && 
+								(pw.search(/[0-9]/) + 1) && 
+								(pw.search(/[^a-zA-z0-9]/) + 1))) {
+							err_message('pw', '영문, 숫자, 특수문자로 조합된 비밀번호를 입력하세요');
+						}
 					}
 				}
-			}
-			
-			if(pwcheck == '' || pw != pwcheck) {	
-				err_message('pwcheck', '입력한 비밀번호와 동일한 비밀번호를 입력하세요');	
-			}
-			
-			if(answer == '') {	
-				err_message('answer', '비밀번호 찾기 답을 입력하세요');
-			} else if(answer.length > 10) {
-				err_message('answer', '10자 이하로 입력하세요');
-			}
-			
-			if(name == '') {	
-				err_message('name', '이름을 입력하세요');	
-			} else if(name.length > 6) {
-				err_message('name', '6자 이하로 입력하세요');	
-			}
-			
-			if(tel == '') {	
-				err_message('tel', '전화번호를 입력하세요');	
-			} else if(tel.length > 11) {
-				err_message('tel', '11자리 이하의 올바른 전화번호를 입력하세요');	
-			} 
-			
-			if(email == '') {
-				err_message('email', '이메일을 입력하세요');
-			} else if(email.length > 30) { 
-				err_message('email', '30자 이하의 이메일을 입력하세요');
-			} else {
-				var x = email.match(/(?:[A-Za-z0-9]+)\@(?:[A-Za-z0-9]+)\.(?:[A-Za-z0-9]+)/);
-				console.log(x);
-				if(x) {
-					if(x != email) {
+				
+				if(pwcheck == '' || pw != pwcheck) {	
+					err_message('pwcheck', '입력한 비밀번호와 동일한 비밀번호를 입력하세요');	
+				}
+			} else if('answer' == type) {
+				var answer = $('#answer').val();
+				if(answer == '') {	
+					err_message('answer', '비밀번호 찾기 답을 입력하세요');
+				} else if(answer.length > 10) {
+					err_message('answer', '10자 이하로 입력하세요');
+				}
+			} else if('name' == type) {
+				var name = $('#name').val();
+				if(name == '') {	
+					err_message('name', '이름을 입력하세요');	
+				} else if(name.length > 6) {
+					err_message('name', '6자 이하로 입력하세요');	
+				}
+			} else if('tel' == type) {
+				var tel = $('#tel').val();
+				if(tel == '') {	
+					err_message('tel', '전화번호를 입력하세요');	
+				} else if(tel.length > 11) {
+					err_message('tel', '11자리 이하의 올바른 전화번호를 입력하세요');	
+				} 
+			} else if('email' == type) {
+				var email = $('#email').val();
+				if(email == '') {
+					err_message('email', '이메일을 입력하세요');
+				} else if(email.length > 30) { 
+					err_message('email', '30자 이하의 이메일을 입력하세요');
+				} else {
+					var x = email.match(/(?:[A-Za-z0-9]+)\@(?:[A-Za-z0-9\.]+)(?:[A-Za-z]+)/);
+					console.log(x);
+					if(x) {
+						if(x != email) {
+							err_message('email', '올바른 형식의 이메일 주소를 입력하세요');
+						}
+					} else {
 						err_message('email', '올바른 형식의 이메일 주소를 입력하세요');
 					}
-				} else {
-					err_message('email', '올바른 형식의 이메일 주소를 입력하세요');
 				}
+			} else {
+				location.href = "/jeju";
 			}
-			// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 			
-			/* * * * * * 수정 이전 코드 * * * * * 
-			 * if(pw == '') {	$('#errpw').text('비밀번호를 입력하세요');	$('#pw').addClass('change_input');	tryedit = true;	}
-			 * if(pwcheck == '' || pw != pwcheck) {	$('#errpwcheck').text('비밀번호가 일치하지 않습니다');	$('#pwcheck').addClass('change_input');	tryedit = true;	}
-			 * if(answer == '') {	$('#erranswer').text('비밀번호 찾기 답을 입력하세요');	$('#answer').addClass('change_input');	tryedit = true;	} 
-			 * if(name == '') {	$('#errname').text('이름을 입력하세요');	$('#name').addClass('change_input');	tryedit = true;	} 
-			 * if(tel == '') {	$('#errtel').text('전화번호를 입력하세요');	$('#tel').addClass('change_input');	tryedit = true;	} 
-			 * if(email == '') {	$('#erremail').text('이메일을 입력하세요');	$('#email').addClass('change_input');	tryedit = true;	} 
-			 * * * * * * 수정 이전 코드 * * * * * * */
-			 
 			// * * * * * tryedit이 true면 오류 필드 중 가장 위 필드를 포커스하고 중지 * * * * * 
 			if(tryedit) {
 				$('span').each(function(i, e) {
@@ -143,11 +175,11 @@
 				success: function(value) {
 					/* console.log('here1'); */
 					if(value == 'edit fail') {
-						console.log('edit fail');
-						/* alert("오류"); */
+						/* console.log('edit fail'); */
+						alert("오류");
 					}
 					if(value == 'edit success') {
-						console.log('edit success');
+						/* console.log('edit success'); */
 						location.href = '/jeju/mypage/info.bit';
 					}
 				}
@@ -160,7 +192,7 @@
 <%@ include file="template/header.jspf" %>
 <%@ include file="template/menu.jspf" %>
 	<h2>회원 정보 수정</h2>
-	<div>
+	<table>
 		<% 
 		String type = request.getParameter("type");
 		if(!type.equals("pw")) {
@@ -176,33 +208,27 @@
 				label = "이메일";
 				value = ((MemberDto) request.getAttribute("user_info")).getEmail();
 			} else if("answer".equals(type)) {
-				label = "비밀번호 찾기 답 (한글 기준 10자 이내)";
+				label = "비밀번호 찾기 답 (10자 이하)";
 				value = ((MemberDto) request.getAttribute("user_info")).getAnswer();
 			}
 		%>
-			<div>
-				<label for="<%= type %>"><%= label %></label>
-				<input type="text" name="<%= type %>" id="<%= type %>" class="default_input" value="<%= value %>">
-				<span id="err<%= type %>"></span>
-			</div>
+			<tr><th><label for="<%= type %>"><%= label %></label></th></tr>
+			<tr><td><input type="text" name="<%= type %>" id="<%= type %>" class="default_input" value="<%= value %>">
+				<span id="err<%= type %>"></span></td></tr>
 		<% 
 		} else { 
 		%>
-			<div>
-				<label for="pw">새 비밀번호 (영문, 한글, 특수문자 포함 최소 8자)</label>
-				<input type="password" name="pw" id="pw" class="default_input">
-				<span id="errpw"></span>
-			</div>
-			<div>
-				<label for="pwcheck">새 비밀번호 확인</label>
-				<input type="password" name="pwcheck" id="pwcheck" class="default_input">
-				<span id="errpwcheck"></span>
-			</div>
+			<tr><th><label for="pw">새 비밀번호 (영문, 한글, 특수문자 포함 8자 이상)</label></th></tr>
+			<tr><td><input type="password" name="pw" id="pw" class="default_input"></td></tr>
+			<tr><td><span id="errpw"></span></td></tr>
+			<tr><th><label for="pwcheck">새 비밀번호 확인</label></th></tr>
+			<tr><td><input type="password" name="pwcheck" id="pwcheck" class="default_input"></td></tr>
+			<tr><td><span id="errpwcheck"></span></td></tr>
 		<% } %>
-		<div>
-			<button type="button" id="btnedit">저장</button>
-			<button type="button" id="cancel">취소</button>
-		</div>
+	</table>
+	<div>
+		<button type="button" id="btnedit">저장</button>
+		<button type="button" id="cancel">취소</button>
 	</div>
 <%@ include file="template/footer.jspf" %>
 </body>

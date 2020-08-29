@@ -7,6 +7,15 @@
 	<title>index</title>
 	<%@ include file="template/head.jspf" %>
 	<link rel="stylesheet" type="text/css" href="<%=root %>/css/jquery.bxslider.min.css"/>
+	<style type="text/css">
+	#content{
+		background-image: url(img/bg3.jpg);
+		background-size: 100%;
+	    background-position: center;
+	    background-repeat:no-repeat;
+	}
+	
+	</style>
 	<script type="text/javascript" src="<%=root %>/js/jquery.bxslider.min.js"></script>
 	<script type="text/javascript">
 	
@@ -15,8 +24,8 @@
 		$('.slider').bxSlider({
 			mode: 'fade',
 			auto: true,			
-			controls : true,	
-			pager: true,		
+			controls : false,	
+			pager: false,		
 			pause: 3000,
 			autoDelay: 0,	
 			slideWidth: 800,

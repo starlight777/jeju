@@ -3,6 +3,7 @@ package com.bit.account.controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.util.Enumeration;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -19,6 +20,10 @@ public class JoinController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
+		if(req.getSession().getAttributeNames().hasMoreElements()) {
+			resp.sendRedirect("/jeju");
+			return;
+		}
 		req.getRequestDispatcher("/join.jsp").forward(req, resp);
 	}
 	
@@ -32,15 +37,13 @@ public class JoinController extends HttpServlet {
 		String name = req.getParameter("name");
 		String tel = req.getParameter("tel");
 		String email = req.getParameter("email");
-		MemberDao dao = new MemberDao();
 		resp.setContentType("text");
 		PrintWriter out = resp.getWriter();
-		int result = dao.lookupId(id);
+		int result = new MemberDao().lookupId(id);
 		if(result == 1) {
 			out.print("existed id");
 		} else if (result == 0) {
-			result = dao.joinMember(id, pw, answer, name, tel, email);
-			System.out.println("join success : " + (result == 1));
+			result = new MemberDao().joinMember(id, pw, answer, name, tel, email);
 			out.print("join");
 		}
 	}

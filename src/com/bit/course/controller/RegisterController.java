@@ -15,88 +15,40 @@ import com.bit.account.model.MemberDto;
 import com.bit.course.model.CourseDao;
 import com.bit.course.model.CourseDto;
 
-
 @WebServlet("/opencourse/register.bit")
 public class RegisterController extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		response.sendRedirect("/jeju/opencourse");
+//		request.getRequestDispatcher("/register.jsp").forward(request, response);
 	}
-
 	
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-				
-		MemberDto dto = (MemberDto) req.getSession().getAttribute("user");
+		HttpSession session = req.getSession();
+		MemberDto dto = (MemberDto) session.getAttribute("user");
 		int cno = Integer.parseInt(req.getParameter("cno"));
-		String id = req.getParameter("id");
-		System.out.println("1");
 		try	 {
-			dto = new MemberDao().selectMemeber(dto.getId());
-			req.setAttribute("user_info", dto);
-			System.out.println("2");
-			try	 {
+			String id = dto.getId();
+			CourseDao dao1 = new CourseDao();
+			dao1.registerOne(id, cno);
+			
+			CourseDao dao2 = new CourseDao();
+			dao2.levelUp(id);
+			
+			// session 초기화 대신 임시로 L02로 수정하여 학습정보가 보이지 않는 오류 해결
+			dto.setLvl("L02");
+			
+			CourseDao dao3 = new CourseDao();
+			CourseDto bean = dao3.selectOne(cno);
+			req.setAttribute("course", bean);
 				
-				
-				CourseDao dao1 = new CourseDao();
-				dao1.registerOne(id, cno);
-				
-				CourseDao dao2 = new CourseDao();
-				dao2.levelUp(id);
-				
-				CourseDao dao3 = new CourseDao();
-				CourseDto bean = dao3.selectOne(cno);
-				req.setAttribute("course", bean);
-				System.out.println("3");
-					
-			} catch (SQLException e) {
-				e.printStackTrace();
-				System.out.println("4");
-			}
 			req.getRequestDispatcher("/register.jsp").forward(req, resp);
-			System.out.println("5");
+		} catch (SQLException e) {
+			e.printStackTrace();
 		} catch(NullPointerException e) {
 			resp.sendRedirect("/jeju/login.bit");
-			System.out.println("6");
 		}
-		
+
 	}
-	
-		
-		
-		
-			
-		
-		
-		
-//		if(member!=null){		
-				
-//			String id = request.getParameter("id");
-	//		String pw = request.getParameter("pw");
-		//	int cno = Integer.parseInt(request.getParameter("cno"));
-		//	MemberDao dao = new MemberDao();
-	//		dao.login(id, pw);
-	//		System.out.println("login");
-	//		try {
-	//			CourseDao dao1 = new CourseDao();
-//				dao1.registerOne(id, cno);
-//				
-//				CourseDao dao2 = new CourseDao();
-//				dao2.levelUp(id);
-//				
-//				CourseDao dao3 = new CourseDao();
-//				CourseDto bean = dao3.selectOne(cno);
-//				request.setAttribute("course", bean);
-				
-//				request.getRequestDispatcher("/register.jsp").forward(request, response);	
-				
-//			} catch (SQLException e) {	
-//				e.printStackTrace();
-//			}
-//			System.out.println("RegisterController : " + cno);
-//		}else{
-//			response.sendRedirect("/jeju/login.bit");
-//		}
-		
-//	}
 
 }

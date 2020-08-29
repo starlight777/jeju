@@ -73,7 +73,6 @@ public class NeditController extends HttpServlet {
 				//	dao.insertOne(ntitle, nurl);//DB에 제목+url 저장
 					dao.updateOne(nno, ntitle, nurl, nbody);
 				} catch (SQLException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 				resp.sendRedirect("/jeju/lms/ntc/ndetail2.bit?idx="+nno);

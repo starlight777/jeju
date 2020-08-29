@@ -17,6 +17,10 @@ public class FindIdController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
+		if(req.getSession().getAttributeNames().hasMoreElements()) {
+			resp.sendRedirect("/jeju");
+			return;
+		}
 		req.getRequestDispatcher("/findid.jsp").forward(req, resp);
 	}
 	@Override

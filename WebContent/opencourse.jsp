@@ -8,26 +8,12 @@
 <title>Insert title here</title>
 <%@ include file="template/head.jspf" %>
 <style rel="stylesheet" type="text/css">
-
+#content>table{
+	width: 80%;
+}
 </style>
-<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
 <script type="text/javascript">
-
 </script>
-
-<style type="text/css">
-	#content table{
-		border-collapse: collapse;
-	}
-	#content table tr{
-	}
-	#content table tr th{
-		border: 1px solid grey;
-	}
-	#content table tr td{
-		border: 1px solid grey;
-	}
-</style>
 </head>
 
 <body>
@@ -60,8 +46,6 @@
 </table>
 
 <%-- 페이지 추가 --%>
-
-
 
 <%@ include file="template/footer.jspf" %>
 </body>

@@ -19,7 +19,6 @@
 <body>
 	<%@ include file="template/header.jspf" %>
 	<%@ include file="template/menu.jspf" %>
-	<div id="content">
 		<div>
 			<h2>아이디 찾기</h2>
 			<p>${foundid_name } 님의 아이디는 </p>
@@ -33,7 +32,6 @@
 				<span><a href="/jeju/login/findpw/answer.bit?id=${foundid_id }" id="gofindpw">비밀번호 찾기</a></span>
 			</div>
 		</div>
-	</div>
 	<% 
 	session.removeAttribute("foundid_name");	
 	session.removeAttribute("foundid_id");	

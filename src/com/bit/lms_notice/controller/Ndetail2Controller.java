@@ -41,24 +41,12 @@ public class Ndetail2Controller extends HttpServlet {
 		String ntitle=req.getParameter("ntitle").trim();
 		String nurl=req.getParameter("nurl").trim();
 		String nbody=req.getParameter("nbody").trim();
-		
 		try {
 			NtcDao dao=new NtcDao();
 			dao.updateOne(nno, ntitle, nurl, nbody);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
 		resp.sendRedirect("/lms/ntc.bit");
 	}
 }
-
-
-
-
-
-
-
-
-
-
