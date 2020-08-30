@@ -16,10 +16,8 @@ import com.bit.course.model.CourseDto;
 @WebServlet("/lms/courses/cedit.bit")
 public class CeditController extends HttpServlet {
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
-			throws ServletException, IOException {
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp)throws ServletException, IOException {
 		int cno = Integer.parseInt(req.getParameter("idx"));
-		
 		try {
 			CourseDao dao = new CourseDao();
 			CourseDto bean = dao.selectOne(cno);
@@ -37,11 +35,11 @@ public class CeditController extends HttpServlet {
 		req.setCharacterEncoding("utf-8");
 		int cno = Integer.parseInt(req.getParameter("cno").trim());
 		String ctitle = req.getParameter("ctitle").trim();
-		String cbegin = req.getParameter("cbegin").trim();
-		String cend = req.getParameter("cend").trim();
-		int croom = Integer.parseInt(req.getParameter("croom").trim());
-		int profno = Integer.parseInt(req.getParameter("profno").trim());
-		int salesno = Integer.parseInt(req.getParameter("salesno").trim());
+		String cbegin = req.getParameter("cbegin");
+		String cend = req.getParameter("cend");
+		int croom = Integer.parseInt(req.getParameter("croom"));
+		int profno = Integer.parseInt(req.getParameter("profno"));
+		int salesno = Integer.parseInt(req.getParameter("salesno"));
 		
 		try {
 			CourseDao dao = new CourseDao();

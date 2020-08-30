@@ -35,10 +35,7 @@ public class CaddController extends HttpServlet {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-<<<<<<< HEAD
-		resp.sendRedirect("/jeju/lms/courses.bit");
-=======
 		resp.sendRedirect(req.getContextPath()+"/lms/courses.bit");
->>>>>>> 04a9fdeffd7e77a4c760cb103d491f8148ccdfd3
+
 	}
 }

@@ -5,12 +5,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>BitCamp Jeju</title>
-<<<<<<< HEAD
+
 <%@ include file="template/head.jspf"%>
 <script type="text/javascript" src="<%=root %>/js/jquery-1.12.4.js"></script>
-=======
-<%@ include file="template/head.jspf" %>
->>>>>>> 04a9fdeffd7e77a4c760cb103d491f8148ccdfd3
 <style type="text/css">
 
 	#content table{
@@ -37,14 +34,9 @@
 </style>
 </head>
 <body>
-<<<<<<< HEAD
-<%@ include file="template/header.jspf"%>
-<%@ include file="template/menu.jspf"%>
-=======
 <%@ include file="template/header.jspf" %>
 <%@ include file="template/menu.jspf" %>
 	<h2>교육과정추가 페이지</h2>
->>>>>>> 04a9fdeffd7e77a4c760cb103d491f8148ccdfd3
 	<form method="post">
 			<table>
 				<tr>
@@ -53,7 +45,12 @@
 				</tr>
 				<tr>
 					<th> <label for="croom">강의실</label> </th>
-					<td> <input type="text"name="croom" id="croom" /> </td>
+					<td> <select name = "croom" id= "croom">
+							<option value = "401">401</option>
+							<option value = "402">402</option>
+							<option value = "403">403</option>						
+						</select>
+					</td>			
 				</tr>
 				<tr>
 					<th> <label for="cbegin">개강일</label> </th>
@@ -65,11 +62,20 @@
 				</tr>
 				<tr>
 					<th> <label for="profno">강사</label> </th>
-					<td> <input type="text" name="profno" id="profno" /> </td>
+					<td> <select name = "profno" id= "profno">
+							<option value = "1008">설민석</option>
+							<option value = "1009">정승제</option>
+							<option value = "1010">황현필</option>						
+						</select>
+					</td>				
 				</tr>
 				<tr>
 					<th> <label for="salesno">영업사원</label> </th>
-					<td> <input type="text" name="salesno" id="salesno" /> </td>
+					<td>  <select name = "salesno" id= "salesno">
+							<option value = "1001">영업일</option>
+							<option value = "1002">영업이</option>
+						</select>
+					</td>			
 				</tr>
 			</table>
 			<div>

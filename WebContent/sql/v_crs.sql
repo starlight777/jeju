@@ -15,7 +15,7 @@ select count(*) as totalCount from crs;
 select rownum, a.* from crs a;
 select rownum, x.* from (select a.* from crs a) x; 
 select rownum, cno, ctitle, cbegin, cend from crs;
-select ceil(rownum/10), cno, ctitle, cbegin, cend from crs where ceil(rownum/10)=1;
+select ceil(rownum/10), cno, ctitle, cbegin, cend from crs where ceil(rownum/10)=2;
 
 
 select * from(select * from ( select rownum as row_num, crs.* from crs order by cno desc) where row_num > = 1) where row_num <= 60
@@ -32,3 +32,34 @@ insert into crs values (crs_seq.nextval,'디지털컨버전스 기반 자바(JAVA)응용SW개�
 insert into crs values (crs_seq.nextval,'디지털컨버전스 기반 자바(JAVA)응용SW개발자 양성과정','2020-7-1','2020-9-30','55','30','401','1008','1001');
 insert into crs values (crs_seq.nextval,'디지털컨버전스 기반 자바(JAVA)응용SW개발자 양성과정','2020-7-1','2020-9-30','55','30','401','1008','1001');
 insert into crs values (crs_seq.nextval,'디지털컨버전스 기반 자바(JAVA)응용SW개발자 양성과정','2020-7-1','2020-9-30','55','30','401','1008','1001');
+insert into crs values (crs_seq.nextval,'디지털컨버전스 기반 자바(JAVA)응용SW개발자 양성과정','2020-7-1','2020-9-30','55','30','401','1008','1001');
+insert into crs values (crs_seq.nextval,'디지털컨버전스 기반 자바(JAVA)응용SW개발자 양성과정','2020-7-1','2020-9-30','55','30','401','1008','1001');
+insert into crs values (crs_seq.nextval,'디지털컨버전스 기반 자바(JAVA)응용SW개발자 양성과정','2020-7-1','2020-9-30','55','30','401','1008','1001');
+insert into crs values (crs_seq.nextval,'디지털컨버전스 기반 자바(JAVA)응용SW개발자 양성과정','2020-7-1','2020-9-30','55','30','401','1008','1001');
+insert into crs values (crs_seq.nextval,'디지털컨버전스 기반 자바(JAVA)응용SW개발자 양성과정','2020-7-1','2020-9-30','55','30','401','1008','1001');
+insert into crs values (crs_seq.nextval,'디지털컨버전스 기반 자바(JAVA)응용SW개발자 양성과정','2020-7-1','2020-9-30','55','30','401','1008','1001');
+insert into crs values (crs_seq.nextval,'디지털컨버전스 기반 자바(JAVA)응용SW개발자 양성과정','2020-7-1','2020-9-30','55','30','401','1008','1001');
+insert into crs values (crs_seq.nextval,'디지털컨버전스 기반 자바(JAVA)응용SW개발자 양성과정','2020-7-1','2020-9-30','55','30','401','1008','1001');
+insert into crs values (crs_seq.nextval,'디지털컨버전스 기반 자바(JAVA)응용SW개발자 양성과정','2020-7-1','2020-9-30','55','30','401','1008','1001');
+insert into crs values (crs_seq.nextval,'디지털컨버전스 기반 자바(JAVA)응용SW개발자 양성과정','2020-7-1','2020-9-30','55','30','401','1008','1001');
+insert into crs values (crs_seq.nextval,'디지털컨버전스 기반 자바(JAVA)응용SW개발자 양성과정','2020-7-1','2020-9-30','55','30','401','1008','1001');
+insert into crs values (crs_seq.nextval,'디지털컨버전스 기반 자바(JAVA)응용SW개발자 양성과정','2020-7-1','2020-9-30','55','30','401','1008','1001');
+insert into crs values (crs_seq.nextval,'디지털컨버전스 기반 자바(JAVA)응용SW개발자 양성과정','2020-7-1','2020-9-30','55','30','401','1008','1001');
+insert into crs values (crs_seq.nextval,'디지털컨버전스 기반 자바(JAVA)응용SW개발자 양성과정','2020-7-1','2020-9-30','55','30','401','1008','1001');
+insert into crs values (crs_seq.nextval,'디지털컨버전스 기반 자바(JAVA)응용SW개발자 양성과정','2020-7-1','2020-9-30','55','30','401','1008','1001');
+insert into crs values (crs_seq.nextval,'디지털컨버전스 기반 자바(JAVA)응용SW개발자 양성과정','2020-7-1','2020-9-30','55','30','401','1008','1001');
+insert into crs values (crs_seq.nextval,'디지털컨버전스 기반 자바(JAVA)응용SW개발자 양성과정','2020-7-1','2020-9-30','55','30','401','1008','1001');
+insert into crs values (crs_seq.nextval,'디지털컨버전스 기반 자바(JAVA)응용SW개발자 양성과정','2020-7-1','2020-9-30','55','30','401','1008','1001');
+insert into crs values (crs_seq.nextval,'디지털컨버전스 기반 자바(JAVA)응용SW개발자 양성과정','2020-7-1','2020-9-30','55','30','401','1008','1001');
+insert into crs values (crs_seq.nextval,'디지털컨버전스 기반 자바(JAVA)응용SW개발자 양성과정','2020-7-1','2020-9-30','55','30','401','1008','1001');
+insert into crs values (crs_seq.nextval,'디지털컨버전스 기반 자바(JAVA)응용SW개발자 양성과정','2020-7-1','2020-9-30','55','30','401','1008','1001');
+insert into crs values (crs_seq.nextval,'디지털컨버전스 기반 자바(JAVA)응용SW개발자 양성과정','2020-7-1','2020-9-30','55','30','401','1008','1001');
+insert into crs values (crs_seq.nextval,'디지털컨버전스 기반 자바(JAVA)응용SW개발자 양성과정','2020-7-1','2020-9-30','55','30','401','1008','1001');
+insert into crs values (crs_seq.nextval,'디지털컨버전스 기반 자바(JAVA)응용SW개발자 양성과정','2020-7-1','2020-9-30','55','30','401','1008','1001');
+insert into crs values (crs_seq.nextval,'디지털컨버전스 기반 자바(JAVA)응용SW개발자 양성과정','2020-7-1','2020-9-30','55','30','401','1008','1001');
+
+
+
+
+
+

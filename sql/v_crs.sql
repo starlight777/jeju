@@ -8,5 +8,4 @@ left join (select max(cno) as cno, max(cnt) as dcnt, count(sno) as stdcnt, round
 round(avg(gr2)) as avg_gr2, round(avg(gr3)) as avg_gr3, round(avg(att_rate)) as avg_att from v_std group by cno) stdcnt 
 on crs.cno=stdcnt.cno
 order by cno;
-
 commit;

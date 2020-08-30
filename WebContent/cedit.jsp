@@ -7,7 +7,6 @@
 <title>BitCamp Jeju</title>
 <%@ include file="template/head.jspf" %>
 <style type="text/css">
-<<<<<<< HEAD
 
 	#content table{
 		margin-top: 100px;
@@ -30,8 +29,6 @@
 		text-align: left;
 	}
 	
-
-=======
 .linkclick{
 	height: 40px;
 }
@@ -46,17 +43,16 @@
 	padding: 0 30px;
 	text-align: left;
 }
->>>>>>> fbc285131a34f1608c18665a20d9cc181da73493
+
 </style>
 </head>
 <body>
 <%@ include file="template/header.jspf" %>
 <%@ include file="template/menu.jspf" %>
 <jsp:useBean id = "cedit" class = "com.bit.course.model.CourseDto" scope="request"></jsp:useBean>		
-<<<<<<< HEAD
-=======
+
 <h2>교육과정 수정</h2>
->>>>>>> fbc285131a34f1608c18665a20d9cc181da73493
+
 <form method = "post">
 	<table>
 		<tr>
